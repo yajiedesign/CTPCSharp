@@ -99,7 +99,7 @@ public:
 	/// <summary>
 	///报单录入请求
 	/// </summary>
-	int ReqOrderInsert(CTPTradeApi::CThostFtdcInputOrderField pInputOrder, [Out]  int %nRequestID)
+	int ReqOrderInsert(CTPCommon::CThostFtdcInputOrderField pInputOrder, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		pInputOrder.RequestID = nRequestID;
@@ -120,7 +120,7 @@ public:
 	/// <summary>
 	///报单操作请求
 	/// </summary>
-	int ReqOrderAction(CTPTradeApi::CThostFtdcInputOrderActionField pInputOrderAction, [Out]  int %nRequestID)
+	int ReqOrderAction(CTPCommon::CThostFtdcInputOrderActionField pInputOrderAction, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		pInputOrderAction.RequestID = nRequestID;
@@ -143,7 +143,7 @@ public:
 	/// <summary>
 	///客户端认证请求
 	/// </summary>
-	int ReqAuthenticate(CTPTradeApi::CThostFtdcReqAuthenticateField pReqAuthenticateField, [Out]  int %nRequestID)
+	int ReqAuthenticate(CTPCommon::CThostFtdcReqAuthenticateField pReqAuthenticateField, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pReqAuthenticateField);
@@ -163,7 +163,7 @@ public:
 	/// <summary>
 	///用户登录请求
 	/// </summary>
-	int ReqUserLogin(CTPTradeApi::CThostFtdcReqUserLoginField pReqUserLoginField, [Out]  int %nRequestID)
+	int ReqUserLogin(CTPCommon::CThostFtdcReqUserLoginField pReqUserLoginField, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pReqUserLoginField);
@@ -183,7 +183,7 @@ public:
 	/// <summary>
 	///登出请求
 	/// </summary>
-	int ReqUserLogout(CTPTradeApi::CThostFtdcUserLogoutField pUserLogout, [Out]  int %nRequestID)
+	int ReqUserLogout(CTPCommon::CThostFtdcUserLogoutField pUserLogout, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pUserLogout);
@@ -203,7 +203,7 @@ public:
 	/// <summary>
 	///用户口令更新请求
 	/// </summary>
-	int ReqUserPasswordUpdate(CTPTradeApi::CThostFtdcUserPasswordUpdateField pUserPasswordUpdate, [Out]  int %nRequestID)
+	int ReqUserPasswordUpdate(CTPCommon::CThostFtdcUserPasswordUpdateField pUserPasswordUpdate, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pUserPasswordUpdate);
@@ -223,7 +223,7 @@ public:
 	/// <summary>
 	///资金账户口令更新请求
 	/// </summary>
-	int ReqTradingAccountPasswordUpdate(CTPTradeApi::CThostFtdcTradingAccountPasswordUpdateField pTradingAccountPasswordUpdate, [Out]  int %nRequestID)
+	int ReqTradingAccountPasswordUpdate(CTPCommon::CThostFtdcTradingAccountPasswordUpdateField pTradingAccountPasswordUpdate, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pTradingAccountPasswordUpdate);
@@ -245,7 +245,7 @@ public:
 	/// <summary>
 	///预埋单录入请求
 	/// </summary>
-	int ReqParkedOrderInsert(CTPTradeApi::CThostFtdcParkedOrderField pParkedOrder, [Out]  int %nRequestID)
+	int ReqParkedOrderInsert(CTPCommon::CThostFtdcParkedOrderField pParkedOrder, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pParkedOrder);
@@ -265,7 +265,7 @@ public:
 	/// <summary>
 	///预埋撤单录入请求
 	/// </summary>
-	int ReqParkedOrderAction(CTPTradeApi::CThostFtdcParkedOrderActionField pParkedOrderAction, [Out]  int %nRequestID)
+	int ReqParkedOrderAction(CTPCommon::CThostFtdcParkedOrderActionField pParkedOrderAction, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pParkedOrderAction);
@@ -287,7 +287,7 @@ public:
 	/// <summary>
 	///查询最大报单数量请求
 	/// </summary>
-	int ReqQueryMaxOrderVolume(CTPTradeApi::CThostFtdcQueryMaxOrderVolumeField pQueryMaxOrderVolume, [Out]  int %nRequestID)
+	int ReqQueryMaxOrderVolume(CTPCommon::CThostFtdcQueryMaxOrderVolumeField pQueryMaxOrderVolume, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQueryMaxOrderVolume);
@@ -307,7 +307,7 @@ public:
 	/// <summary>
 	///投资者结算结果确认
 	/// </summary>
-	int ReqSettlementInfoConfirm(CTPTradeApi::CThostFtdcSettlementInfoConfirmField pSettlementInfoConfirm, [Out]  int %nRequestID)
+	int ReqSettlementInfoConfirm(CTPCommon::CThostFtdcSettlementInfoConfirmField pSettlementInfoConfirm, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pSettlementInfoConfirm);
@@ -327,7 +327,7 @@ public:
 	/// <summary>
 	///请求删除预埋单
 	/// </summary>
-	int ReqRemoveParkedOrder(CTPTradeApi::CThostFtdcRemoveParkedOrderField pRemoveParkedOrder, [Out]  int %nRequestID)
+	int ReqRemoveParkedOrder(CTPCommon::CThostFtdcRemoveParkedOrderField pRemoveParkedOrder, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pRemoveParkedOrder);
@@ -347,7 +347,7 @@ public:
 	/// <summary>
 	///请求删除预埋撤单
 	/// </summary>
-	int ReqRemoveParkedOrderAction(CTPTradeApi::CThostFtdcRemoveParkedOrderActionField pRemoveParkedOrderAction, [Out]  int %nRequestID)
+	int ReqRemoveParkedOrderAction(CTPCommon::CThostFtdcRemoveParkedOrderActionField pRemoveParkedOrderAction, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pRemoveParkedOrderAction);
@@ -367,7 +367,7 @@ public:
 	/// <summary>
 	///请求查询报单
 	/// </summary>
-	int ReqQryOrder(CTPTradeApi::CThostFtdcQryOrderField pQryOrder, [Out]  int %nRequestID)
+	int ReqQryOrder(CTPCommon::CThostFtdcQryOrderField pQryOrder, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryOrder);
@@ -387,7 +387,7 @@ public:
 	/// <summary>
 	///请求查询成交
 	/// </summary>
-	int ReqQryTrade(CTPTradeApi::CThostFtdcQryTradeField pQryTrade, [Out]  int %nRequestID)
+	int ReqQryTrade(CTPCommon::CThostFtdcQryTradeField pQryTrade, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryTrade);
@@ -407,7 +407,7 @@ public:
 	/// <summary>
 	///请求查询投资者持仓
 	/// </summary>
-	int ReqQryInvestorPosition(CTPTradeApi::CThostFtdcQryInvestorPositionField pQryInvestorPosition, [Out]  int %nRequestID)
+	int ReqQryInvestorPosition(CTPCommon::CThostFtdcQryInvestorPositionField pQryInvestorPosition, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInvestorPosition);
@@ -427,7 +427,7 @@ public:
 	/// <summary>
 	///请求查询资金账户
 	/// </summary>
-	int ReqQryTradingAccount(CTPTradeApi::CThostFtdcQryTradingAccountField pQryTradingAccount, [Out]  int %nRequestID)
+	int ReqQryTradingAccount(CTPCommon::CThostFtdcQryTradingAccountField pQryTradingAccount, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryTradingAccount);
@@ -447,7 +447,7 @@ public:
 	/// <summary>
 	///请求查询投资者
 	/// </summary>
-	int ReqQryInvestor(CTPTradeApi::CThostFtdcQryInvestorField pQryInvestor, [Out]  int %nRequestID)
+	int ReqQryInvestor(CTPCommon::CThostFtdcQryInvestorField pQryInvestor, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInvestor);
@@ -467,7 +467,7 @@ public:
 	/// <summary>
 	///请求查询交易编码
 	/// </summary>
-	int ReqQryTradingCode(CTPTradeApi::CThostFtdcQryTradingCodeField pQryTradingCode, [Out]  int %nRequestID)
+	int ReqQryTradingCode(CTPCommon::CThostFtdcQryTradingCodeField pQryTradingCode, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryTradingCode);
@@ -487,7 +487,7 @@ public:
 	/// <summary>
 	///请求查询合约保证金率
 	/// </summary>
-	int ReqQryInstrumentMarginRate(CTPTradeApi::CThostFtdcQryInstrumentMarginRateField pQryInstrumentMarginRate, [Out]  int %nRequestID)
+	int ReqQryInstrumentMarginRate(CTPCommon::CThostFtdcQryInstrumentMarginRateField pQryInstrumentMarginRate, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInstrumentMarginRate);
@@ -507,7 +507,7 @@ public:
 	/// <summary>
 	///请求查询合约手续费率
 	/// </summary>
-	int ReqQryInstrumentCommissionRate(CTPTradeApi::CThostFtdcQryInstrumentCommissionRateField pQryInstrumentCommissionRate, [Out]  int %nRequestID)
+	int ReqQryInstrumentCommissionRate(CTPCommon::CThostFtdcQryInstrumentCommissionRateField pQryInstrumentCommissionRate, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInstrumentCommissionRate);
@@ -527,7 +527,7 @@ public:
 	/// <summary>
 	///请求查询交易所
 	/// </summary>
-	int ReqQryExchange(CTPTradeApi::CThostFtdcQryExchangeField pQryExchange, [Out]  int %nRequestID)
+	int ReqQryExchange(CTPCommon::CThostFtdcQryExchangeField pQryExchange, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryExchange);
@@ -547,7 +547,7 @@ public:
 	/// <summary>
 	///请求查询合约
 	/// </summary>
-	int ReqQryInstrument(CTPTradeApi::CThostFtdcQryInstrumentField pQryInstrument, [Out]  int %nRequestID)
+	int ReqQryInstrument(CTPCommon::CThostFtdcQryInstrumentField pQryInstrument, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInstrument);
@@ -567,7 +567,7 @@ public:
 	/// <summary>
 	///请求查询行情
 	/// </summary>
-	int ReqQryDepthMarketData(CTPTradeApi::CThostFtdcQryDepthMarketDataField pQryDepthMarketData, [Out]  int %nRequestID)
+	int ReqQryDepthMarketData(CTPCommon::CThostFtdcQryDepthMarketDataField pQryDepthMarketData, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryDepthMarketData);
@@ -587,7 +587,7 @@ public:
 	/// <summary>
 	///请求查询投资者结算结果
 	/// </summary>
-	int ReqQrySettlementInfo(CTPTradeApi::CThostFtdcQrySettlementInfoField pQrySettlementInfo, [Out]  int %nRequestID)
+	int ReqQrySettlementInfo(CTPCommon::CThostFtdcQrySettlementInfoField pQrySettlementInfo, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQrySettlementInfo);
@@ -607,7 +607,7 @@ public:
 	/// <summary>
 	///请求查询转帐银行
 	/// </summary>
-	int ReqQryTransferBank(CTPTradeApi::CThostFtdcQryTransferBankField pQryTransferBank, [Out]  int %nRequestID)
+	int ReqQryTransferBank(CTPCommon::CThostFtdcQryTransferBankField pQryTransferBank, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryTransferBank);
@@ -627,7 +627,7 @@ public:
 	/// <summary>
 	///请求查询投资者持仓明细
 	/// </summary>
-	int ReqQryInvestorPositionDetail(CTPTradeApi::CThostFtdcQryInvestorPositionDetailField pQryInvestorPositionDetail, [Out]  int %nRequestID)
+	int ReqQryInvestorPositionDetail(CTPCommon::CThostFtdcQryInvestorPositionDetailField pQryInvestorPositionDetail, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInvestorPositionDetail);
@@ -647,7 +647,7 @@ public:
 	/// <summary>
 	///请求查询客户通知
 	/// </summary>
-	int ReqQryNotice(CTPTradeApi::CThostFtdcQryNoticeField pQryNotice, [Out]  int %nRequestID)
+	int ReqQryNotice(CTPCommon::CThostFtdcQryNoticeField pQryNotice, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryNotice);
@@ -667,7 +667,7 @@ public:
 	/// <summary>
 	///请求查询结算信息确认
 	/// </summary>
-	int ReqQrySettlementInfoConfirm(CTPTradeApi::CThostFtdcQrySettlementInfoConfirmField pQrySettlementInfoConfirm, [Out]  int %nRequestID)
+	int ReqQrySettlementInfoConfirm(CTPCommon::CThostFtdcQrySettlementInfoConfirmField pQrySettlementInfoConfirm, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQrySettlementInfoConfirm);
@@ -687,7 +687,7 @@ public:
 	/// <summary>
 	///请求查询投资者持仓明细
 	/// </summary>
-	int ReqQryInvestorPositionCombineDetail(CTPTradeApi::CThostFtdcQryInvestorPositionCombineDetailField pQryInvestorPositionCombineDetail, [Out]  int %nRequestID)
+	int ReqQryInvestorPositionCombineDetail(CTPCommon::CThostFtdcQryInvestorPositionCombineDetailField pQryInvestorPositionCombineDetail, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInvestorPositionCombineDetail);
@@ -707,7 +707,7 @@ public:
 	/// <summary>
 	///请求查询保证金监管系统经纪公司资金账户密钥
 	/// </summary>
-	int ReqQryCFMMCTradingAccountKey(CTPTradeApi::CThostFtdcQryCFMMCTradingAccountKeyField pQryCFMMCTradingAccountKey, [Out]  int %nRequestID)
+	int ReqQryCFMMCTradingAccountKey(CTPCommon::CThostFtdcQryCFMMCTradingAccountKeyField pQryCFMMCTradingAccountKey, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryCFMMCTradingAccountKey);
@@ -727,7 +727,7 @@ public:
 	/// <summary>
 	///请求查询仓单折抵信息
 	/// </summary>
-	int ReqQryEWarrantOffset(CTPTradeApi::CThostFtdcQryEWarrantOffsetField pQryEWarrantOffset, [Out]  int %nRequestID)
+	int ReqQryEWarrantOffset(CTPCommon::CThostFtdcQryEWarrantOffsetField pQryEWarrantOffset, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryEWarrantOffset);
@@ -747,7 +747,7 @@ public:
 	/// <summary>
 	///请求查询投资者品种/跨品种保证金
 	/// </summary>
-	int ReqQryInvestorProductGroupMargin(CTPTradeApi::CThostFtdcQryInvestorProductGroupMarginField pQryInvestorProductGroupMargin, [Out]  int %nRequestID)
+	int ReqQryInvestorProductGroupMargin(CTPCommon::CThostFtdcQryInvestorProductGroupMarginField pQryInvestorProductGroupMargin, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInvestorProductGroupMargin);
@@ -767,7 +767,7 @@ public:
 	/// <summary>
 	///请求查询交易所保证金率
 	/// </summary>
-	int ReqQryExchangeMarginRate(CTPTradeApi::CThostFtdcQryExchangeMarginRateField pQryExchangeMarginRate, [Out]  int %nRequestID)
+	int ReqQryExchangeMarginRate(CTPCommon::CThostFtdcQryExchangeMarginRateField pQryExchangeMarginRate, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryExchangeMarginRate);
@@ -787,7 +787,7 @@ public:
 	/// <summary>
 	///请求查询交易所调整保证金率
 	/// </summary>
-	int ReqQryExchangeMarginRateAdjust(CTPTradeApi::CThostFtdcQryExchangeMarginRateAdjustField pQryExchangeMarginRateAdjust, [Out]  int %nRequestID)
+	int ReqQryExchangeMarginRateAdjust(CTPCommon::CThostFtdcQryExchangeMarginRateAdjustField pQryExchangeMarginRateAdjust, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryExchangeMarginRateAdjust);
@@ -807,7 +807,7 @@ public:
 	/// <summary>
 	///请求查询转帐流水
 	/// </summary>
-	int ReqQryTransferSerial(CTPTradeApi::CThostFtdcQryTransferSerialField pQryTransferSerial, [Out]  int %nRequestID)
+	int ReqQryTransferSerial(CTPCommon::CThostFtdcQryTransferSerialField pQryTransferSerial, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryTransferSerial);
@@ -827,7 +827,7 @@ public:
 	/// <summary>
 	///请求查询银期签约关系
 	/// </summary>
-	int ReqQryAccountregister(CTPTradeApi::CThostFtdcQryAccountregisterField pQryAccountregister, [Out]  int %nRequestID)
+	int ReqQryAccountregister(CTPCommon::CThostFtdcQryAccountregisterField pQryAccountregister, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryAccountregister);
@@ -847,7 +847,7 @@ public:
 	/// <summary>
 	///请求查询签约银行
 	/// </summary>
-	int ReqQryContractBank(CTPTradeApi::CThostFtdcQryContractBankField pQryContractBank, [Out]  int %nRequestID)
+	int ReqQryContractBank(CTPCommon::CThostFtdcQryContractBankField pQryContractBank, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryContractBank);
@@ -867,7 +867,7 @@ public:
 	/// <summary>
 	///请求查询预埋单
 	/// </summary>
-	int ReqQryParkedOrder(CTPTradeApi::CThostFtdcQryParkedOrderField pQryParkedOrder, [Out]  int %nRequestID)
+	int ReqQryParkedOrder(CTPCommon::CThostFtdcQryParkedOrderField pQryParkedOrder, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryParkedOrder);
@@ -887,7 +887,7 @@ public:
 	/// <summary>
 	///请求查询预埋撤单
 	/// </summary>
-	int ReqQryParkedOrderAction(CTPTradeApi::CThostFtdcQryParkedOrderActionField pQryParkedOrderAction, [Out]  int %nRequestID)
+	int ReqQryParkedOrderAction(CTPCommon::CThostFtdcQryParkedOrderActionField pQryParkedOrderAction, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryParkedOrderAction);
@@ -907,7 +907,7 @@ public:
 	/// <summary>
 	///请求查询交易通知
 	/// </summary>
-	int ReqQryTradingNotice(CTPTradeApi::CThostFtdcQryTradingNoticeField pQryTradingNotice, [Out]  int %nRequestID)
+	int ReqQryTradingNotice(CTPCommon::CThostFtdcQryTradingNoticeField pQryTradingNotice, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryTradingNotice);
@@ -927,7 +927,7 @@ public:
 	/// <summary>
 	///请求查询经纪公司交易参数
 	/// </summary>
-	int ReqQryBrokerTradingParams(CTPTradeApi::CThostFtdcQryBrokerTradingParamsField pQryBrokerTradingParams, [Out]  int %nRequestID)
+	int ReqQryBrokerTradingParams(CTPCommon::CThostFtdcQryBrokerTradingParamsField pQryBrokerTradingParams, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryBrokerTradingParams);
@@ -947,7 +947,7 @@ public:
 	/// <summary>
 	///请求查询经纪公司交易算法
 	/// </summary>
-	int ReqQryBrokerTradingAlgos(CTPTradeApi::CThostFtdcQryBrokerTradingAlgosField pQryBrokerTradingAlgos, [Out]  int %nRequestID)
+	int ReqQryBrokerTradingAlgos(CTPCommon::CThostFtdcQryBrokerTradingAlgosField pQryBrokerTradingAlgos, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryBrokerTradingAlgos);
@@ -967,7 +967,7 @@ public:
 	/// <summary>
 	///期货发起银行资金转期货请求
 	/// </summary>
-	int ReqFromBankToFutureByFuture(CTPTradeApi::CThostFtdcReqTransferField pReqTransfer, [Out]  int %nRequestID)
+	int ReqFromBankToFutureByFuture(CTPCommon::CThostFtdcReqTransferField pReqTransfer, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pReqTransfer);
@@ -987,7 +987,7 @@ public:
 	/// <summary>
 	///期货发起期货资金转银行请求
 	/// </summary>
-	int ReqFromFutureToBankByFuture(CTPTradeApi::CThostFtdcReqTransferField pReqTransfer, [Out]  int %nRequestID)
+	int ReqFromFutureToBankByFuture(CTPCommon::CThostFtdcReqTransferField pReqTransfer, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pReqTransfer);
@@ -1007,7 +1007,7 @@ public:
 	/// <summary>
 	///期货发起查询银行余额请求
 	/// </summary>
-	int ReqQueryBankAccountMoneyByFuture(CTPTradeApi::CThostFtdcReqQueryAccountField pReqQueryAccount, [Out]  int %nRequestID)
+	int ReqQueryBankAccountMoneyByFuture(CTPCommon::CThostFtdcReqQueryAccountField pReqQueryAccount, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pReqQueryAccount);
@@ -1694,12 +1694,12 @@ public:
 
 
 public:
-	delegate void ErrRtnBankToFutureByFuture(CTPTradeApi::CThostFtdcReqTransferField pReqTransfer, CTPTradeApi::CThostFtdcRspInfoField pRspInfo);
+	delegate void ErrRtnBankToFutureByFuture(CTPCommon::CThostFtdcReqTransferField pReqTransfer, CTPCommon::CThostFtdcRspInfoField pRspInfo);
 private:
 	delegate void cppErrRtnBankToFutureByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo);
 	void cppcbErrRtnBankToFutureByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo)
 	{
-		CTPTradeApi::CThostFtdcReqTransferField  cspReqTransfer = (CTPTradeApi::CThostFtdcReqTransferField) Marshal::PtrToStructure(IntPtr(pReqTransfer), CTPTradeApi::CThostFtdcReqTransferField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcReqTransferField  cspReqTransfer = (CTPCommon::CThostFtdcReqTransferField) Marshal::PtrToStructure(IntPtr(pReqTransfer), CTPCommon::CThostFtdcReqTransferField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnErrRtnBankToFutureByFuture(cspReqTransfer, cspRspInfo);
 	}
 public:
@@ -1710,12 +1710,12 @@ public:
 
 
 public:
-	delegate void ErrRtnFutureToBankByFuture(CTPTradeApi::CThostFtdcReqTransferField pReqTransfer, CTPTradeApi::CThostFtdcRspInfoField pRspInfo);
+	delegate void ErrRtnFutureToBankByFuture(CTPCommon::CThostFtdcReqTransferField pReqTransfer, CTPCommon::CThostFtdcRspInfoField pRspInfo);
 private:
 	delegate void cppErrRtnFutureToBankByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo);
 	void cppcbErrRtnFutureToBankByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo)
 	{
-		CTPTradeApi::CThostFtdcReqTransferField  cspReqTransfer = (CTPTradeApi::CThostFtdcReqTransferField) Marshal::PtrToStructure(IntPtr(pReqTransfer), CTPTradeApi::CThostFtdcReqTransferField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcReqTransferField  cspReqTransfer = (CTPCommon::CThostFtdcReqTransferField) Marshal::PtrToStructure(IntPtr(pReqTransfer), CTPCommon::CThostFtdcReqTransferField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnErrRtnFutureToBankByFuture(cspReqTransfer, cspRspInfo);
 	}
 public:
@@ -1726,12 +1726,12 @@ public:
 
 
 public:
-	delegate void ErrRtnOrderAction(CTPTradeApi::CThostFtdcOrderActionField pOrderAction, CTPTradeApi::CThostFtdcRspInfoField pRspInfo);
+	delegate void ErrRtnOrderAction(CTPCommon::CThostFtdcOrderActionField pOrderAction, CTPCommon::CThostFtdcRspInfoField pRspInfo);
 private:
 	delegate void cppErrRtnOrderAction(CThostFtdcOrderActionField *pOrderAction, CThostFtdcRspInfoField *pRspInfo);
 	void cppcbErrRtnOrderAction(CThostFtdcOrderActionField *pOrderAction, CThostFtdcRspInfoField *pRspInfo)
 	{
-		CTPTradeApi::CThostFtdcOrderActionField  cspOrderAction = (CTPTradeApi::CThostFtdcOrderActionField) Marshal::PtrToStructure(IntPtr(pOrderAction), CTPTradeApi::CThostFtdcOrderActionField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcOrderActionField  cspOrderAction = (CTPCommon::CThostFtdcOrderActionField) Marshal::PtrToStructure(IntPtr(pOrderAction), CTPCommon::CThostFtdcOrderActionField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnErrRtnOrderAction(cspOrderAction, cspRspInfo);
 	}
 public:
@@ -1742,12 +1742,12 @@ public:
 
 
 public:
-	delegate void ErrRtnOrderInsert(CTPTradeApi::CThostFtdcInputOrderField pInputOrder, CTPTradeApi::CThostFtdcRspInfoField pRspInfo);
+	delegate void ErrRtnOrderInsert(CTPCommon::CThostFtdcInputOrderField pInputOrder, CTPCommon::CThostFtdcRspInfoField pRspInfo);
 private:
 	delegate void cppErrRtnOrderInsert(CThostFtdcInputOrderField *pInputOrder, CThostFtdcRspInfoField *pRspInfo);
 	void cppcbErrRtnOrderInsert(CThostFtdcInputOrderField *pInputOrder, CThostFtdcRspInfoField *pRspInfo)
 	{
-		CTPTradeApi::CThostFtdcInputOrderField  cspInputOrder = (CTPTradeApi::CThostFtdcInputOrderField) Marshal::PtrToStructure(IntPtr(pInputOrder), CTPTradeApi::CThostFtdcInputOrderField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcInputOrderField  cspInputOrder = (CTPCommon::CThostFtdcInputOrderField) Marshal::PtrToStructure(IntPtr(pInputOrder), CTPCommon::CThostFtdcInputOrderField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnErrRtnOrderInsert(cspInputOrder, cspRspInfo);
 	}
 public:
@@ -1758,12 +1758,12 @@ public:
 
 
 public:
-	delegate void ErrRtnQueryBankBalanceByFuture(CTPTradeApi::CThostFtdcReqQueryAccountField pReqQueryAccount, CTPTradeApi::CThostFtdcRspInfoField pRspInfo);
+	delegate void ErrRtnQueryBankBalanceByFuture(CTPCommon::CThostFtdcReqQueryAccountField pReqQueryAccount, CTPCommon::CThostFtdcRspInfoField pRspInfo);
 private:
 	delegate void cppErrRtnQueryBankBalanceByFuture(CThostFtdcReqQueryAccountField *pReqQueryAccount, CThostFtdcRspInfoField *pRspInfo);
 	void cppcbErrRtnQueryBankBalanceByFuture(CThostFtdcReqQueryAccountField *pReqQueryAccount, CThostFtdcRspInfoField *pRspInfo)
 	{
-		CTPTradeApi::CThostFtdcReqQueryAccountField  cspReqQueryAccount = (CTPTradeApi::CThostFtdcReqQueryAccountField) Marshal::PtrToStructure(IntPtr(pReqQueryAccount), CTPTradeApi::CThostFtdcReqQueryAccountField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcReqQueryAccountField  cspReqQueryAccount = (CTPCommon::CThostFtdcReqQueryAccountField) Marshal::PtrToStructure(IntPtr(pReqQueryAccount), CTPCommon::CThostFtdcReqQueryAccountField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnErrRtnQueryBankBalanceByFuture(cspReqQueryAccount, cspRspInfo);
 	}
 public:
@@ -1774,12 +1774,12 @@ public:
 
 
 public:
-	delegate void ErrRtnRepealBankToFutureByFutureManual(CTPTradeApi::CThostFtdcReqRepealField pReqRepeal, CTPTradeApi::CThostFtdcRspInfoField pRspInfo);
+	delegate void ErrRtnRepealBankToFutureByFutureManual(CTPCommon::CThostFtdcReqRepealField pReqRepeal, CTPCommon::CThostFtdcRspInfoField pRspInfo);
 private:
 	delegate void cppErrRtnRepealBankToFutureByFutureManual(CThostFtdcReqRepealField *pReqRepeal, CThostFtdcRspInfoField *pRspInfo);
 	void cppcbErrRtnRepealBankToFutureByFutureManual(CThostFtdcReqRepealField *pReqRepeal, CThostFtdcRspInfoField *pRspInfo)
 	{
-		CTPTradeApi::CThostFtdcReqRepealField  cspReqRepeal = (CTPTradeApi::CThostFtdcReqRepealField) Marshal::PtrToStructure(IntPtr(pReqRepeal), CTPTradeApi::CThostFtdcReqRepealField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcReqRepealField  cspReqRepeal = (CTPCommon::CThostFtdcReqRepealField) Marshal::PtrToStructure(IntPtr(pReqRepeal), CTPCommon::CThostFtdcReqRepealField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnErrRtnRepealBankToFutureByFutureManual(cspReqRepeal, cspRspInfo);
 	}
 public:
@@ -1790,12 +1790,12 @@ public:
 
 
 public:
-	delegate void ErrRtnRepealFutureToBankByFutureManual(CTPTradeApi::CThostFtdcReqRepealField pReqRepeal, CTPTradeApi::CThostFtdcRspInfoField pRspInfo);
+	delegate void ErrRtnRepealFutureToBankByFutureManual(CTPCommon::CThostFtdcReqRepealField pReqRepeal, CTPCommon::CThostFtdcRspInfoField pRspInfo);
 private:
 	delegate void cppErrRtnRepealFutureToBankByFutureManual(CThostFtdcReqRepealField *pReqRepeal, CThostFtdcRspInfoField *pRspInfo);
 	void cppcbErrRtnRepealFutureToBankByFutureManual(CThostFtdcReqRepealField *pReqRepeal, CThostFtdcRspInfoField *pRspInfo)
 	{
-		CTPTradeApi::CThostFtdcReqRepealField  cspReqRepeal = (CTPTradeApi::CThostFtdcReqRepealField) Marshal::PtrToStructure(IntPtr(pReqRepeal), CTPTradeApi::CThostFtdcReqRepealField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcReqRepealField  cspReqRepeal = (CTPCommon::CThostFtdcReqRepealField) Marshal::PtrToStructure(IntPtr(pReqRepeal), CTPCommon::CThostFtdcReqRepealField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnErrRtnRepealFutureToBankByFutureManual(cspReqRepeal, cspRspInfo);
 	}
 public:
@@ -1806,12 +1806,12 @@ public:
 
 
 public:
-	delegate void RspError(CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspError(CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspError(CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspError(CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspError(cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -1822,12 +1822,12 @@ public:
 
 
 public:
-	delegate void RspFromBankToFutureByFuture(CTPTradeApi::CThostFtdcReqTransferField pReqTransfer, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspFromBankToFutureByFuture(CTPCommon::CThostFtdcReqTransferField pReqTransfer, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspFromBankToFutureByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspFromBankToFutureByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcReqTransferField  cspReqTransfer = (CTPTradeApi::CThostFtdcReqTransferField) Marshal::PtrToStructure(IntPtr(pReqTransfer), CTPTradeApi::CThostFtdcReqTransferField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcReqTransferField  cspReqTransfer = (CTPCommon::CThostFtdcReqTransferField) Marshal::PtrToStructure(IntPtr(pReqTransfer), CTPCommon::CThostFtdcReqTransferField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspFromBankToFutureByFuture(cspReqTransfer, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -1838,12 +1838,12 @@ public:
 
 
 public:
-	delegate void RspFromFutureToBankByFuture(CTPTradeApi::CThostFtdcReqTransferField pReqTransfer, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspFromFutureToBankByFuture(CTPCommon::CThostFtdcReqTransferField pReqTransfer, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspFromFutureToBankByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspFromFutureToBankByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcReqTransferField  cspReqTransfer = (CTPTradeApi::CThostFtdcReqTransferField) Marshal::PtrToStructure(IntPtr(pReqTransfer), CTPTradeApi::CThostFtdcReqTransferField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcReqTransferField  cspReqTransfer = (CTPCommon::CThostFtdcReqTransferField) Marshal::PtrToStructure(IntPtr(pReqTransfer), CTPCommon::CThostFtdcReqTransferField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspFromFutureToBankByFuture(cspReqTransfer, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -1854,12 +1854,12 @@ public:
 
 
 public:
-	delegate void RspOrderAction(CTPTradeApi::CThostFtdcInputOrderActionField pInputOrderAction, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspOrderAction(CTPCommon::CThostFtdcInputOrderActionField pInputOrderAction, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspOrderAction(CThostFtdcInputOrderActionField *pInputOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspOrderAction(CThostFtdcInputOrderActionField *pInputOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcInputOrderActionField  cspInputOrderAction = (CTPTradeApi::CThostFtdcInputOrderActionField) Marshal::PtrToStructure(IntPtr(pInputOrderAction), CTPTradeApi::CThostFtdcInputOrderActionField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcInputOrderActionField  cspInputOrderAction = (CTPCommon::CThostFtdcInputOrderActionField) Marshal::PtrToStructure(IntPtr(pInputOrderAction), CTPCommon::CThostFtdcInputOrderActionField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspOrderAction(cspInputOrderAction, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -1870,12 +1870,12 @@ public:
 
 
 public:
-	delegate void RspOrderInsert(CTPTradeApi::CThostFtdcInputOrderField pInputOrder, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspOrderInsert(CTPCommon::CThostFtdcInputOrderField pInputOrder, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspOrderInsert(CThostFtdcInputOrderField *pInputOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspOrderInsert(CThostFtdcInputOrderField *pInputOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcInputOrderField  cspInputOrder = (CTPTradeApi::CThostFtdcInputOrderField) Marshal::PtrToStructure(IntPtr(pInputOrder), CTPTradeApi::CThostFtdcInputOrderField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcInputOrderField  cspInputOrder = (CTPCommon::CThostFtdcInputOrderField) Marshal::PtrToStructure(IntPtr(pInputOrder), CTPCommon::CThostFtdcInputOrderField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspOrderInsert(cspInputOrder, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -1886,12 +1886,12 @@ public:
 
 
 public:
-	delegate void RspParkedOrderAction(CTPTradeApi::CThostFtdcParkedOrderActionField pParkedOrderAction, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspParkedOrderAction(CTPCommon::CThostFtdcParkedOrderActionField pParkedOrderAction, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspParkedOrderAction(CThostFtdcParkedOrderActionField *pParkedOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspParkedOrderAction(CThostFtdcParkedOrderActionField *pParkedOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcParkedOrderActionField  cspParkedOrderAction = (CTPTradeApi::CThostFtdcParkedOrderActionField) Marshal::PtrToStructure(IntPtr(pParkedOrderAction), CTPTradeApi::CThostFtdcParkedOrderActionField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcParkedOrderActionField  cspParkedOrderAction = (CTPCommon::CThostFtdcParkedOrderActionField) Marshal::PtrToStructure(IntPtr(pParkedOrderAction), CTPCommon::CThostFtdcParkedOrderActionField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspParkedOrderAction(cspParkedOrderAction, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -1902,12 +1902,12 @@ public:
 
 
 public:
-	delegate void RspParkedOrderInsert(CTPTradeApi::CThostFtdcParkedOrderField pParkedOrder, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspParkedOrderInsert(CTPCommon::CThostFtdcParkedOrderField pParkedOrder, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspParkedOrderInsert(CThostFtdcParkedOrderField *pParkedOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspParkedOrderInsert(CThostFtdcParkedOrderField *pParkedOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcParkedOrderField  cspParkedOrder = (CTPTradeApi::CThostFtdcParkedOrderField) Marshal::PtrToStructure(IntPtr(pParkedOrder), CTPTradeApi::CThostFtdcParkedOrderField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcParkedOrderField  cspParkedOrder = (CTPCommon::CThostFtdcParkedOrderField) Marshal::PtrToStructure(IntPtr(pParkedOrder), CTPCommon::CThostFtdcParkedOrderField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspParkedOrderInsert(cspParkedOrder, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -1918,12 +1918,12 @@ public:
 
 
 public:
-	delegate void RspQryBrokerTradingAlgos(CTPTradeApi::CThostFtdcBrokerTradingAlgosField pBrokerTradingAlgos, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryBrokerTradingAlgos(CTPCommon::CThostFtdcBrokerTradingAlgosField pBrokerTradingAlgos, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryBrokerTradingAlgos(CThostFtdcBrokerTradingAlgosField *pBrokerTradingAlgos, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryBrokerTradingAlgos(CThostFtdcBrokerTradingAlgosField *pBrokerTradingAlgos, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcBrokerTradingAlgosField  cspBrokerTradingAlgos = (CTPTradeApi::CThostFtdcBrokerTradingAlgosField) Marshal::PtrToStructure(IntPtr(pBrokerTradingAlgos), CTPTradeApi::CThostFtdcBrokerTradingAlgosField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcBrokerTradingAlgosField  cspBrokerTradingAlgos = (CTPCommon::CThostFtdcBrokerTradingAlgosField) Marshal::PtrToStructure(IntPtr(pBrokerTradingAlgos), CTPCommon::CThostFtdcBrokerTradingAlgosField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryBrokerTradingAlgos(cspBrokerTradingAlgos, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -1934,12 +1934,12 @@ public:
 
 
 public:
-	delegate void RspQryBrokerTradingParams(CTPTradeApi::CThostFtdcBrokerTradingParamsField pBrokerTradingParams, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryBrokerTradingParams(CTPCommon::CThostFtdcBrokerTradingParamsField pBrokerTradingParams, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryBrokerTradingParams(CThostFtdcBrokerTradingParamsField *pBrokerTradingParams, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryBrokerTradingParams(CThostFtdcBrokerTradingParamsField *pBrokerTradingParams, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcBrokerTradingParamsField  cspBrokerTradingParams = (CTPTradeApi::CThostFtdcBrokerTradingParamsField) Marshal::PtrToStructure(IntPtr(pBrokerTradingParams), CTPTradeApi::CThostFtdcBrokerTradingParamsField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcBrokerTradingParamsField  cspBrokerTradingParams = (CTPCommon::CThostFtdcBrokerTradingParamsField) Marshal::PtrToStructure(IntPtr(pBrokerTradingParams), CTPCommon::CThostFtdcBrokerTradingParamsField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryBrokerTradingParams(cspBrokerTradingParams, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -1950,12 +1950,12 @@ public:
 
 
 public:
-	delegate void RspQryCFMMCTradingAccountKey(CTPTradeApi::CThostFtdcCFMMCTradingAccountKeyField pCFMMCTradingAccountKey, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryCFMMCTradingAccountKey(CTPCommon::CThostFtdcCFMMCTradingAccountKeyField pCFMMCTradingAccountKey, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryCFMMCTradingAccountKey(CThostFtdcCFMMCTradingAccountKeyField *pCFMMCTradingAccountKey, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryCFMMCTradingAccountKey(CThostFtdcCFMMCTradingAccountKeyField *pCFMMCTradingAccountKey, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcCFMMCTradingAccountKeyField  cspCFMMCTradingAccountKey = (CTPTradeApi::CThostFtdcCFMMCTradingAccountKeyField) Marshal::PtrToStructure(IntPtr(pCFMMCTradingAccountKey), CTPTradeApi::CThostFtdcCFMMCTradingAccountKeyField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcCFMMCTradingAccountKeyField  cspCFMMCTradingAccountKey = (CTPCommon::CThostFtdcCFMMCTradingAccountKeyField) Marshal::PtrToStructure(IntPtr(pCFMMCTradingAccountKey), CTPCommon::CThostFtdcCFMMCTradingAccountKeyField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryCFMMCTradingAccountKey(cspCFMMCTradingAccountKey, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -1966,12 +1966,12 @@ public:
 
 
 public:
-	delegate void RspQryContractBank(CTPTradeApi::CThostFtdcContractBankField pContractBank, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryContractBank(CTPCommon::CThostFtdcContractBankField pContractBank, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryContractBank(CThostFtdcContractBankField *pContractBank, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryContractBank(CThostFtdcContractBankField *pContractBank, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcContractBankField  cspContractBank = (CTPTradeApi::CThostFtdcContractBankField) Marshal::PtrToStructure(IntPtr(pContractBank), CTPTradeApi::CThostFtdcContractBankField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcContractBankField  cspContractBank = (CTPCommon::CThostFtdcContractBankField) Marshal::PtrToStructure(IntPtr(pContractBank), CTPCommon::CThostFtdcContractBankField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryContractBank(cspContractBank, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -1982,12 +1982,12 @@ public:
 
 
 public:
-	delegate void RspQryDepthMarketData(CTPTradeApi::CThostFtdcDepthMarketDataField pDepthMarketData, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryDepthMarketData(CTPCommon::CThostFtdcDepthMarketDataField pDepthMarketData, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryDepthMarketData(CThostFtdcDepthMarketDataField *pDepthMarketData, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryDepthMarketData(CThostFtdcDepthMarketDataField *pDepthMarketData, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcDepthMarketDataField  cspDepthMarketData = (CTPTradeApi::CThostFtdcDepthMarketDataField) Marshal::PtrToStructure(IntPtr(pDepthMarketData), CTPTradeApi::CThostFtdcDepthMarketDataField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcDepthMarketDataField  cspDepthMarketData = (CTPCommon::CThostFtdcDepthMarketDataField) Marshal::PtrToStructure(IntPtr(pDepthMarketData), CTPCommon::CThostFtdcDepthMarketDataField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryDepthMarketData(cspDepthMarketData, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -1998,12 +1998,12 @@ public:
 
 
 public:
-	delegate void RspQryExchange(CTPTradeApi::CThostFtdcExchangeField pExchange, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryExchange(CTPCommon::CThostFtdcExchangeField pExchange, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryExchange(CThostFtdcExchangeField *pExchange, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryExchange(CThostFtdcExchangeField *pExchange, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcExchangeField  cspExchange = (CTPTradeApi::CThostFtdcExchangeField) Marshal::PtrToStructure(IntPtr(pExchange), CTPTradeApi::CThostFtdcExchangeField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcExchangeField  cspExchange = (CTPCommon::CThostFtdcExchangeField) Marshal::PtrToStructure(IntPtr(pExchange), CTPCommon::CThostFtdcExchangeField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryExchange(cspExchange, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2014,12 +2014,12 @@ public:
 
 
 public:
-	delegate void RspQryInstrument(CTPTradeApi::CThostFtdcInstrumentField pInstrument, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryInstrument(CTPCommon::CThostFtdcInstrumentField pInstrument, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryInstrument(CThostFtdcInstrumentField *pInstrument, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryInstrument(CThostFtdcInstrumentField *pInstrument, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcInstrumentField  cspInstrument = (CTPTradeApi::CThostFtdcInstrumentField) Marshal::PtrToStructure(IntPtr(pInstrument), CTPTradeApi::CThostFtdcInstrumentField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcInstrumentField  cspInstrument = (CTPCommon::CThostFtdcInstrumentField) Marshal::PtrToStructure(IntPtr(pInstrument), CTPCommon::CThostFtdcInstrumentField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryInstrument(cspInstrument, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2030,12 +2030,12 @@ public:
 
 
 public:
-	delegate void RspQryInstrumentCommissionRate(CTPTradeApi::CThostFtdcInstrumentCommissionRateField pInstrumentCommissionRate, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryInstrumentCommissionRate(CTPCommon::CThostFtdcInstrumentCommissionRateField pInstrumentCommissionRate, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryInstrumentCommissionRate(CThostFtdcInstrumentCommissionRateField *pInstrumentCommissionRate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryInstrumentCommissionRate(CThostFtdcInstrumentCommissionRateField *pInstrumentCommissionRate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcInstrumentCommissionRateField  cspInstrumentCommissionRate = (CTPTradeApi::CThostFtdcInstrumentCommissionRateField) Marshal::PtrToStructure(IntPtr(pInstrumentCommissionRate), CTPTradeApi::CThostFtdcInstrumentCommissionRateField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcInstrumentCommissionRateField  cspInstrumentCommissionRate = (CTPCommon::CThostFtdcInstrumentCommissionRateField) Marshal::PtrToStructure(IntPtr(pInstrumentCommissionRate), CTPCommon::CThostFtdcInstrumentCommissionRateField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryInstrumentCommissionRate(cspInstrumentCommissionRate, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2046,12 +2046,12 @@ public:
 
 
 public:
-	delegate void RspQryInstrumentMarginRate(CTPTradeApi::CThostFtdcInstrumentMarginRateField pInstrumentMarginRate, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryInstrumentMarginRate(CTPCommon::CThostFtdcInstrumentMarginRateField pInstrumentMarginRate, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryInstrumentMarginRate(CThostFtdcInstrumentMarginRateField *pInstrumentMarginRate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryInstrumentMarginRate(CThostFtdcInstrumentMarginRateField *pInstrumentMarginRate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcInstrumentMarginRateField  cspInstrumentMarginRate = (CTPTradeApi::CThostFtdcInstrumentMarginRateField) Marshal::PtrToStructure(IntPtr(pInstrumentMarginRate), CTPTradeApi::CThostFtdcInstrumentMarginRateField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcInstrumentMarginRateField  cspInstrumentMarginRate = (CTPCommon::CThostFtdcInstrumentMarginRateField) Marshal::PtrToStructure(IntPtr(pInstrumentMarginRate), CTPCommon::CThostFtdcInstrumentMarginRateField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryInstrumentMarginRate(cspInstrumentMarginRate, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2062,12 +2062,12 @@ public:
 
 
 public:
-	delegate void RspQryInvestor(CTPTradeApi::CThostFtdcInvestorField pInvestor, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryInvestor(CTPCommon::CThostFtdcInvestorField pInvestor, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryInvestor(CThostFtdcInvestorField *pInvestor, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryInvestor(CThostFtdcInvestorField *pInvestor, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcInvestorField  cspInvestor = (CTPTradeApi::CThostFtdcInvestorField) Marshal::PtrToStructure(IntPtr(pInvestor), CTPTradeApi::CThostFtdcInvestorField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcInvestorField  cspInvestor = (CTPCommon::CThostFtdcInvestorField) Marshal::PtrToStructure(IntPtr(pInvestor), CTPCommon::CThostFtdcInvestorField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryInvestor(cspInvestor, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2078,12 +2078,12 @@ public:
 
 
 public:
-	delegate void RspQryInvestorPosition(CTPTradeApi::CThostFtdcInvestorPositionField pInvestorPosition, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryInvestorPosition(CTPCommon::CThostFtdcInvestorPositionField pInvestorPosition, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryInvestorPosition(CThostFtdcInvestorPositionField *pInvestorPosition, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryInvestorPosition(CThostFtdcInvestorPositionField *pInvestorPosition, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcInvestorPositionField  cspInvestorPosition = (CTPTradeApi::CThostFtdcInvestorPositionField) Marshal::PtrToStructure(IntPtr(pInvestorPosition), CTPTradeApi::CThostFtdcInvestorPositionField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcInvestorPositionField  cspInvestorPosition = (CTPCommon::CThostFtdcInvestorPositionField) Marshal::PtrToStructure(IntPtr(pInvestorPosition), CTPCommon::CThostFtdcInvestorPositionField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryInvestorPosition(cspInvestorPosition, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2094,12 +2094,12 @@ public:
 
 
 public:
-	delegate void RspQryInvestorPositionCombineDetail(CTPTradeApi::CThostFtdcInvestorPositionCombineDetailField pInvestorPositionCombineDetail, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryInvestorPositionCombineDetail(CTPCommon::CThostFtdcInvestorPositionCombineDetailField pInvestorPositionCombineDetail, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryInvestorPositionCombineDetail(CThostFtdcInvestorPositionCombineDetailField *pInvestorPositionCombineDetail, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryInvestorPositionCombineDetail(CThostFtdcInvestorPositionCombineDetailField *pInvestorPositionCombineDetail, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcInvestorPositionCombineDetailField  cspInvestorPositionCombineDetail = (CTPTradeApi::CThostFtdcInvestorPositionCombineDetailField) Marshal::PtrToStructure(IntPtr(pInvestorPositionCombineDetail), CTPTradeApi::CThostFtdcInvestorPositionCombineDetailField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcInvestorPositionCombineDetailField  cspInvestorPositionCombineDetail = (CTPCommon::CThostFtdcInvestorPositionCombineDetailField) Marshal::PtrToStructure(IntPtr(pInvestorPositionCombineDetail), CTPCommon::CThostFtdcInvestorPositionCombineDetailField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryInvestorPositionCombineDetail(cspInvestorPositionCombineDetail, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2110,12 +2110,12 @@ public:
 
 
 public:
-	delegate void RspQryInvestorPositionDetail(CTPTradeApi::CThostFtdcInvestorPositionDetailField pInvestorPositionDetail, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryInvestorPositionDetail(CTPCommon::CThostFtdcInvestorPositionDetailField pInvestorPositionDetail, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryInvestorPositionDetail(CThostFtdcInvestorPositionDetailField *pInvestorPositionDetail, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryInvestorPositionDetail(CThostFtdcInvestorPositionDetailField *pInvestorPositionDetail, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcInvestorPositionDetailField  cspInvestorPositionDetail = (CTPTradeApi::CThostFtdcInvestorPositionDetailField) Marshal::PtrToStructure(IntPtr(pInvestorPositionDetail), CTPTradeApi::CThostFtdcInvestorPositionDetailField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcInvestorPositionDetailField  cspInvestorPositionDetail = (CTPCommon::CThostFtdcInvestorPositionDetailField) Marshal::PtrToStructure(IntPtr(pInvestorPositionDetail), CTPCommon::CThostFtdcInvestorPositionDetailField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryInvestorPositionDetail(cspInvestorPositionDetail, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2126,12 +2126,12 @@ public:
 
 
 public:
-	delegate void RspQryNotice(CTPTradeApi::CThostFtdcNoticeField pNotice, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryNotice(CTPCommon::CThostFtdcNoticeField pNotice, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryNotice(CThostFtdcNoticeField *pNotice, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryNotice(CThostFtdcNoticeField *pNotice, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcNoticeField  cspNotice = (CTPTradeApi::CThostFtdcNoticeField) Marshal::PtrToStructure(IntPtr(pNotice), CTPTradeApi::CThostFtdcNoticeField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcNoticeField  cspNotice = (CTPCommon::CThostFtdcNoticeField) Marshal::PtrToStructure(IntPtr(pNotice), CTPCommon::CThostFtdcNoticeField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryNotice(cspNotice, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2142,12 +2142,12 @@ public:
 
 
 public:
-	delegate void RspQryOrder(CTPTradeApi::CThostFtdcOrderField pOrder, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryOrder(CTPCommon::CThostFtdcOrderField pOrder, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryOrder(CThostFtdcOrderField *pOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryOrder(CThostFtdcOrderField *pOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcOrderField  cspOrder = (CTPTradeApi::CThostFtdcOrderField) Marshal::PtrToStructure(IntPtr(pOrder), CTPTradeApi::CThostFtdcOrderField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcOrderField  cspOrder = (CTPCommon::CThostFtdcOrderField) Marshal::PtrToStructure(IntPtr(pOrder), CTPCommon::CThostFtdcOrderField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryOrder(cspOrder, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2158,12 +2158,12 @@ public:
 
 
 public:
-	delegate void RspQryParkedOrder(CTPTradeApi::CThostFtdcParkedOrderField pParkedOrder, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryParkedOrder(CTPCommon::CThostFtdcParkedOrderField pParkedOrder, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryParkedOrder(CThostFtdcParkedOrderField *pParkedOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryParkedOrder(CThostFtdcParkedOrderField *pParkedOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcParkedOrderField  cspParkedOrder = (CTPTradeApi::CThostFtdcParkedOrderField) Marshal::PtrToStructure(IntPtr(pParkedOrder), CTPTradeApi::CThostFtdcParkedOrderField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcParkedOrderField  cspParkedOrder = (CTPCommon::CThostFtdcParkedOrderField) Marshal::PtrToStructure(IntPtr(pParkedOrder), CTPCommon::CThostFtdcParkedOrderField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryParkedOrder(cspParkedOrder, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2174,12 +2174,12 @@ public:
 
 
 public:
-	delegate void RspQryParkedOrderAction(CTPTradeApi::CThostFtdcParkedOrderActionField pParkedOrderAction, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryParkedOrderAction(CTPCommon::CThostFtdcParkedOrderActionField pParkedOrderAction, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryParkedOrderAction(CThostFtdcParkedOrderActionField *pParkedOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryParkedOrderAction(CThostFtdcParkedOrderActionField *pParkedOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcParkedOrderActionField  cspParkedOrderAction = (CTPTradeApi::CThostFtdcParkedOrderActionField) Marshal::PtrToStructure(IntPtr(pParkedOrderAction), CTPTradeApi::CThostFtdcParkedOrderActionField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcParkedOrderActionField  cspParkedOrderAction = (CTPCommon::CThostFtdcParkedOrderActionField) Marshal::PtrToStructure(IntPtr(pParkedOrderAction), CTPCommon::CThostFtdcParkedOrderActionField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryParkedOrderAction(cspParkedOrderAction, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2190,12 +2190,12 @@ public:
 
 
 public:
-	delegate void RspQrySettlementInfo(CTPTradeApi::CThostFtdcSettlementInfoField pSettlementInfo, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQrySettlementInfo(CTPCommon::CThostFtdcSettlementInfoField pSettlementInfo, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQrySettlementInfo(CThostFtdcSettlementInfoField *pSettlementInfo, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQrySettlementInfo(CThostFtdcSettlementInfoField *pSettlementInfo, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcSettlementInfoField  cspSettlementInfo = (CTPTradeApi::CThostFtdcSettlementInfoField) Marshal::PtrToStructure(IntPtr(pSettlementInfo), CTPTradeApi::CThostFtdcSettlementInfoField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcSettlementInfoField  cspSettlementInfo = (CTPCommon::CThostFtdcSettlementInfoField) Marshal::PtrToStructure(IntPtr(pSettlementInfo), CTPCommon::CThostFtdcSettlementInfoField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQrySettlementInfo(cspSettlementInfo, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2206,12 +2206,12 @@ public:
 
 
 public:
-	delegate void RspQrySettlementInfoConfirm(CTPTradeApi::CThostFtdcSettlementInfoConfirmField pSettlementInfoConfirm, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQrySettlementInfoConfirm(CTPCommon::CThostFtdcSettlementInfoConfirmField pSettlementInfoConfirm, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQrySettlementInfoConfirm(CThostFtdcSettlementInfoConfirmField *pSettlementInfoConfirm, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQrySettlementInfoConfirm(CThostFtdcSettlementInfoConfirmField *pSettlementInfoConfirm, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcSettlementInfoConfirmField  cspSettlementInfoConfirm = (CTPTradeApi::CThostFtdcSettlementInfoConfirmField) Marshal::PtrToStructure(IntPtr(pSettlementInfoConfirm), CTPTradeApi::CThostFtdcSettlementInfoConfirmField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcSettlementInfoConfirmField  cspSettlementInfoConfirm = (CTPCommon::CThostFtdcSettlementInfoConfirmField) Marshal::PtrToStructure(IntPtr(pSettlementInfoConfirm), CTPCommon::CThostFtdcSettlementInfoConfirmField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQrySettlementInfoConfirm(cspSettlementInfoConfirm, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2222,12 +2222,12 @@ public:
 
 
 public:
-	delegate void RspQryTrade(CTPTradeApi::CThostFtdcTradeField pTrade, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryTrade(CTPCommon::CThostFtdcTradeField pTrade, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryTrade(CThostFtdcTradeField *pTrade, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryTrade(CThostFtdcTradeField *pTrade, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcTradeField  cspTrade = (CTPTradeApi::CThostFtdcTradeField) Marshal::PtrToStructure(IntPtr(pTrade), CTPTradeApi::CThostFtdcTradeField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcTradeField  cspTrade = (CTPCommon::CThostFtdcTradeField) Marshal::PtrToStructure(IntPtr(pTrade), CTPCommon::CThostFtdcTradeField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryTrade(cspTrade, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2238,12 +2238,12 @@ public:
 
 
 public:
-	delegate void RspQryTradingAccount(CTPTradeApi::CThostFtdcTradingAccountField pTradingAccount, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryTradingAccount(CTPCommon::CThostFtdcTradingAccountField pTradingAccount, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryTradingAccount(CThostFtdcTradingAccountField *pTradingAccount, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryTradingAccount(CThostFtdcTradingAccountField *pTradingAccount, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcTradingAccountField  cspTradingAccount = (CTPTradeApi::CThostFtdcTradingAccountField) Marshal::PtrToStructure(IntPtr(pTradingAccount), CTPTradeApi::CThostFtdcTradingAccountField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcTradingAccountField  cspTradingAccount = (CTPCommon::CThostFtdcTradingAccountField) Marshal::PtrToStructure(IntPtr(pTradingAccount), CTPCommon::CThostFtdcTradingAccountField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryTradingAccount(cspTradingAccount, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2254,12 +2254,12 @@ public:
 
 
 public:
-	delegate void RspQryTradingCode(CTPTradeApi::CThostFtdcTradingCodeField pTradingCode, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryTradingCode(CTPCommon::CThostFtdcTradingCodeField pTradingCode, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryTradingCode(CThostFtdcTradingCodeField *pTradingCode, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryTradingCode(CThostFtdcTradingCodeField *pTradingCode, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcTradingCodeField  cspTradingCode = (CTPTradeApi::CThostFtdcTradingCodeField) Marshal::PtrToStructure(IntPtr(pTradingCode), CTPTradeApi::CThostFtdcTradingCodeField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcTradingCodeField  cspTradingCode = (CTPCommon::CThostFtdcTradingCodeField) Marshal::PtrToStructure(IntPtr(pTradingCode), CTPCommon::CThostFtdcTradingCodeField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryTradingCode(cspTradingCode, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2270,12 +2270,12 @@ public:
 
 
 public:
-	delegate void RspQryTradingNotice(CTPTradeApi::CThostFtdcTradingNoticeField pTradingNotice, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryTradingNotice(CTPCommon::CThostFtdcTradingNoticeField pTradingNotice, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryTradingNotice(CThostFtdcTradingNoticeField *pTradingNotice, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryTradingNotice(CThostFtdcTradingNoticeField *pTradingNotice, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcTradingNoticeField  cspTradingNotice = (CTPTradeApi::CThostFtdcTradingNoticeField) Marshal::PtrToStructure(IntPtr(pTradingNotice), CTPTradeApi::CThostFtdcTradingNoticeField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcTradingNoticeField  cspTradingNotice = (CTPCommon::CThostFtdcTradingNoticeField) Marshal::PtrToStructure(IntPtr(pTradingNotice), CTPCommon::CThostFtdcTradingNoticeField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryTradingNotice(cspTradingNotice, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2286,12 +2286,12 @@ public:
 
 
 public:
-	delegate void RspQryTransferBank(CTPTradeApi::CThostFtdcTransferBankField pTransferBank, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryTransferBank(CTPCommon::CThostFtdcTransferBankField pTransferBank, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryTransferBank(CThostFtdcTransferBankField *pTransferBank, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryTransferBank(CThostFtdcTransferBankField *pTransferBank, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcTransferBankField  cspTransferBank = (CTPTradeApi::CThostFtdcTransferBankField) Marshal::PtrToStructure(IntPtr(pTransferBank), CTPTradeApi::CThostFtdcTransferBankField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcTransferBankField  cspTransferBank = (CTPCommon::CThostFtdcTransferBankField) Marshal::PtrToStructure(IntPtr(pTransferBank), CTPCommon::CThostFtdcTransferBankField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryTransferBank(cspTransferBank, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2302,12 +2302,12 @@ public:
 
 
 public:
-	delegate void RspQryTransferSerial(CTPTradeApi::CThostFtdcTransferSerialField pTransferSerial, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryTransferSerial(CTPCommon::CThostFtdcTransferSerialField pTransferSerial, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryTransferSerial(CThostFtdcTransferSerialField *pTransferSerial, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryTransferSerial(CThostFtdcTransferSerialField *pTransferSerial, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcTransferSerialField  cspTransferSerial = (CTPTradeApi::CThostFtdcTransferSerialField) Marshal::PtrToStructure(IntPtr(pTransferSerial), CTPTradeApi::CThostFtdcTransferSerialField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcTransferSerialField  cspTransferSerial = (CTPCommon::CThostFtdcTransferSerialField) Marshal::PtrToStructure(IntPtr(pTransferSerial), CTPCommon::CThostFtdcTransferSerialField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryTransferSerial(cspTransferSerial, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2318,12 +2318,12 @@ public:
 
 
 public:
-	delegate void RspQryAccountregister(CTPTradeApi::CThostFtdcAccountregisterField pAccountregister, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQryAccountregister(CTPCommon::CThostFtdcAccountregisterField pAccountregister, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryAccountregister(CThostFtdcAccountregisterField *pAccountregister, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryAccountregister(CThostFtdcAccountregisterField *pAccountregister, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcAccountregisterField  cspAccountregister = (CTPTradeApi::CThostFtdcAccountregisterField) Marshal::PtrToStructure(IntPtr(pAccountregister), CTPTradeApi::CThostFtdcAccountregisterField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcAccountregisterField  cspAccountregister = (CTPCommon::CThostFtdcAccountregisterField) Marshal::PtrToStructure(IntPtr(pAccountregister), CTPCommon::CThostFtdcAccountregisterField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQryAccountregister(cspAccountregister, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2334,12 +2334,12 @@ public:
 
 
 public:
-	delegate void RspQueryBankAccountMoneyByFuture(CTPTradeApi::CThostFtdcReqQueryAccountField pReqQueryAccount, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQueryBankAccountMoneyByFuture(CTPCommon::CThostFtdcReqQueryAccountField pReqQueryAccount, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQueryBankAccountMoneyByFuture(CThostFtdcReqQueryAccountField *pReqQueryAccount, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQueryBankAccountMoneyByFuture(CThostFtdcReqQueryAccountField *pReqQueryAccount, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcReqQueryAccountField  cspReqQueryAccount = (CTPTradeApi::CThostFtdcReqQueryAccountField) Marshal::PtrToStructure(IntPtr(pReqQueryAccount), CTPTradeApi::CThostFtdcReqQueryAccountField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcReqQueryAccountField  cspReqQueryAccount = (CTPCommon::CThostFtdcReqQueryAccountField) Marshal::PtrToStructure(IntPtr(pReqQueryAccount), CTPCommon::CThostFtdcReqQueryAccountField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQueryBankAccountMoneyByFuture(cspReqQueryAccount, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2350,12 +2350,12 @@ public:
 
 
 public:
-	delegate void RspQueryMaxOrderVolume(CTPTradeApi::CThostFtdcQueryMaxOrderVolumeField pQueryMaxOrderVolume, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspQueryMaxOrderVolume(CTPCommon::CThostFtdcQueryMaxOrderVolumeField pQueryMaxOrderVolume, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQueryMaxOrderVolume(CThostFtdcQueryMaxOrderVolumeField *pQueryMaxOrderVolume, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQueryMaxOrderVolume(CThostFtdcQueryMaxOrderVolumeField *pQueryMaxOrderVolume, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcQueryMaxOrderVolumeField  cspQueryMaxOrderVolume = (CTPTradeApi::CThostFtdcQueryMaxOrderVolumeField) Marshal::PtrToStructure(IntPtr(pQueryMaxOrderVolume), CTPTradeApi::CThostFtdcQueryMaxOrderVolumeField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcQueryMaxOrderVolumeField  cspQueryMaxOrderVolume = (CTPCommon::CThostFtdcQueryMaxOrderVolumeField) Marshal::PtrToStructure(IntPtr(pQueryMaxOrderVolume), CTPCommon::CThostFtdcQueryMaxOrderVolumeField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspQueryMaxOrderVolume(cspQueryMaxOrderVolume, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2366,12 +2366,12 @@ public:
 
 
 public:
-	delegate void RspRemoveParkedOrder(CTPTradeApi::CThostFtdcRemoveParkedOrderField pRemoveParkedOrder, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspRemoveParkedOrder(CTPCommon::CThostFtdcRemoveParkedOrderField pRemoveParkedOrder, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspRemoveParkedOrder(CThostFtdcRemoveParkedOrderField *pRemoveParkedOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspRemoveParkedOrder(CThostFtdcRemoveParkedOrderField *pRemoveParkedOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcRemoveParkedOrderField  cspRemoveParkedOrder = (CTPTradeApi::CThostFtdcRemoveParkedOrderField) Marshal::PtrToStructure(IntPtr(pRemoveParkedOrder), CTPTradeApi::CThostFtdcRemoveParkedOrderField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcRemoveParkedOrderField  cspRemoveParkedOrder = (CTPCommon::CThostFtdcRemoveParkedOrderField) Marshal::PtrToStructure(IntPtr(pRemoveParkedOrder), CTPCommon::CThostFtdcRemoveParkedOrderField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspRemoveParkedOrder(cspRemoveParkedOrder, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2382,12 +2382,12 @@ public:
 
 
 public:
-	delegate void RspRemoveParkedOrderAction(CTPTradeApi::CThostFtdcRemoveParkedOrderActionField pRemoveParkedOrderAction, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspRemoveParkedOrderAction(CTPCommon::CThostFtdcRemoveParkedOrderActionField pRemoveParkedOrderAction, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspRemoveParkedOrderAction(CThostFtdcRemoveParkedOrderActionField *pRemoveParkedOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspRemoveParkedOrderAction(CThostFtdcRemoveParkedOrderActionField *pRemoveParkedOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcRemoveParkedOrderActionField  cspRemoveParkedOrderAction = (CTPTradeApi::CThostFtdcRemoveParkedOrderActionField) Marshal::PtrToStructure(IntPtr(pRemoveParkedOrderAction), CTPTradeApi::CThostFtdcRemoveParkedOrderActionField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcRemoveParkedOrderActionField  cspRemoveParkedOrderAction = (CTPCommon::CThostFtdcRemoveParkedOrderActionField) Marshal::PtrToStructure(IntPtr(pRemoveParkedOrderAction), CTPCommon::CThostFtdcRemoveParkedOrderActionField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspRemoveParkedOrderAction(cspRemoveParkedOrderAction, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2398,12 +2398,12 @@ public:
 
 
 public:
-	delegate void RspSettlementInfoConfirm(CTPTradeApi::CThostFtdcSettlementInfoConfirmField pSettlementInfoConfirm, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspSettlementInfoConfirm(CTPCommon::CThostFtdcSettlementInfoConfirmField pSettlementInfoConfirm, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspSettlementInfoConfirm(CThostFtdcSettlementInfoConfirmField *pSettlementInfoConfirm, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspSettlementInfoConfirm(CThostFtdcSettlementInfoConfirmField *pSettlementInfoConfirm, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcSettlementInfoConfirmField  cspSettlementInfoConfirm = (CTPTradeApi::CThostFtdcSettlementInfoConfirmField) Marshal::PtrToStructure(IntPtr(pSettlementInfoConfirm), CTPTradeApi::CThostFtdcSettlementInfoConfirmField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcSettlementInfoConfirmField  cspSettlementInfoConfirm = (CTPCommon::CThostFtdcSettlementInfoConfirmField) Marshal::PtrToStructure(IntPtr(pSettlementInfoConfirm), CTPCommon::CThostFtdcSettlementInfoConfirmField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspSettlementInfoConfirm(cspSettlementInfoConfirm, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2414,12 +2414,12 @@ public:
 
 
 public:
-	delegate void RspTradingAccountPasswordUpdate(CTPTradeApi::CThostFtdcTradingAccountPasswordUpdateField pTradingAccountPasswordUpdate, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspTradingAccountPasswordUpdate(CTPCommon::CThostFtdcTradingAccountPasswordUpdateField pTradingAccountPasswordUpdate, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspTradingAccountPasswordUpdate(CThostFtdcTradingAccountPasswordUpdateField *pTradingAccountPasswordUpdate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspTradingAccountPasswordUpdate(CThostFtdcTradingAccountPasswordUpdateField *pTradingAccountPasswordUpdate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcTradingAccountPasswordUpdateField  cspTradingAccountPasswordUpdate = (CTPTradeApi::CThostFtdcTradingAccountPasswordUpdateField) Marshal::PtrToStructure(IntPtr(pTradingAccountPasswordUpdate), CTPTradeApi::CThostFtdcTradingAccountPasswordUpdateField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcTradingAccountPasswordUpdateField  cspTradingAccountPasswordUpdate = (CTPCommon::CThostFtdcTradingAccountPasswordUpdateField) Marshal::PtrToStructure(IntPtr(pTradingAccountPasswordUpdate), CTPCommon::CThostFtdcTradingAccountPasswordUpdateField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspTradingAccountPasswordUpdate(cspTradingAccountPasswordUpdate, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2430,12 +2430,12 @@ public:
 
 
 public:
-	delegate void RspUserLogin(CTPTradeApi::CThostFtdcRspUserLoginField pRspUserLogin, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspUserLogin(CTPCommon::CThostFtdcRspUserLoginField pRspUserLogin, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspUserLogin(CThostFtdcRspUserLoginField *pRspUserLogin, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspUserLogin(CThostFtdcRspUserLoginField *pRspUserLogin, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcRspUserLoginField  cspRspUserLogin = (CTPTradeApi::CThostFtdcRspUserLoginField) Marshal::PtrToStructure(IntPtr(pRspUserLogin), CTPTradeApi::CThostFtdcRspUserLoginField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcRspUserLoginField  cspRspUserLogin = (CTPCommon::CThostFtdcRspUserLoginField) Marshal::PtrToStructure(IntPtr(pRspUserLogin), CTPCommon::CThostFtdcRspUserLoginField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspUserLogin(cspRspUserLogin, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2446,12 +2446,12 @@ public:
 
 
 public:
-	delegate void RspUserLogout(CTPTradeApi::CThostFtdcUserLogoutField pUserLogout, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspUserLogout(CTPCommon::CThostFtdcUserLogoutField pUserLogout, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspUserLogout(CThostFtdcUserLogoutField *pUserLogout, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspUserLogout(CThostFtdcUserLogoutField *pUserLogout, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcUserLogoutField  cspUserLogout = (CTPTradeApi::CThostFtdcUserLogoutField) Marshal::PtrToStructure(IntPtr(pUserLogout), CTPTradeApi::CThostFtdcUserLogoutField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcUserLogoutField  cspUserLogout = (CTPCommon::CThostFtdcUserLogoutField) Marshal::PtrToStructure(IntPtr(pUserLogout), CTPCommon::CThostFtdcUserLogoutField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspUserLogout(cspUserLogout, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2462,12 +2462,12 @@ public:
 
 
 public:
-	delegate void RspUserPasswordUpdate(CTPTradeApi::CThostFtdcUserPasswordUpdateField pUserPasswordUpdate, CTPTradeApi::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+	delegate void RspUserPasswordUpdate(CTPCommon::CThostFtdcUserPasswordUpdateField pUserPasswordUpdate, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspUserPasswordUpdate(CThostFtdcUserPasswordUpdateField *pUserPasswordUpdate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspUserPasswordUpdate(CThostFtdcUserPasswordUpdateField *pUserPasswordUpdate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
-		CTPTradeApi::CThostFtdcUserPasswordUpdateField  cspUserPasswordUpdate = (CTPTradeApi::CThostFtdcUserPasswordUpdateField) Marshal::PtrToStructure(IntPtr(pUserPasswordUpdate), CTPTradeApi::CThostFtdcUserPasswordUpdateField::typeid); CTPTradeApi::CThostFtdcRspInfoField  cspRspInfo = (CTPTradeApi::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPTradeApi::CThostFtdcRspInfoField::typeid);
+		CTPCommon::CThostFtdcUserPasswordUpdateField  cspUserPasswordUpdate = (CTPCommon::CThostFtdcUserPasswordUpdateField) Marshal::PtrToStructure(IntPtr(pUserPasswordUpdate), CTPCommon::CThostFtdcUserPasswordUpdateField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspUserPasswordUpdate(cspUserPasswordUpdate, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
@@ -2478,12 +2478,12 @@ public:
 
 
 public:
-	delegate void RtnErrorConditionalOrder(CTPTradeApi::CThostFtdcErrorConditionalOrderField pErrorConditionalOrder);
+	delegate void RtnErrorConditionalOrder(CTPCommon::CThostFtdcErrorConditionalOrderField pErrorConditionalOrder);
 private:
 	delegate void cppRtnErrorConditionalOrder(CThostFtdcErrorConditionalOrderField *pErrorConditionalOrder);
 	void cppcbRtnErrorConditionalOrder(CThostFtdcErrorConditionalOrderField *pErrorConditionalOrder)
 	{
-		CTPTradeApi::CThostFtdcErrorConditionalOrderField  cspErrorConditionalOrder = (CTPTradeApi::CThostFtdcErrorConditionalOrderField) Marshal::PtrToStructure(IntPtr(pErrorConditionalOrder), CTPTradeApi::CThostFtdcErrorConditionalOrderField::typeid);
+		CTPCommon::CThostFtdcErrorConditionalOrderField  cspErrorConditionalOrder = (CTPCommon::CThostFtdcErrorConditionalOrderField) Marshal::PtrToStructure(IntPtr(pErrorConditionalOrder), CTPCommon::CThostFtdcErrorConditionalOrderField::typeid);
 		OnRtnErrorConditionalOrder(cspErrorConditionalOrder);
 	}
 public:
@@ -2494,12 +2494,12 @@ public:
 
 
 public:
-	delegate void RtnFromBankToFutureByBank(CTPTradeApi::CThostFtdcRspTransferField pRspTransfer);
+	delegate void RtnFromBankToFutureByBank(CTPCommon::CThostFtdcRspTransferField pRspTransfer);
 private:
 	delegate void cppRtnFromBankToFutureByBank(CThostFtdcRspTransferField *pRspTransfer);
 	void cppcbRtnFromBankToFutureByBank(CThostFtdcRspTransferField *pRspTransfer)
 	{
-		CTPTradeApi::CThostFtdcRspTransferField  cspRspTransfer = (CTPTradeApi::CThostFtdcRspTransferField) Marshal::PtrToStructure(IntPtr(pRspTransfer), CTPTradeApi::CThostFtdcRspTransferField::typeid);
+		CTPCommon::CThostFtdcRspTransferField  cspRspTransfer = (CTPCommon::CThostFtdcRspTransferField) Marshal::PtrToStructure(IntPtr(pRspTransfer), CTPCommon::CThostFtdcRspTransferField::typeid);
 		OnRtnFromBankToFutureByBank(cspRspTransfer);
 	}
 public:
@@ -2510,12 +2510,12 @@ public:
 
 
 public:
-	delegate void RtnFromBankToFutureByFuture(CTPTradeApi::CThostFtdcRspTransferField pRspTransfer);
+	delegate void RtnFromBankToFutureByFuture(CTPCommon::CThostFtdcRspTransferField pRspTransfer);
 private:
 	delegate void cppRtnFromBankToFutureByFuture(CThostFtdcRspTransferField *pRspTransfer);
 	void cppcbRtnFromBankToFutureByFuture(CThostFtdcRspTransferField *pRspTransfer)
 	{
-		CTPTradeApi::CThostFtdcRspTransferField  cspRspTransfer = (CTPTradeApi::CThostFtdcRspTransferField) Marshal::PtrToStructure(IntPtr(pRspTransfer), CTPTradeApi::CThostFtdcRspTransferField::typeid);
+		CTPCommon::CThostFtdcRspTransferField  cspRspTransfer = (CTPCommon::CThostFtdcRspTransferField) Marshal::PtrToStructure(IntPtr(pRspTransfer), CTPCommon::CThostFtdcRspTransferField::typeid);
 		OnRtnFromBankToFutureByFuture(cspRspTransfer);
 	}
 public:
@@ -2526,12 +2526,12 @@ public:
 
 
 public:
-	delegate void RtnFromFutureToBankByBank(CTPTradeApi::CThostFtdcRspTransferField pRspTransfer);
+	delegate void RtnFromFutureToBankByBank(CTPCommon::CThostFtdcRspTransferField pRspTransfer);
 private:
 	delegate void cppRtnFromFutureToBankByBank(CThostFtdcRspTransferField *pRspTransfer);
 	void cppcbRtnFromFutureToBankByBank(CThostFtdcRspTransferField *pRspTransfer)
 	{
-		CTPTradeApi::CThostFtdcRspTransferField  cspRspTransfer = (CTPTradeApi::CThostFtdcRspTransferField) Marshal::PtrToStructure(IntPtr(pRspTransfer), CTPTradeApi::CThostFtdcRspTransferField::typeid);
+		CTPCommon::CThostFtdcRspTransferField  cspRspTransfer = (CTPCommon::CThostFtdcRspTransferField) Marshal::PtrToStructure(IntPtr(pRspTransfer), CTPCommon::CThostFtdcRspTransferField::typeid);
 		OnRtnFromFutureToBankByBank(cspRspTransfer);
 	}
 public:
@@ -2542,12 +2542,12 @@ public:
 
 
 public:
-	delegate void RtnFromFutureToBankByFuture(CTPTradeApi::CThostFtdcRspTransferField pRspTransfer);
+	delegate void RtnFromFutureToBankByFuture(CTPCommon::CThostFtdcRspTransferField pRspTransfer);
 private:
 	delegate void cppRtnFromFutureToBankByFuture(CThostFtdcRspTransferField *pRspTransfer);
 	void cppcbRtnFromFutureToBankByFuture(CThostFtdcRspTransferField *pRspTransfer)
 	{
-		CTPTradeApi::CThostFtdcRspTransferField  cspRspTransfer = (CTPTradeApi::CThostFtdcRspTransferField) Marshal::PtrToStructure(IntPtr(pRspTransfer), CTPTradeApi::CThostFtdcRspTransferField::typeid);
+		CTPCommon::CThostFtdcRspTransferField  cspRspTransfer = (CTPCommon::CThostFtdcRspTransferField) Marshal::PtrToStructure(IntPtr(pRspTransfer), CTPCommon::CThostFtdcRspTransferField::typeid);
 		OnRtnFromFutureToBankByFuture(cspRspTransfer);
 	}
 public:
@@ -2558,12 +2558,12 @@ public:
 
 
 public:
-	delegate void RtnInstrumentStatus(CTPTradeApi::CThostFtdcInstrumentStatusField pInstrumentStatus);
+	delegate void RtnInstrumentStatus(CTPCommon::CThostFtdcInstrumentStatusField pInstrumentStatus);
 private:
 	delegate void cppRtnInstrumentStatus(CThostFtdcInstrumentStatusField *pInstrumentStatus);
 	void cppcbRtnInstrumentStatus(CThostFtdcInstrumentStatusField *pInstrumentStatus)
 	{
-		CTPTradeApi::CThostFtdcInstrumentStatusField  cspInstrumentStatus = (CTPTradeApi::CThostFtdcInstrumentStatusField) Marshal::PtrToStructure(IntPtr(pInstrumentStatus), CTPTradeApi::CThostFtdcInstrumentStatusField::typeid);
+		CTPCommon::CThostFtdcInstrumentStatusField  cspInstrumentStatus = (CTPCommon::CThostFtdcInstrumentStatusField) Marshal::PtrToStructure(IntPtr(pInstrumentStatus), CTPCommon::CThostFtdcInstrumentStatusField::typeid);
 		OnRtnInstrumentStatus(cspInstrumentStatus);
 	}
 public:
@@ -2574,12 +2574,12 @@ public:
 
 
 public:
-	delegate void RtnOrder(CTPTradeApi::CThostFtdcOrderField pOrder);
+	delegate void RtnOrder(CTPCommon::CThostFtdcOrderField pOrder);
 private:
 	delegate void cppRtnOrder(CThostFtdcOrderField *pOrder);
 	void cppcbRtnOrder(CThostFtdcOrderField *pOrder)
 	{
-		CTPTradeApi::CThostFtdcOrderField  cspOrder = (CTPTradeApi::CThostFtdcOrderField) Marshal::PtrToStructure(IntPtr(pOrder), CTPTradeApi::CThostFtdcOrderField::typeid);
+		CTPCommon::CThostFtdcOrderField  cspOrder = (CTPCommon::CThostFtdcOrderField) Marshal::PtrToStructure(IntPtr(pOrder), CTPCommon::CThostFtdcOrderField::typeid);
 		OnRtnOrder(cspOrder);
 	}
 public:
@@ -2590,12 +2590,12 @@ public:
 
 
 public:
-	delegate void RtnQueryBankBalanceByFuture(CTPTradeApi::CThostFtdcNotifyQueryAccountField pNotifyQueryAccount);
+	delegate void RtnQueryBankBalanceByFuture(CTPCommon::CThostFtdcNotifyQueryAccountField pNotifyQueryAccount);
 private:
 	delegate void cppRtnQueryBankBalanceByFuture(CThostFtdcNotifyQueryAccountField *pNotifyQueryAccount);
 	void cppcbRtnQueryBankBalanceByFuture(CThostFtdcNotifyQueryAccountField *pNotifyQueryAccount)
 	{
-		CTPTradeApi::CThostFtdcNotifyQueryAccountField  cspNotifyQueryAccount = (CTPTradeApi::CThostFtdcNotifyQueryAccountField) Marshal::PtrToStructure(IntPtr(pNotifyQueryAccount), CTPTradeApi::CThostFtdcNotifyQueryAccountField::typeid);
+		CTPCommon::CThostFtdcNotifyQueryAccountField  cspNotifyQueryAccount = (CTPCommon::CThostFtdcNotifyQueryAccountField) Marshal::PtrToStructure(IntPtr(pNotifyQueryAccount), CTPCommon::CThostFtdcNotifyQueryAccountField::typeid);
 		OnRtnQueryBankBalanceByFuture(cspNotifyQueryAccount);
 	}
 public:
@@ -2606,12 +2606,12 @@ public:
 
 
 public:
-	delegate void RtnRepealFromBankToFutureByBank(CTPTradeApi::CThostFtdcRspRepealField pRspRepeal);
+	delegate void RtnRepealFromBankToFutureByBank(CTPCommon::CThostFtdcRspRepealField pRspRepeal);
 private:
 	delegate void cppRtnRepealFromBankToFutureByBank(CThostFtdcRspRepealField *pRspRepeal);
 	void cppcbRtnRepealFromBankToFutureByBank(CThostFtdcRspRepealField *pRspRepeal)
 	{
-		CTPTradeApi::CThostFtdcRspRepealField  cspRspRepeal = (CTPTradeApi::CThostFtdcRspRepealField) Marshal::PtrToStructure(IntPtr(pRspRepeal), CTPTradeApi::CThostFtdcRspRepealField::typeid);
+		CTPCommon::CThostFtdcRspRepealField  cspRspRepeal = (CTPCommon::CThostFtdcRspRepealField) Marshal::PtrToStructure(IntPtr(pRspRepeal), CTPCommon::CThostFtdcRspRepealField::typeid);
 		OnRtnRepealFromBankToFutureByBank(cspRspRepeal);
 	}
 public:
@@ -2622,12 +2622,12 @@ public:
 
 
 public:
-	delegate void RtnRepealFromBankToFutureByFuture(CTPTradeApi::CThostFtdcRspRepealField pRspRepeal);
+	delegate void RtnRepealFromBankToFutureByFuture(CTPCommon::CThostFtdcRspRepealField pRspRepeal);
 private:
 	delegate void cppRtnRepealFromBankToFutureByFuture(CThostFtdcRspRepealField *pRspRepeal);
 	void cppcbRtnRepealFromBankToFutureByFuture(CThostFtdcRspRepealField *pRspRepeal)
 	{
-		CTPTradeApi::CThostFtdcRspRepealField  cspRspRepeal = (CTPTradeApi::CThostFtdcRspRepealField) Marshal::PtrToStructure(IntPtr(pRspRepeal), CTPTradeApi::CThostFtdcRspRepealField::typeid);
+		CTPCommon::CThostFtdcRspRepealField  cspRspRepeal = (CTPCommon::CThostFtdcRspRepealField) Marshal::PtrToStructure(IntPtr(pRspRepeal), CTPCommon::CThostFtdcRspRepealField::typeid);
 		OnRtnRepealFromBankToFutureByFuture(cspRspRepeal);
 	}
 public:
@@ -2638,12 +2638,12 @@ public:
 
 
 public:
-	delegate void RtnRepealFromBankToFutureByFutureManual(CTPTradeApi::CThostFtdcRspRepealField pRspRepeal);
+	delegate void RtnRepealFromBankToFutureByFutureManual(CTPCommon::CThostFtdcRspRepealField pRspRepeal);
 private:
 	delegate void cppRtnRepealFromBankToFutureByFutureManual(CThostFtdcRspRepealField *pRspRepeal);
 	void cppcbRtnRepealFromBankToFutureByFutureManual(CThostFtdcRspRepealField *pRspRepeal)
 	{
-		CTPTradeApi::CThostFtdcRspRepealField  cspRspRepeal = (CTPTradeApi::CThostFtdcRspRepealField) Marshal::PtrToStructure(IntPtr(pRspRepeal), CTPTradeApi::CThostFtdcRspRepealField::typeid);
+		CTPCommon::CThostFtdcRspRepealField  cspRspRepeal = (CTPCommon::CThostFtdcRspRepealField) Marshal::PtrToStructure(IntPtr(pRspRepeal), CTPCommon::CThostFtdcRspRepealField::typeid);
 		OnRtnRepealFromBankToFutureByFutureManual(cspRspRepeal);
 	}
 public:
@@ -2654,12 +2654,12 @@ public:
 
 
 public:
-	delegate void RtnRepealFromFutureToBankByBank(CTPTradeApi::CThostFtdcRspRepealField pRspRepeal);
+	delegate void RtnRepealFromFutureToBankByBank(CTPCommon::CThostFtdcRspRepealField pRspRepeal);
 private:
 	delegate void cppRtnRepealFromFutureToBankByBank(CThostFtdcRspRepealField *pRspRepeal);
 	void cppcbRtnRepealFromFutureToBankByBank(CThostFtdcRspRepealField *pRspRepeal)
 	{
-		CTPTradeApi::CThostFtdcRspRepealField  cspRspRepeal = (CTPTradeApi::CThostFtdcRspRepealField) Marshal::PtrToStructure(IntPtr(pRspRepeal), CTPTradeApi::CThostFtdcRspRepealField::typeid);
+		CTPCommon::CThostFtdcRspRepealField  cspRspRepeal = (CTPCommon::CThostFtdcRspRepealField) Marshal::PtrToStructure(IntPtr(pRspRepeal), CTPCommon::CThostFtdcRspRepealField::typeid);
 		OnRtnRepealFromFutureToBankByBank(cspRspRepeal);
 	}
 public:
@@ -2670,12 +2670,12 @@ public:
 
 
 public:
-	delegate void RtnRepealFromFutureToBankByFuture(CTPTradeApi::CThostFtdcRspRepealField pRspRepeal);
+	delegate void RtnRepealFromFutureToBankByFuture(CTPCommon::CThostFtdcRspRepealField pRspRepeal);
 private:
 	delegate void cppRtnRepealFromFutureToBankByFuture(CThostFtdcRspRepealField *pRspRepeal);
 	void cppcbRtnRepealFromFutureToBankByFuture(CThostFtdcRspRepealField *pRspRepeal)
 	{
-		CTPTradeApi::CThostFtdcRspRepealField  cspRspRepeal = (CTPTradeApi::CThostFtdcRspRepealField) Marshal::PtrToStructure(IntPtr(pRspRepeal), CTPTradeApi::CThostFtdcRspRepealField::typeid);
+		CTPCommon::CThostFtdcRspRepealField  cspRspRepeal = (CTPCommon::CThostFtdcRspRepealField) Marshal::PtrToStructure(IntPtr(pRspRepeal), CTPCommon::CThostFtdcRspRepealField::typeid);
 		OnRtnRepealFromFutureToBankByFuture(cspRspRepeal);
 	}
 public:
@@ -2686,12 +2686,12 @@ public:
 
 
 public:
-	delegate void RtnRepealFromFutureToBankByFutureManual(CTPTradeApi::CThostFtdcRspRepealField pRspRepeal);
+	delegate void RtnRepealFromFutureToBankByFutureManual(CTPCommon::CThostFtdcRspRepealField pRspRepeal);
 private:
 	delegate void cppRtnRepealFromFutureToBankByFutureManual(CThostFtdcRspRepealField *pRspRepeal);
 	void cppcbRtnRepealFromFutureToBankByFutureManual(CThostFtdcRspRepealField *pRspRepeal)
 	{
-		CTPTradeApi::CThostFtdcRspRepealField  cspRspRepeal = (CTPTradeApi::CThostFtdcRspRepealField) Marshal::PtrToStructure(IntPtr(pRspRepeal), CTPTradeApi::CThostFtdcRspRepealField::typeid);
+		CTPCommon::CThostFtdcRspRepealField  cspRspRepeal = (CTPCommon::CThostFtdcRspRepealField) Marshal::PtrToStructure(IntPtr(pRspRepeal), CTPCommon::CThostFtdcRspRepealField::typeid);
 		OnRtnRepealFromFutureToBankByFutureManual(cspRspRepeal);
 	}
 public:
@@ -2702,12 +2702,12 @@ public:
 
 
 public:
-	delegate void RtnTrade(CTPTradeApi::CThostFtdcTradeField pTrade);
+	delegate void RtnTrade(CTPCommon::CThostFtdcTradeField pTrade);
 private:
 	delegate void cppRtnTrade(CThostFtdcTradeField *pTrade);
 	void cppcbRtnTrade(CThostFtdcTradeField *pTrade)
 	{
-		CTPTradeApi::CThostFtdcTradeField  cspTrade = (CTPTradeApi::CThostFtdcTradeField) Marshal::PtrToStructure(IntPtr(pTrade), CTPTradeApi::CThostFtdcTradeField::typeid);
+		CTPCommon::CThostFtdcTradeField  cspTrade = (CTPCommon::CThostFtdcTradeField) Marshal::PtrToStructure(IntPtr(pTrade), CTPCommon::CThostFtdcTradeField::typeid);
 		OnRtnTrade(cspTrade);
 	}
 public:
@@ -2718,12 +2718,12 @@ public:
 
 
 public:
-	delegate void RtnTradingNotice(CTPTradeApi::CThostFtdcTradingNoticeInfoField pTradingNoticeInfo);
+	delegate void RtnTradingNotice(CTPCommon::CThostFtdcTradingNoticeInfoField pTradingNoticeInfo);
 private:
 	delegate void cppRtnTradingNotice(CThostFtdcTradingNoticeInfoField *pTradingNoticeInfo);
 	void cppcbRtnTradingNotice(CThostFtdcTradingNoticeInfoField *pTradingNoticeInfo)
 	{
-		CTPTradeApi::CThostFtdcTradingNoticeInfoField  cspTradingNoticeInfo = (CTPTradeApi::CThostFtdcTradingNoticeInfoField) Marshal::PtrToStructure(IntPtr(pTradingNoticeInfo), CTPTradeApi::CThostFtdcTradingNoticeInfoField::typeid);
+		CTPCommon::CThostFtdcTradingNoticeInfoField  cspTradingNoticeInfo = (CTPCommon::CThostFtdcTradingNoticeInfoField) Marshal::PtrToStructure(IntPtr(pTradingNoticeInfo), CTPCommon::CThostFtdcTradingNoticeInfoField::typeid);
 		OnRtnTradingNotice(cspTradingNoticeInfo);
 	}
 public:
