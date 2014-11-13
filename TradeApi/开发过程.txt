@@ -1,0 +1,8 @@
+准备
+启动VS2008,"新建""win32项目"(dll,导出符号)TradeApi.
+拷贝ctpapi到TradeApi下.
+新建ApiMain.cpp文件,用以编写导出函数
+添加现有项api\thosttraderapi.lib
+拷贝api\thosttraderapi.dll到解决方案的Debug下
+
+
