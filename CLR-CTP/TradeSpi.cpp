@@ -17,7 +17,7 @@ using namespace std;
 //extern TThostFtdcDirectionType	DIRECTION;	// 买卖方向
 
 // 请求编号
-extern int iRequestID;
+//extern int iRequestID;
 ///当客户端与交易后台建立起通信连接时（还未登录前），该方法被调用。
 void CTraderSpi::OnFrontConnected(){
 	if (cbOnFrontConnected != NULL) 		
@@ -1073,9 +1073,10 @@ void CTraderSpi::OnRspQueryBankAccountMoneyByFuture(CThostFtdcReqQueryAccountFie
 
 
 //针对收到空反馈的处理
-CThostFtdcRspInfoField rif;
+
 CThostFtdcRspInfoField* CTraderSpi::repareInfo(CThostFtdcRspInfoField *pRspInfo)
 {
+	static CThostFtdcRspInfoField rif;
 	if (pRspInfo == NULL)
 	{
 		memset(&rif, 0, sizeof(rif));

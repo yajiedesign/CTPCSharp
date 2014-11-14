@@ -27,6 +27,9 @@
     <ClInclude Include="TradeApi.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="MdApi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CLRCTP.cpp">
@@ -41,7 +44,13 @@
     <ClCompile Include="CTPTradeApi.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="TradeApi.cpp">
+    <ClCompile Include="CTPMdApi.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TradeSpi.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MdSpi.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
