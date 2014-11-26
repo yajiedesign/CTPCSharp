@@ -30,6 +30,25 @@ void CTraderSpi::OnFrontDisconnected(int nReason){ if (cbOnFrontDisconnected != 
 ///心跳超时警告。当长时间未收到报文时，该方法被调用。  @param nTimeLapse 距离上次接收报文的时间
 void CTraderSpi::OnHeartBeatWarning(int nTimeLapse){ if (cbOnHeartBeatWarning != NULL) cbOnHeartBeatWarning(nTimeLapse); }
 
+
+
+///客户端认证响应
+void CTraderSpi::OnRspAuthenticate(CThostFtdcRspAuthenticateField *pRspAuthenticateField, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
+{
+	if (cbRspAuthenticate != NULL)
+	{
+		if (pRspAuthenticateField == NULL)
+		{
+			CThostFtdcRspAuthenticateField req;
+			memset(&req, 0, sizeof(req));
+			cbRspAuthenticate(&req, repareInfo(pRspInfo), nRequestID, bIsLast);
+		}
+		else
+			cbRspAuthenticate(pRspAuthenticateField, repareInfo(pRspInfo), nRequestID, bIsLast);
+	}
+}
+
+
 ///登录请求响应
 void CTraderSpi::OnRspUserLogin(CThostFtdcRspUserLoginField *pRspUserLogin, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 {

@@ -7,7 +7,8 @@ using namespace System;
 using namespace System::Runtime::InteropServices;
 using namespace System::Threading;
 
-
+namespace CTPCLR
+{
 public ref class TradeApiclr
 {
 private:
@@ -2429,6 +2430,24 @@ public:
 	event RspTradingAccountPasswordUpdate ^OnRspTradingAccountPasswordUpdate;
 
 
+	
+
+public:
+	delegate void RspAuthenticate(CTPCommon::CThostFtdcRspAuthenticateField pRspAuthenticateField, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
+private:
+	delegate void cppRspAuthenticate(CThostFtdcRspAuthenticateField *pRspAuthenticateField, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
+	void cppcbRspUserLogin(CThostFtdcRspAuthenticateField *pRspAuthenticateField, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
+	{
+		CTPCommon::CThostFtdcRspAuthenticateField  cspRspAuthenticate = (CTPCommon::CThostFtdcRspAuthenticateField) Marshal::PtrToStructure(IntPtr(pRspAuthenticateField), CTPCommon::CThostFtdcRspUserLoginField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
+		OnRspAuthenticate(cspRspAuthenticate, cspRspInfo, nRequestID, bIsLast);
+	}
+public:
+	/// <summary>
+	/// µÇÂ¼ÇëÇóÏìÓ¦
+	/// </summary>
+	event RspAuthenticate ^OnRspAuthenticate;
+
+
 public:
 	delegate void RspUserLogin(CTPCommon::CThostFtdcRspUserLoginField pRspUserLogin, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
@@ -2743,3 +2762,4 @@ private:
 	int lRequestID = 0;
 };
 
+}
