@@ -1472,6 +1472,16 @@ private:
 		}
 
 		{
+			cppRspAuthenticate^ fp = gcnew cppRspAuthenticate(this, &TradeApiclr::cppcbRspAuthenticate);
+			GCHandle gch = GCHandle::Alloc(fp);
+			gchlist->Add(gch);
+			IntPtr ip = Marshal::GetFunctionPointerForDelegate(fp);
+			CBRspAuthenticate cb = static_cast<CBRspAuthenticate>(ip.ToPointer());
+			pUserSpi->cbRspAuthenticate = cb;
+		}
+
+
+		{
 			cppRspUserLogin^ fp = gcnew cppRspUserLogin(this, &TradeApiclr::cppcbRspUserLogin);
 			GCHandle gch = GCHandle::Alloc(fp);
 			gchlist->Add(gch);
@@ -2436,14 +2446,14 @@ public:
 	delegate void RspAuthenticate(CTPCommon::CThostFtdcRspAuthenticateField pRspAuthenticateField, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspAuthenticate(CThostFtdcRspAuthenticateField *pRspAuthenticateField, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
-	void cppcbRspUserLogin(CThostFtdcRspAuthenticateField *pRspAuthenticateField, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
+	void cppcbRspAuthenticate(CThostFtdcRspAuthenticateField *pRspAuthenticateField, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
 		CTPCommon::CThostFtdcRspAuthenticateField  cspRspAuthenticate = (CTPCommon::CThostFtdcRspAuthenticateField) Marshal::PtrToStructure(IntPtr(pRspAuthenticateField), CTPCommon::CThostFtdcRspUserLoginField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 		OnRspAuthenticate(cspRspAuthenticate, cspRspInfo, nRequestID, bIsLast);
 	}
 public:
 	/// <summary>
-	/// µÇÂ¼ÇëÇóÏìÓ¦
+	/// 
 	/// </summary>
 	event RspAuthenticate ^OnRspAuthenticate;
 
@@ -2455,6 +2465,8 @@ private:
 	void cppcbRspUserLogin(CThostFtdcRspUserLoginField *pRspUserLogin, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
 		CTPCommon::CThostFtdcRspUserLoginField  cspRspUserLogin = (CTPCommon::CThostFtdcRspUserLoginField) Marshal::PtrToStructure(IntPtr(pRspUserLogin), CTPCommon::CThostFtdcRspUserLoginField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
+		FrontID = cspRspUserLogin.FrontID;
+		SessionID = cspRspUserLogin.SessionID;
 		OnRspUserLogin(cspRspUserLogin, cspRspInfo, nRequestID, bIsLast);
 	}
 public:

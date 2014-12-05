@@ -6050,6 +6050,7 @@ namespace CTPCommon
     /// <summary>
     /// 成交
     /// </summary>
+[Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTradeField : ITFieldId
     {
