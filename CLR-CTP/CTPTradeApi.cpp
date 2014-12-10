@@ -1472,15 +1472,15 @@ private:
 		}
 
 		{
-			cppRspAuthenticate^ fp = gcnew cppRspAuthenticate(this, &TradeApiclr::cppcbRspAuthenticate);
-			GCHandle gch = GCHandle::Alloc(fp);
-			gchlist->Add(gch);
-			IntPtr ip = Marshal::GetFunctionPointerForDelegate(fp);
-			CBRspAuthenticate cb = static_cast<CBRspAuthenticate>(ip.ToPointer());
-			pUserSpi->cbRspAuthenticate = cb;
-		}
+				cppRspAuthenticate^ fp = gcnew cppRspAuthenticate(this, &TradeApiclr::cppcbRspAuthenticate);
+				GCHandle gch = GCHandle::Alloc(fp);
+				gchlist->Add(gch);
+				IntPtr ip = Marshal::GetFunctionPointerForDelegate(fp);
+				CBRspAuthenticate cb = static_cast<CBRspAuthenticate>(ip.ToPointer());
+				pUserSpi->cbRspAuthenticate = cb;
+			}
 
-
+		
 		{
 			cppRspUserLogin^ fp = gcnew cppRspUserLogin(this, &TradeApiclr::cppcbRspUserLogin);
 			GCHandle gch = GCHandle::Alloc(fp);
@@ -2453,6 +2453,7 @@ private:
 	}
 public:
 	/// <summary>
+
 	/// 
 	/// </summary>
 	event RspAuthenticate ^OnRspAuthenticate;

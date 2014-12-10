@@ -55,9 +55,10 @@ void CMdSpi::OnRspUserLogin(CThostFtdcRspUserLoginField *pRspUserLogin,
 			memset(&req, 0, sizeof(req));
 			cbOnRspUserLogin(&req, repareInfo(pRspInfo), nRequestID, bIsLast);
 		}
+		else
+			cbOnRspUserLogin(pRspUserLogin, pRspInfo, nRequestID, bIsLast);
 	}
-	else
-		cbOnRspUserLogin(pRspUserLogin, pRspInfo, nRequestID, bIsLast);
+	
 }
 
 void CMdSpi::OnRspUserLogout(CThostFtdcUserLogoutField *pUserLogout, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -70,9 +71,10 @@ void CMdSpi::OnRspUserLogout(CThostFtdcUserLogoutField *pUserLogout, CThostFtdcR
 			memset(&req, 0, sizeof(req));
 			cbOnRspUserLogout(&req, repareInfo(pRspInfo), nRequestID, bIsLast);
 		}
+		else
+			cbOnRspUserLogout(pUserLogout, pRspInfo, nRequestID, bIsLast);
 	}
-	else
-		cbOnRspUserLogout(pUserLogout, pRspInfo, nRequestID, bIsLast);
+	
 }
 
 void CMdSpi::OnRspSubMarketData(CThostFtdcSpecificInstrumentField *pSpecificInstrument, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -86,9 +88,10 @@ void CMdSpi::OnRspSubMarketData(CThostFtdcSpecificInstrumentField *pSpecificInst
 			memset(&req, 0, sizeof(req));
 			cbOnRspSubMarketData(&req, repareInfo(pRspInfo), nRequestID, bIsLast);
 		}
+		else
+			cbOnRspSubMarketData(pSpecificInstrument, pRspInfo, nRequestID, bIsLast);
 	}
-	else
-		cbOnRspSubMarketData(pSpecificInstrument, pRspInfo, nRequestID, bIsLast);
+	
 }
 
 void CMdSpi::OnRspUnSubMarketData(CThostFtdcSpecificInstrumentField *pSpecificInstrument, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -102,9 +105,10 @@ void CMdSpi::OnRspUnSubMarketData(CThostFtdcSpecificInstrumentField *pSpecificIn
 			memset(&req, 0, sizeof(req));
 			cbOnRspUnSubMarketData(&req, repareInfo(pRspInfo), nRequestID, bIsLast);
 		}
+		else
+			cbOnRspUnSubMarketData(pSpecificInstrument, pRspInfo, nRequestID, bIsLast);
 	}
-	else
-		cbOnRspUnSubMarketData(pSpecificInstrument, pRspInfo, nRequestID, bIsLast);
+	
 }
 
 void CMdSpi::OnRtnDepthMarketData(CThostFtdcDepthMarketDataField *pDepthMarketData)
@@ -118,9 +122,10 @@ void CMdSpi::OnRtnDepthMarketData(CThostFtdcDepthMarketDataField *pDepthMarketDa
 			memset(&req, 0, sizeof(req));
 			cbOnRtnDepthMarketData(&req);
 		}
+		else
+			cbOnRtnDepthMarketData(pDepthMarketData);
 	}
-	else
-		cbOnRtnDepthMarketData(pDepthMarketData);
+	
 }
 
 

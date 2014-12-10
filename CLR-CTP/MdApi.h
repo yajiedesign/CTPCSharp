@@ -93,17 +93,16 @@ public:
 
 	CThostFtdcRspInfoField* repareInfo(CThostFtdcRspInfoField *pRspInfo);
 
-private:
-	 //CThostFtdcMdApi* pUserApi;
-	 CBOnRspError cbOnRspError;
-	 CBOnHeartBeatWarning cbOnHeartBeatWarning;
 
-	 CBOnFrontConnected cbOnFrontConnected;
-	 CBOnFrontDisconnected cbOnFrontDisconnected;
-	 CBOnRspUserLogin cbOnRspUserLogin;
-	 CBOnRspUserLogout cbOnRspUserLogout;
-	 CBOnRspSubMarketData cbOnRspSubMarketData;
-	 CBOnRspUnSubMarketData cbOnRspUnSubMarketData;
-	 CBOnRtnDepthMarketData cbOnRtnDepthMarketData;
+	 //CThostFtdcMdApi* pUserApi;
+	 CBOnRspError cbOnRspError =nullptr;
+	 CBOnHeartBeatWarning cbOnHeartBeatWarning = nullptr;
+	 CBOnFrontConnected cbOnFrontConnected = nullptr;
+	 CBOnFrontDisconnected cbOnFrontDisconnected = nullptr;
+	 CBOnRspUserLogin cbOnRspUserLogin = nullptr;
+	 CBOnRspUserLogout cbOnRspUserLogout = nullptr;
+	 CBOnRspSubMarketData cbOnRspSubMarketData = nullptr;
+	 CBOnRspUnSubMarketData cbOnRspUnSubMarketData = nullptr;
+	 CBOnRtnDepthMarketData cbOnRtnDepthMarketData = nullptr;
 };
 
