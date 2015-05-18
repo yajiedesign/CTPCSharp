@@ -30,6 +30,12 @@
     <ClInclude Include="MdApi.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CmsTradeApi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="KSTradeApi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CLRCTP.cpp">
@@ -51,6 +57,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="MdSpi.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CmsCTPTradeApi.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CmsTradeSpi.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="KSTradeApi.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="KSTradeSpi.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

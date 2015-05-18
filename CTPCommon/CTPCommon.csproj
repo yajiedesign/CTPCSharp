@@ -46,6 +46,26 @@
     <Compile Include="Struct.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\api\CmsTraderApi.dll">
+      <Link>CmsTraderApi.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\api\KS\win32\ksPortalAPI.dll">
+      <Link>ksPortalAPI.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\api\KS\win32\KSTradeAPI.dll">
+      <Link>KSTradeAPI.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\api\KS\win32\lkcdll.dll">
+      <Link>lkcdll.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\api\KS\win32\SSPXEncode.dll">
+      <Link>SSPXEncode.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\api\thostmduserapi.dll">
       <Link>thostmduserapi.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

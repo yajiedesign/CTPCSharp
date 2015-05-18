@@ -7528,6 +7528,12 @@ namespace CTPCommon
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 13)]
         public string InvestorID;
 
+        /// <summary>
+        /// 币种代码
+        /// </summary>
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 4)]
+        public string CurrencyID;
+
         public ushort FieldId
         {
             get { return 1795; }
@@ -9308,6 +9314,21 @@ namespace CTPCommon
             ret.CloseAmount = input.CloseAmount;
 
             return ret;
+        }
+
+        public override int GetHashCode()
+        {
+            return TradeID.GetHashCode() ^ TradingDay.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals((CThostFtdcInvestorPositionDetailField)obj);
+        }
+
+        public bool Equals(CThostFtdcInvestorPositionDetailField obj)
+        {
+            return TradeID == obj.TradeID && TradingDay == obj.TradingDay;
         }
     }
     [StructLayout(LayoutKind.Sequential, Pack = 1)]

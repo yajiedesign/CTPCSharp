@@ -70,7 +70,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>thosttraderapi.lib;thostmduserapi.lib</AdditionalDependencies>
+      <AdditionalDependencies>thosttraderapi.lib;thostmduserapi.lib;CmsTraderApi.lib;KS\win32\KSTradeAPI.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -80,6 +80,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CLRCTP.h" />
+    <ClInclude Include="CmsTradeApi.h" />
+    <ClInclude Include="KSTradeApi.h" />
     <ClInclude Include="MdApi.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
@@ -88,8 +90,12 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CLRCTP.cpp" />
+    <ClCompile Include="CmsCTPTradeApi.cpp" />
+    <ClCompile Include="CmsTradeSpi.cpp" />
     <ClCompile Include="CTPMdApi.cpp" />
     <ClCompile Include="CTPTradeApi.cpp" />
+    <ClCompile Include="KSTradeApi.cpp" />
+    <ClCompile Include="KSTradeSpi.cpp" />
     <ClCompile Include="MdSpi.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

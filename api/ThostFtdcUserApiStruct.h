@@ -3294,6 +3294,10 @@ struct CThostFtdcInputQuoteField
 	TThostFtdcHedgeFlagType	AskHedgeFlag;
 	///买投机套保标志
 	TThostFtdcHedgeFlagType	BidHedgeFlag;
+	///衍生卖报单引用
+	TThostFtdcOrderRefType	AskOrderRef;
+	///衍生买报单引用
+	TThostFtdcOrderRefType	BidOrderRef;
 };
 
 ///输入报价操作
@@ -3410,6 +3414,10 @@ struct CThostFtdcQuoteField
 	TThostFtdcUserIDType	ActiveUserID;
 	///经纪公司报价编号
 	TThostFtdcSequenceNoType	BrokerQuoteSeq;
+	///衍生卖报单引用
+	TThostFtdcOrderRefType	AskOrderRef;
+	///衍生买报单引用
+	TThostFtdcOrderRefType	BidOrderRef;
 };
 
 ///报价操作
