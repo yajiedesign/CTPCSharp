@@ -81,6 +81,8 @@
   <ItemGroup>
     <ClInclude Include="CLRCTP.h" />
     <ClInclude Include="CmsTradeApi.h" />
+    <ClInclude Include="eventDelegate.h" />
+    <ClInclude Include="ICTPTradeApi.h" />
     <ClInclude Include="KSTradeApi.h" />
     <ClInclude Include="MdApi.h" />
     <ClInclude Include="resource.h" />
@@ -94,6 +96,7 @@
     <ClCompile Include="CmsTradeSpi.cpp" />
     <ClCompile Include="CTPMdApi.cpp" />
     <ClCompile Include="CTPTradeApi.cpp" />
+    <ClCompile Include="ICTPTradeApi.cpp" />
     <ClCompile Include="KSTradeApi.cpp" />
     <ClCompile Include="KSTradeSpi.cpp" />
     <ClCompile Include="MdSpi.cpp" />
