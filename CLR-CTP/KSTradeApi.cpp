@@ -1,9 +1,13 @@
 #include "stdafx.h"
 #include "KSTradeApi.h"
-#include "eventDelegate.h"
 #include "ICTPTradeApi.h"
 #include <string>
 
+
+namespace CTPTradeApi
+{
+#include "../api/ThostFtdcTraderApi.h"
+}
 
 using namespace System;
 using namespace System::Runtime::InteropServices;
@@ -2128,7 +2132,62 @@ namespace CTPCLR
 		delegate void cppRspQryInvestorPositionDetail(CThostFtdcInvestorPositionDetailField *pInvestorPositionDetail, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 		void cppcbRspQryInvestorPositionDetail(CThostFtdcInvestorPositionDetailField *pInvestorPositionDetail, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 		{
-			CTPCommon::CThostFtdcInvestorPositionDetailField  cspInvestorPositionDetail = (CTPCommon::CThostFtdcInvestorPositionDetailField) Marshal::PtrToStructure(IntPtr(pInvestorPositionDetail), CTPCommon::CThostFtdcInvestorPositionDetailField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
+
+			CTPTradeApi::CThostFtdcInvestorPositionDetailField field;
+
+			memcpy(field.InstrumentID, pInvestorPositionDetail->InstrumentID, sizeof(field.InstrumentID));
+
+			memcpy(field.BrokerID, pInvestorPositionDetail->BrokerID, sizeof(field.BrokerID));
+
+			memcpy(field.InvestorID, pInvestorPositionDetail->InvestorID, sizeof(field.InvestorID));
+
+			memcpy(&field.HedgeFlag, &pInvestorPositionDetail->HedgeFlag, sizeof(field.HedgeFlag));
+
+			memcpy(&field.Direction, &pInvestorPositionDetail->Direction, sizeof(field.Direction));
+
+			memcpy(field.OpenDate, pInvestorPositionDetail->OpenDate, sizeof(field.OpenDate));
+
+			memcpy(field.TradeID, pInvestorPositionDetail->TradeID, sizeof(field.TradeID));
+
+			memcpy(&field.Volume, &pInvestorPositionDetail->Volume, sizeof(field.Volume));
+
+			memcpy(&field.OpenPrice, &pInvestorPositionDetail->OpenPrice, sizeof(field.OpenPrice));
+
+			memcpy(field.TradingDay, pInvestorPositionDetail->TradingDay, sizeof(field.TradingDay));
+
+			memcpy(&field.SettlementID,&pInvestorPositionDetail->SettlementID, sizeof(field.SettlementID));
+
+			memcpy(&field.TradeType, &pInvestorPositionDetail->TradeType, sizeof(field.TradeType));
+
+			memcpy(field.CombInstrumentID, pInvestorPositionDetail->CombInstrumentID, sizeof(field.CombInstrumentID));
+
+			memcpy(field.ExchangeID, pInvestorPositionDetail->ExchangeID, sizeof(field.ExchangeID));
+
+			memcpy(&field.CloseProfitByDate, &pInvestorPositionDetail->CloseProfitByDate, sizeof(field.CloseProfitByDate));
+
+			memcpy(&field.CloseProfitByTrade, &pInvestorPositionDetail->CloseProfitByTrade, sizeof(field.CloseProfitByTrade));
+
+			memcpy(&field.PositionProfitByDate, &pInvestorPositionDetail->PositionProfitByDate, sizeof(field.PositionProfitByDate));
+
+			memcpy(&field.PositionProfitByTrade, &pInvestorPositionDetail->PositionProfitByTrade, sizeof(field.PositionProfitByTrade));
+
+			memcpy(&field.Margin, &pInvestorPositionDetail->Margin, sizeof(field.Margin));
+
+			memcpy(&field.ExchMargin, &pInvestorPositionDetail->ExchMargin, sizeof(field.ExchMargin));
+
+			memcpy(&field.MarginRateByMoney, &pInvestorPositionDetail->MarginRateByMoney, sizeof(field.MarginRateByMoney));
+
+			memcpy(&field.MarginRateByVolume, &pInvestorPositionDetail->MarginRateByVolume, sizeof(field.MarginRateByVolume));
+
+			memcpy(&field.LastSettlementPrice, &pInvestorPositionDetail->LastSettlementPrice, sizeof(field.LastSettlementPrice));
+
+			memcpy(&field.SettlementPrice, &pInvestorPositionDetail->SettlementPrice, sizeof(field.SettlementPrice));
+
+			memcpy(&field.CloseVolume, &pInvestorPositionDetail->CloseVolume, sizeof(field.CloseVolume));
+
+			memcpy(&field.CloseAmount, &pInvestorPositionDetail->CloseAmount, sizeof(field.CloseAmount));
+
+			CTPCommon::CThostFtdcInvestorPositionDetailField  cspInvestorPositionDetail = (CTPCommon::CThostFtdcInvestorPositionDetailField) Marshal::PtrToStructure(IntPtr(&field), CTPCommon::CThostFtdcInvestorPositionDetailField::typeid); CTPCommon::CThostFtdcRspInfoField  cspRspInfo = (CTPCommon::CThostFtdcRspInfoField) Marshal::PtrToStructure(IntPtr(pRspInfo), CTPCommon::CThostFtdcRspInfoField::typeid);
 			OnRspQryInvestorPositionDetail(cspInvestorPositionDetail, cspRspInfo, nRequestID, bIsLast);
 		}
 	public:
