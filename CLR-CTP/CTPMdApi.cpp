@@ -33,18 +33,18 @@ namespace CTPCLR
 
 
 		MdApiclr(System::String ^_investor, System::String ^_pwd, System::String ^_broker,
-			System::String ^_addr, System::String ^_FlowPath)
+			System::Collections::Generic::List<	System::String^> ^_addrs, System::String ^_FlowPath)
 		{
-			FrontAddr = _addr;
-
+			//FrontAddr = _addr;
 			pUserSpi = new CMdSpi();
 			// 初始化UserApi
 			pUserApi = CThostFtdcMdApi::CreateFtdcMdApi(MarshalString(_FlowPath).c_str());		// 创建UserApi
-
 			EventInit();
-
 			pUserApi->RegisterSpi(pUserSpi);						// 注册事件类
-			pUserApi->RegisterFront((char*)MarshalString(FrontAddr).c_str());					// connect
+			for each (System::String^ add in _addrs)
+			{
+				pUserApi->RegisterFront((char*)MarshalString(add).c_str());
+			}
 			pUserApi->Init();
 		}
 
