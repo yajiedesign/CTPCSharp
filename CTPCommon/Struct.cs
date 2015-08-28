@@ -9318,7 +9318,15 @@ namespace CTPCommon
 
         public override int GetHashCode()
         {
-            return TradeID.GetHashCode() ^ TradingDay.GetHashCode();
+            try
+            {
+                return TradeID.GetHashCode() ^ TradingDay.GetHashCode();
+            }
+            catch
+            {
+               
+            }
+            return 0;
         }
 
         public override bool Equals(object obj)
