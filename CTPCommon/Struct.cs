@@ -9320,7 +9320,17 @@ namespace CTPCommon
         {
             try
             {
-                return TradeID.GetHashCode() ^ TradingDay.GetHashCode();
+                int h1 = 0;
+                if (TradeID != null)
+                {
+                    h1 = TradeID.GetHashCode();
+                }
+                int h2 = 0;
+                if (TradingDay != null)
+                {
+                    h2 = TradingDay.GetHashCode();
+                }
+                return h1 ^ h2;
             }
             catch
             {
