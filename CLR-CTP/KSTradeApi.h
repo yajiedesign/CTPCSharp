@@ -1,3 +1,4 @@
+#pragma once
 #include "../api/KS/Inc/KSTradeAPI.h"
 
 #define WINAPI      __stdcall
