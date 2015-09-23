@@ -19,16 +19,18 @@ namespace KingstarAPI
 	{
 		KS_COS_API = 0,
 		KS_OPT_API,
-		KS_VOC_API
+		KS_VOC_API,
+		KS_VOC_MDAPI,
+		KS_PRD_API
 	};
 
 	/////////////////////////////////////////////////////////////////////////
 	///TKSConditionalTypeType是一个条件类型
 	/////////////////////////////////////////////////////////////////////////
 	///大于等于条件价
-	#define KSCOS_GreaterEqualTermPrice '0'
+#define KSCOS_GreaterEqualTermPrice '0'
 	///小于等于条件价
-	#define KSCOS_LesserThanTermPrice '1'
+#define KSCOS_LesserThanTermPrice '1'
 
 	typedef char TKSConditionalTypeType;
 
@@ -36,13 +38,13 @@ namespace KingstarAPI
 	///TKSConditionalOrderType是一个条件单类型
 	/////////////////////////////////////////////////////////////////////////
 	///行情触发
-	#define KSCOS_TRIGGERTYPE_QUOTATION '0'
+#define KSCOS_TRIGGERTYPE_QUOTATION '0'
 	///开盘触发
-	#define KSCOS_TRIGGERTYPE_OPEN '1'
+#define KSCOS_TRIGGERTYPE_OPEN '1'
 	///时间触发
-	#define KSCOS_TRIGGERTYPE_TIME '2'
+#define KSCOS_TRIGGERTYPE_TIME '2'
 	///行情和时间触发
-	#define KSCOS_TRIGGERTYPE_QUOTAIONANDTIME '5' 
+#define KSCOS_TRIGGERTYPE_QUOTAIONANDTIME '5' 
 
 	typedef char TKSConditionalOrderType;
 
@@ -50,9 +52,9 @@ namespace KingstarAPI
 	///TKSConditionalOrderStateAlterType是一个暂停或激活操作标志类型
 	/////////////////////////////////////////////////////////////////////////
 	///暂停
-	#define KSCOS_State_PAUSE '0'
+#define KSCOS_State_PAUSE '0'
 	///激活
-	#define KSCOS_State_ACTIVE '1'
+#define KSCOS_State_ACTIVE '1'
 
 	typedef char TKSConditionalOrderStateAlterType;
 
@@ -60,11 +62,11 @@ namespace KingstarAPI
 	///TKSConditionalOrderSelectResultType是一个选择结果类型
 	/////////////////////////////////////////////////////////////////////////
 	// 重试
-	#define KSCOS_Select_AGAIN '0'
+#define KSCOS_Select_AGAIN '0'
 	// 跳过
-	#define KSCOS_Select_SKIP '1'
+#define KSCOS_Select_SKIP '1'
 	// 终止
-	#define KSCOS_Select_ABORT '2'
+#define KSCOS_Select_ABORT '2'
 
 	typedef char TKSConditionalOrderSelectResultType;
 
@@ -72,11 +74,11 @@ namespace KingstarAPI
 	///TKSOrderPriceTypeType是一个报单价格类型类型
 	/////////////////////////////////////////////////////////////////////////
 	// 最新价
-	#define KSCOS_OrderPrice_LastPrice '0'
+#define KSCOS_OrderPrice_LastPrice '0'
 	// 买价
-	#define KSCOS_OrderPrice_BidPrice '1'
+#define KSCOS_OrderPrice_BidPrice '1'
 	//卖价
-	#define KSCOS_OrderPrice_AskPrice '2'
+#define KSCOS_OrderPrice_AskPrice '2'
 
 	typedef char TKSOrderPriceTypeType;
 
@@ -84,11 +86,11 @@ namespace KingstarAPI
 	///TKSCloseModeType是一个平仓价格类型
 	/////////////////////////////////////////////////////////////////////////
 	// 市价
-	#define KSPL_Close_MarketPrice '0'
+#define KSPL_Close_MarketPrice '0'
 	// 加减买卖价
-	#define KSPL_Close_SalePrice '1'
+#define KSPL_Close_SalePrice '1'
 	//加减最新价
-	#define KSPL_Close_LastPrice '2'
+#define KSPL_Close_LastPrice '2'
 
 	typedef char TKSCloseModeType;
 
@@ -96,9 +98,9 @@ namespace KingstarAPI
 	///TKSOffsetValueType是一个生成止损止盈价的方式类型
 	/////////////////////////////////////////////////////////////////////////
 	// 指定值
-	#define KSPL_OffsetValue_TermPrice '0'
+#define KSPL_OffsetValue_TermPrice '0'
 	// 开仓成交价的相对偏移值
-	#define KSPL_OffsetValue_TradePrice '1'
+#define KSPL_OffsetValue_TradePrice '1'
 
 	typedef char TKSOffsetValueType;
 
@@ -106,9 +108,9 @@ namespace KingstarAPI
 	///TKSSpringTypeType是一个报单价格条件类型
 	/////////////////////////////////////////////////////////////////////////
 	///最新价
-	#define KSPL_SPRING_LastPrice '0'
+#define KSPL_SPRING_LastPrice '0'
 	///买卖价
-	#define KSPL_SPRING_SalePrice '1'
+#define KSPL_SPRING_SalePrice '1'
 
 	typedef char TKSSpringTypeType;
 
@@ -116,23 +118,23 @@ namespace KingstarAPI
 	///TKSConditionalOrderStatusType是一个条件单状态类型
 	/////////////////////////////////////////////////////////////////////////
 	// 暂停
-	#define KSCOS_OrderStatus_PAUSENOTOUCHED      '0'
+#define KSCOS_OrderStatus_PAUSENOTOUCHED      '0'
 	// 未触发
-	#define KSCOS_OrderStatus_ACTIVENOTOUCHED    '1'
+#define KSCOS_OrderStatus_ACTIVENOTOUCHED    '1'
 	//删除
-	#define KSCOS_OrderStatus_Deleted                     '2'
+#define KSCOS_OrderStatus_Deleted                     '2'
 	//已触发未发送
-	#define KSCOS_OrderStatus_TOUCHEDNOSEND   '3'
+#define KSCOS_OrderStatus_TOUCHEDNOSEND   '3'
 	// 发送超时
-	#define KSCOS_OrderStatus_SENDTIMEOUT   '4'
+#define KSCOS_OrderStatus_SENDTIMEOUT   '4'
 	//发送成功
-	#define KSCOS_OrderStatus_SENDSUCCESS   '5'
+#define KSCOS_OrderStatus_SENDSUCCESS   '5'
 	// 等待选择
-	#define KSCOS_OrderStatus_WAITSELECT   '6'
+#define KSCOS_OrderStatus_WAITSELECT   '6'
 	// 选择跳过
-	#define KSCOS_OrderStatus_SELECTSKIP   '7'
+#define KSCOS_OrderStatus_SELECTSKIP   '7'
 	// 选择终止
-	#define KSCOS_OrderStatus_SELECTABORT   '8'
+#define KSCOS_OrderStatus_SELECTABORT   '8'
 
 	typedef char TKSConditionalOrderStatusType;
 
@@ -150,9 +152,9 @@ namespace KingstarAPI
 	///TKSConditionalOrderSelectTypeType是一个条件单选择方式类型
 	/////////////////////////////////////////////////////////////////////////
 	// 确认、取消 
-	#define KSCOS_Select_ConfirmORCancel '1'
+#define KSCOS_Select_ConfirmORCancel '1'
 	// 重试、跳过、终止 
-	#define KS_Select_AgainOrSkipOrAbort '2'
+#define KS_Select_AgainOrSkipOrAbort '2'
 
 	typedef char TKSConditionalOrderSelectTypeType;
 
@@ -164,11 +166,11 @@ namespace KingstarAPI
 	///TKSCloseStrategyType是一个平仓策略类型
 	/////////////////////////////////////////////////////////////////////////
 	///先开先平，先普通后组合
-	#define KSVOC_OpenFCloseF_OrdiComb '1'
+#define KSVOC_OpenFCloseF_OrdiComb '1'
 	///先普通后组合，先开先平
-	#define KSVOC_OrdiComb_OpenFCloseF '2'
+#define KSVOC_OrdiComb_OpenFCloseF '2'
 	///开仓日期倒序(后开日期的持仓先平，最先平今仓)
-	#define KSVOC_TodayF_TIME '3'
+#define KSVOC_TodayF_TIME '3'
 
 	typedef char TKSCloseStrategyType;
 
@@ -181,23 +183,23 @@ namespace KingstarAPI
 	///TKSCombTypeType是一个组合类型类型
 	/////////////////////////////////////////////////////////////////////////
 	///套利
-	#define KSVOC_CombType_Arbitrage '0'
+#define KSVOC_CombType_Arbitrage '0'
 	///互换
-	#define KSVOC_CombType_Swap '1'
+#define KSVOC_CombType_Swap '1'
 
 	typedef char TKSCombTypeType;
 
 	/////////////////////////////////////////////////////////////////////////
-	///TKSCalcFlagType是一个执行价类型
+	///TKSStrikePriceType是一个执行价类型
 	/////////////////////////////////////////////////////////////////////////
 	// 执行价规则本腿低对腿高
-	#define KSVOC_StrikePrice_Low 'L'
+#define KSVOC_StrikePrice_Low 'L'
 	// 执行价规则本腿高对腿低
-	#define KSVOC_StrikePrice_High 'H'
+#define KSVOC_StrikePrice_High 'H'
 	// 执行价规则两腿相同
-	#define KSVOC_StrikePrice_Minus 'E'
+#define KSVOC_StrikePrice_Minus 'E'
 	// 不校验价格关系
-	#define KSVOC_StrikePrice_Plus 'N'
+#define KSVOC_StrikePrice_Plus 'N'
 
 	typedef char TKSStrikePriceType;
 
@@ -205,9 +207,9 @@ namespace KingstarAPI
 	///TKSCalcFlagType是一个计算符号类型
 	/////////////////////////////////////////////////////////////////////////
 	// 加
-	#define KSVOC_CalcFlag_Plus '1'
+#define KSVOC_CalcFlag_Plus '1'
 	// 减
-	#define KSVOC_CalcFlag_Minus '2'
+#define KSVOC_CalcFlag_Minus '2'
 
 	typedef char TKSCalcFlagType;
 
@@ -225,15 +227,15 @@ namespace KingstarAPI
 	///TKSInfoTypeType是一个信息类型类型
 	/////////////////////////////////////////////////////////////////////////
 	// 普通
-	#define KSVOC_InfoType_Common '1'
+#define KSVOC_InfoType_Common '1'
 	// 警告
-	#define KSVOC_InfoType_Warn '2'
+#define KSVOC_InfoType_Warn '2'
 	// 危险
-	#define KSVOC_InfoType_Risk '3'
+#define KSVOC_InfoType_Risk '3'
 	// 滚动
-	#define KSVOC_InfoType_Roll '4'
+#define KSVOC_InfoType_Roll '4'
 	// 强制确认类
-	#define KSVOC_InfoType_Force '5'
+#define KSVOC_InfoType_Force '5'
 
 	typedef char TKSInfoTypeType;
 
@@ -241,9 +243,9 @@ namespace KingstarAPI
 	///TKSConfirmFlagType是一个确认标志类型
 	/////////////////////////////////////////////////////////////////////////
 	// 未确认
-	#define KSVOC_ConfirmFlag_UnConfirm '0'
+#define KSVOC_ConfirmFlag_UnConfirm '0'
 	// 已确认
-	#define KSVOC_ConfirmFlag_Confirmed '1'
+#define KSVOC_ConfirmFlag_Confirmed '1'
 
 	typedef char TKSConfirmFlagType;
 
@@ -256,9 +258,9 @@ namespace KingstarAPI
 	///TKSProtectFlagType是一个保护性标志类型
 	/////////////////////////////////////////////////////////////////////////
 	// 保护
-	#define KSVOC_PF_True 'T'
+#define KSVOC_PF_True 'T'
 	// 非保护
-	#define KSVOC_PF_Flase 'F'
+#define KSVOC_PF_Flase 'F'
 
 	typedef char TKSProtectFlagType;
 
@@ -266,9 +268,9 @@ namespace KingstarAPI
 	///TKSControlRangeType是一个控制范围类型
 	/////////////////////////////////////////////////////////////////////////
 	// 品种
-	#define KSVOC_CR_Product '0'
+#define KSVOC_CR_Product '0'
 	// 所有
-	#define KSVOC_CR_ALL  '1'
+#define KSVOC_CR_ALL  '1'
 
 	typedef char TKSControlRangeType;
 
@@ -276,11 +278,11 @@ namespace KingstarAPI
 	///TKSTradeLevelType是一个交易级别类型
 	/////////////////////////////////////////////////////////////////////////
 	// 一级
-	#define KSVOC_TL_Level1 '1'
+#define KSVOC_TL_Level1 '1'
 	// 二级
-	#define KSVOC_TL_Level2  '2'
+#define KSVOC_TL_Level2  '2'
 	// 三级
-	#define KSVOC_TL_Level3  '3'
+#define KSVOC_TL_Level3  '3'
 
 	typedef char TKSTradeLevelType;
 
@@ -288,9 +290,9 @@ namespace KingstarAPI
 	///TKSSOPosiDirectionType是一个个股持仓方向类型
 	/////////////////////////////////////////////////////////////////////////
 	// 权利仓
-	#define KSVOC_SOPD_Buy '1'
+#define KSVOC_SOPD_Buy '1'
 	// 义务仓
-	#define KSVOC_SOPD_Sell  '2'
+#define KSVOC_SOPD_Sell  '2'
 
 	typedef char TKSSOPosiDirectionType;
 
@@ -298,13 +300,64 @@ namespace KingstarAPI
 	///TKSSODelivModeType是一个个股交收查询类型
 	/////////////////////////////////////////////////////////////////////////
 	// 行权标的净额交收
-	#define KSVOC_SODM_Product '1'
+#define KSVOC_SODM_Product '1'
 	// 行权现金结算交收明细
-	#define KSVOC_SODM_Cash  '2'
+#define KSVOC_SODM_Cash  '2'
 	// 行权违约处置扣券及返还
-	#define KSVOC_SODM_Dispos  '3'
+#define KSVOC_SODM_Dispos  '3'
 
 	typedef char TKSSODelivModeType;
+
+	/////////////////////////////////////////////////////////////////////////
+	///TKSCombActionType是一个强拆标记类型
+	/////////////////////////////////////////////////////////////////////////
+	///非强拆
+#define KSVOC_CAT_False '0'
+	///强拆
+#define KSVOC_CAT_True '1'
+
+	typedef char TKSCombActionType;
+
+	/////////////////////////////////////////////////////////////////////////
+	///TKSCombStrategyIDType是一个个股组合策略代码类型
+	/////////////////////////////////////////////////////////////////////////
+	typedef char TKSCombStrategyIDType[9];
+
+	/////////////////////////////////////////////////////////////////////////
+	///TKSProfitAndLossFlagType是一个止损止盈标志类型
+	/////////////////////////////////////////////////////////////////////////
+	// 非止损非止盈
+#define KSCOS_PLF_NotProfitNotLoss '0'
+	// 止损 
+#define KSCOS_PLF_Loss '1'
+	// 止盈 
+#define KSCOS_PLF_Profit '2'
+	// 止损止盈
+#define KSCOS_PLF_ProfitAndLoss '3'
+
+	typedef char TKSProfitAndLossFlagType;
+
+	/////////////////////////////////////////////////////////////////////////
+	///TKSFOCreditApplyType是一个当日出金额度操作类型
+	/////////////////////////////////////////////////////////////////////////
+	///申请
+#define KSVOC_FOCAT_Confirm '0'
+	///取消申请
+#define KSVOC_FOCAT_NoConfirm '1'
+
+	typedef char TKSFOCreditApplyType;
+
+	/////////////////////////////////////////////////////////////////////////
+	///TKSFOCreditStatusType是一个当日出金额度处理状态类型
+	/////////////////////////////////////////////////////////////////////////
+	///待审核
+#define KSVOC_FOCST_SENDING '0'
+	///已通过
+#define KSVOC_FOCST_ACCEPTED '1'
+	///已否决
+#define KSVOC_FOCST_REJECT '2'
+
+	typedef char TKSFOCreditStatusType;
 
 }	// end of namespace KingstarAPI
 #endif

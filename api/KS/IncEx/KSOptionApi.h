@@ -71,6 +71,17 @@ namespace KingstarAPI
 		///自动行权执行操作响应
 		virtual void OnRspAutoExecOrderAction(CKSAutoExecOrderActionField *pAutoExecOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
+		///申请个股组合录入请求响应
+		virtual void OnRspCombActionInsert(CKSInputCombActionField *pInputCombAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
+
+		///查询个股组合持仓明细应答
+		virtual void OnRspQryInvestorCombinePosition(CKSInvestorPositionCombineDetailField *pInvestorPositionCombineDetail, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
+
+		///个股可组合可拆分手数请求响应
+		virtual void OnRspQryCombActionVolume(CKSCombActionVolumeField *pCombActionVolume, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
+
+		///个股组合拆分委托通知
+		virtual void OnRtnCombAction(CKSCombActionField *pCombAction) {};
 	};
 
 	class TRADER_OPTIONAPI_EXPORT CKSOptionApi
@@ -111,6 +122,15 @@ namespace KingstarAPI
 
 		///自动行权执行操作
 		virtual int ReqAutoExecOrderAction(CKSAutoExecOrderActionField *pAutoExecOrderAction, int nRequestID) = 0;
+
+		///个股组合拆分委托请求
+		virtual int ReqCombActionInsert(CKSInputCombActionField *pInputCombAction, int nRequestID) = 0;
+
+		///查询个股组合持仓明细
+		virtual int ReqQryInvestorCombinePosition(CKSQryInvestorPositionCombineDetailField *pQryInvestorCombinePosition, int nRequestID) = 0;
+
+		///查询个股可组合可拆分手数请求
+		virtual int ReqQryCombActionVolume(CKSQryCombActionVolumeField *pQryCombActionVolume, int nRequestID) = 0;
 
 	protected:
 		~CKSOptionApi(){};

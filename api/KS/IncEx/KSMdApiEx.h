@@ -13,6 +13,7 @@
 #endif // _MSC_VER > 1000
 
 #include "KSUserApiStructEx.h"
+#include "KSVocApiDataType.h"
 
 #if defined(ISLIB) && defined(WIN32)&& !defined(KSMDAPI_STATIC_LIB)
 #ifdef LIB_MD_API_EXPORT
@@ -157,9 +158,12 @@ namespace KingstarAPI
 		///用户登录请求
 		virtual int ReqUserLogin(CThostFtdcReqUserLoginField *pReqUserLoginField, int nRequestID) = 0;
 
-
 		///登出请求
 		virtual int ReqUserLogout(CThostFtdcUserLogoutField *pUserLogout, int nRequestID) = 0;
+
+		///加载扩展API实例
+		virtual void * LoadExtMdApi(void *pSpi, KS_EXTAPI_TYPE nExtApiType) = 0;  
+
 	protected:
 		~CThostFtdcMdApi(){};
 	};

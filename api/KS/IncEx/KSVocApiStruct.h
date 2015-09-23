@@ -253,6 +253,10 @@ namespace KingstarAPI
 		TThostFtdcVolumeType TriggeredTimes;
 		///货币代码
 		TThostFtdcCurrencyIDType    CurrencyID;
+		///合约代码
+		TThostFtdcInstrumentIDType	InstrumentID;
+		///止损止盈标志
+		TKSProfitAndLossFlagType	ProfitAndLossFlag;
 	};
 
 	///删除止损止盈单
@@ -314,6 +318,8 @@ namespace KingstarAPI
 		TThostFtdcPriceType	FloatLimitPrice;
 		///触发次数
 		TThostFtdcVolumeType TriggeredTimes;
+		///止损止盈标志
+		TKSProfitAndLossFlagType	ProfitAndLossFlag;
 	};
 
 	///止损止盈单删除
@@ -388,6 +394,8 @@ namespace KingstarAPI
 		TThostFtdcPriceType	FloatLimitPrice;
 		///开仓成交价格
 		TThostFtdcPriceType OpenTradePrice;
+		///止损止盈标志
+		TKSProfitAndLossFlagType	ProfitAndLossFlag;
 	};
 
 	// 条件单请求选择信息
@@ -1406,5 +1414,388 @@ namespace KingstarAPI
 		TThostFtdcFunctionNameType	FunctionName;
 	};
 
+	///订制主数据业务
+	struct CKSSubPrimeDataBusinessField
+	{
+		///经纪公司代码
+		TThostFtdcBrokerIDType	BrokerID;
+		///用户代码
+		TThostFtdcUserIDType	UserID;
+		///用户端产品信息
+		TThostFtdcProductInfoType	UserProductInfo;
+	};
+
+	///主数据业务
+	struct CKSPrimeDataBusinessField
+	{
+		///存储过程名称
+		TThostFtdcProcessNameType ProcessName;
+		///加密方式
+		TThostFtdcFBTEncryModeType EncryMode;
+		///密钥
+		TThostFtdcPasswordKeyType PasswordKey;
+		///数据归档状态
+		TThostFtdcSaveStatusType SaveStatus;
+	};
+
+	///指定的合约
+	struct CKSSpecificInstrumentField
+	{
+		///合约代码
+		TThostFtdcInstrumentIDType	InstrumentID;
+		///交易所代码
+		TThostFtdcExchangeIDType	ExchangeID;
+	};
+
+	///查询合约保证金率
+	struct CKSQryInstrumentMarginRateField
+	{
+		///经纪公司代码
+		TThostFtdcBrokerIDType	BrokerID;
+		///投资者代码
+		TThostFtdcInvestorIDType	InvestorID;
+		///合约代码
+		TThostFtdcInstrumentIDType	InstrumentID;
+		///投机套保标志
+		TThostFtdcHedgeFlagType	HedgeFlag;
+		///交易所代码
+		TThostFtdcExchangeIDType	ExchangeID;
+	};
+
+	///合约保证金率
+	struct CKSInstrumentMarginRateField
+	{
+		///合约代码
+		TThostFtdcInstrumentIDType	InstrumentID;
+		///投资者范围
+		TThostFtdcInvestorRangeType	InvestorRange;
+		///经纪公司代码
+		TThostFtdcBrokerIDType	BrokerID;
+		///投资者代码
+		TThostFtdcInvestorIDType	InvestorID;
+		///投机套保标志
+		TThostFtdcHedgeFlagType	HedgeFlag;
+		///多头保证金率
+		TThostFtdcRatioType	LongMarginRatioByMoney;
+		///多头保证金费
+		TThostFtdcMoneyType	LongMarginRatioByVolume;
+		///空头保证金率
+		TThostFtdcRatioType	ShortMarginRatioByMoney;
+		///空头保证金费
+		TThostFtdcMoneyType	ShortMarginRatioByVolume;
+		///是否相对交易所收取
+		TThostFtdcBoolType	IsRelative;
+		///交易所代码
+		TThostFtdcExchangeIDType	ExchangeID;
+	};
+
+	///输入的个股组合拆分
+	struct CKSInputCombActionField
+	{
+		///经纪公司代码
+		TThostFtdcBrokerIDType	BrokerID;
+		///投资者代码
+		TThostFtdcInvestorIDType	InvestorID;
+		///策略代码
+		TKSCombStrategyIDType	StrategyID;
+		///合约代码1
+		TThostFtdcInstrumentIDType	InstrumentID1;
+		///合约代码2
+		TThostFtdcInstrumentIDType	InstrumentID2;
+		///合约代码3
+		TThostFtdcInstrumentIDType	InstrumentID3;
+		///合约代码4
+		TThostFtdcInstrumentIDType	InstrumentID4;
+		///组合引用
+		TThostFtdcOrderRefType	CombActionRef;
+		///用户代码
+		TThostFtdcUserIDType	UserID;
+		///买卖方向1
+		TThostFtdcDirectionType	Direction1;
+		///买卖方向2
+		TThostFtdcDirectionType	Direction2;
+		///买卖方向3
+		TThostFtdcDirectionType	Direction3;
+		///买卖方向4
+		TThostFtdcDirectionType	Direction4;
+		///强拆标记
+		TKSCombActionType  CombActionFlag;
+		///数量
+		TThostFtdcVolumeType	Volume;
+		///组合拆分标记
+		TThostFtdcCombDirectionType	CombDirection;
+		///投机套保标志
+		TThostFtdcHedgeFlagType	HedgeFlag;
+		///交易所代码
+		TThostFtdcExchangeIDType	ExchangeID;
+		///交易所组合编号
+		TThostFtdcTradeIDType	ComTradeID;
+	};
+
+	///个股组合拆分
+	struct CKSCombActionField
+	{
+		///经纪公司代码
+		TThostFtdcBrokerIDType	BrokerID;
+		///投资者代码
+		TThostFtdcInvestorIDType	InvestorID;
+		///完整合约代码
+		TThostFtdcInstrumentIDType	InstrumentID;
+		///策略代码
+		TKSCombStrategyIDType	StrategyID;
+		///合约代码1
+		TThostFtdcInstrumentIDType	InstrumentID1;
+		///合约代码2
+		TThostFtdcInstrumentIDType	InstrumentID2;
+		///合约代码3
+		TThostFtdcInstrumentIDType	InstrumentID3;
+		///合约代码4
+		TThostFtdcInstrumentIDType	InstrumentID4;
+		///组合引用
+		TThostFtdcOrderRefType	CombActionRef;
+		///用户代码
+		TThostFtdcUserIDType	UserID;
+		///买卖方向1
+		TThostFtdcDirectionType	Direction1;
+		///买卖方向2
+		TThostFtdcDirectionType	Direction2;
+		///买卖方向3
+		TThostFtdcDirectionType	Direction3;
+		///买卖方向4
+		TThostFtdcDirectionType	Direction4;
+		///强拆标记
+		TKSCombActionType  CombActionFlag;
+		///数量
+		TThostFtdcVolumeType	Volume;
+		///组合拆分标记
+		TThostFtdcCombDirectionType	CombDirection;
+		///投机套保标志
+		TThostFtdcHedgeFlagType	HedgeFlag;
+		///本地申请组合编号
+		TThostFtdcOrderLocalIDType	ActionLocalID;
+		///交易所代码
+		TThostFtdcExchangeIDType	ExchangeID;
+		///会员代码
+		TThostFtdcParticipantIDType	ParticipantID;
+		///客户代码
+		TThostFtdcClientIDType	ClientID;
+		///合约在交易所的代码
+		TThostFtdcExchangeInstIDType	ExchangeInstID;
+		///交易所交易员代码
+		TThostFtdcTraderIDType	TraderID;
+		///安装编号
+		TThostFtdcInstallIDType	InstallID;
+		///组合状态
+		TThostFtdcOrderActionStatusType	ActionStatus;
+		///报单提示序号
+		TThostFtdcSequenceNoType	NotifySequence;
+		///交易日
+		TThostFtdcDateType	TradingDay;
+		///结算编号
+		TThostFtdcSettlementIDType	SettlementID;
+		///序号
+		TThostFtdcSequenceNoType	SequenceNo;
+		///前置编号
+		TThostFtdcFrontIDType	FrontID;
+		///会话编号
+		TThostFtdcSessionIDType	SessionID;
+		///用户端产品信息
+		TThostFtdcProductInfoType	UserProductInfo;
+		///状态信息
+		TThostFtdcErrorMsgType	StatusMsg;
+		///交易所组合编号
+		TThostFtdcTradeIDType	ComTradeID;
+		///报单来源
+		TThostFtdcOrderSourceType	OrderSource;
+	};
+
+	///查询个股组合持仓明细
+	struct CKSQryInvestorPositionCombineDetailField
+	{
+		///经纪公司代码
+		TThostFtdcBrokerIDType	BrokerID;
+		///投资者代码
+		TThostFtdcInvestorIDType	InvestorID;
+		///交易所代码
+		TThostFtdcExchangeIDType	ExchangeID;
+		///产品代码
+		TThostFtdcInstrumentIDType	ProductID;
+		///交易所组合编号
+		TThostFtdcTradeIDType	ComTradeID;
+	};
+
+	///个股组合持仓明细
+	struct CKSInvestorPositionCombineDetailField
+	{
+		///经纪公司代码
+		TThostFtdcBrokerIDType	BrokerID;
+		///投资者代码
+		TThostFtdcInvestorIDType	InvestorID;
+		///交易所代码
+		TThostFtdcExchangeIDType	ExchangeID;
+		///交易编码
+		TThostFtdcClientIDType	ClientID;
+		///组合编号
+		TThostFtdcTradeIDType	ComTradeID;
+		///策略代码
+		TKSCombStrategyIDType	StrategyID;
+		///合约代码1
+		TThostFtdcInstrumentIDType	InstrumentID1;
+		///合约代码2
+		TThostFtdcInstrumentIDType	InstrumentID2;
+		///合约代码3
+		TThostFtdcInstrumentIDType	InstrumentID3;
+		///合约代码4
+		TThostFtdcInstrumentIDType	InstrumentID4;
+		///占用保证金
+		TThostFtdcMoneyType	Margin;
+		///距离自动拆分日天数
+		TThostFtdcVolumeType	CombActionVolume;
+		///投保标记
+		TThostFtdcHedgeFlagType	HedgeFlag;
+		///持仓量
+		TThostFtdcVolumeType	TotalAmt;
+		///买卖方向1
+		TThostFtdcDirectionType	Direction1;
+		///买卖方向2
+		TThostFtdcDirectionType	Direction2;
+		///买卖方向3
+		TThostFtdcDirectionType	Direction3;
+		///买卖方向4
+		TThostFtdcDirectionType	Direction4;
+		///组合买卖方向
+		TThostFtdcDirectionType	CombDirection;
+	};
+
+	///个股可组合可拆分手数查询请求
+	struct CKSQryCombActionVolumeField
+	{
+		///经纪公司代码
+		TThostFtdcBrokerIDType	BrokerID;
+		///投资者代码
+		TThostFtdcInvestorIDType	InvestorID;
+		///交易所代码
+		TThostFtdcExchangeIDType	ExchangeID;
+		///策略代码
+		TKSCombStrategyIDType	StrategyID;
+		///合约代码1
+		TThostFtdcInstrumentIDType	InstrumentID1;
+		///合约代码2
+		TThostFtdcInstrumentIDType	InstrumentID2;
+		///合约代码3
+		TThostFtdcInstrumentIDType	InstrumentID3;
+		///合约代码4
+		TThostFtdcInstrumentIDType	InstrumentID4;
+		///投保标记
+		TThostFtdcHedgeFlagType	HedgeFlag;
+		///组合拆分标记
+		TThostFtdcCombDirectionType	CombDirection;
+		///买卖方向1
+		TThostFtdcDirectionType	Direction1;
+		///买卖方向2
+		TThostFtdcDirectionType	Direction2;
+		///买卖方向3
+		TThostFtdcDirectionType	Direction3;
+		///买卖方向4
+		TThostFtdcDirectionType	Direction4;
+		///强拆标记
+		TKSCombActionType  CombActionFlag;
+		///组合编号
+		TThostFtdcTradeIDType	ComTradeID;
+	};
+
+	///个股可组合可拆分手数
+	struct CKSCombActionVolumeField
+	{
+		///经纪公司代码
+		TThostFtdcBrokerIDType	BrokerID;
+		///投资者代码
+		TThostFtdcInvestorIDType	InvestorID;
+		///最大可组合数量
+		TThostFtdcVolumeType	MaxCombVolume;
+		///最大可拆分数量
+		TThostFtdcVolumeType	MaxActionVolume;
+	};
+
+	///客户每日出金额度申请请求
+	struct CKSInputFundOutCreditApplyField
+	{
+		///经纪公司代码
+		TThostFtdcBrokerIDType	BrokerID;
+		///投资者代码
+		TThostFtdcInvestorIDType	InvestorID;
+		///当日出金额度
+		TThostFtdcMoneyType	FundOutCredit;
+		///当日出金额度操作类型
+		TKSFOCreditApplyType CreditApplyFlag;
+		///流水号
+		TThostFtdcTradeSerialNoType	CreditSerial;
+	};
+
+	///客户每日出金额度查询请求
+	struct CKSQryFundOutCreditField
+	{
+		///经纪公司代码
+		TThostFtdcBrokerIDType	BrokerID;
+		///投资者代码
+		TThostFtdcInvestorIDType	InvestorID;
+	};
+
+	///客户每日出金额度查询
+	struct CKSRspQryFundOutCreditField
+	{
+		///经纪公司代码
+		TThostFtdcBrokerIDType	BrokerID;
+		///投资者代码
+		TThostFtdcInvestorIDType	InvestorID;
+		///当日出金额度
+		TThostFtdcMoneyType	FundOutCredit;
+		///当日已出金额度
+		TThostFtdcMoneyType	FundOutedCredit;
+		///最后更新日期
+		TThostFtdcDateType	UpdateDate;
+		///设置日期
+		TThostFtdcDateType	SetDate;
+		///设置时间
+		TThostFtdcTimeType	SetTime;
+	};
+
+	///客户每日出金额度申请查询请求
+	struct CKSQryFundOutCreditApplyField
+	{
+		///经纪公司代码
+		TThostFtdcBrokerIDType	BrokerID;
+		///投资者代码
+		TThostFtdcInvestorIDType	InvestorID;
+		///查询开始日期
+		TThostFtdcDateType	QryCreditStart;
+		///查询结束日期
+		TThostFtdcDateType	QryCreditEnd;
+		///当日出金额度处理状态
+		TKSFOCreditStatusType	DealStatus;
+	};
+
+	///客户每日出金额度申请查询
+	struct CKSRspQryFundOutCreditApplyField
+	{
+		///经纪公司代码
+		TThostFtdcBrokerIDType	BrokerID;
+		///投资者代码
+		TThostFtdcInvestorIDType	InvestorID;
+		///流水号
+		TThostFtdcTradeSerialNoType	CreditSerial;
+		///申请出金额度
+		TThostFtdcMoneyType	FundOutCredit;
+		///当日出金额度处理状态
+		TKSFOCreditStatusType	DealStatus;
+		///申请日期
+		TThostFtdcDateType	ApplyDate;
+		///申请时间
+		TThostFtdcTimeType	ApplyTime;
+		///审核日期
+		TThostFtdcDateType	ConfirmDate;
+		///审核时间
+		TThostFtdcTimeType	ConfirmTime;
+	};
 }	// end of namespace KingstarAPI
 #endif

@@ -449,7 +449,6 @@ namespace KingstarAPI
 		///用户登录请求
 		virtual int ReqUserLogin(CThostFtdcReqUserLoginField *pReqUserLoginField, int nRequestID) = 0;
 
-
 		///登出请求
 		virtual int ReqUserLogout(CThostFtdcUserLogoutField *pUserLogout, int nRequestID) = 0;
 
@@ -646,11 +645,12 @@ namespace KingstarAPI
 		virtual int ReqQueryBankAccountMoneyByFuture(CThostFtdcReqQueryAccountField *pReqQueryAccount, int nRequestID) = 0;
 
 		///加载扩展API实例
-		virtual void * LoadExtApi(void * spi, KS_EXTAPI_TYPE nExtApiType) = 0;  
+		virtual void * LoadExtApi(void *pSpi, KS_EXTAPI_TYPE nExtApiType) = 0;  
 
 	protected:
 		~CThostFtdcTraderApi(){};
 	};
 
 }	// end of namespace KingstarAPI
+
 #endif

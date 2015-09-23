@@ -68,6 +68,18 @@ namespace KingstarAPI
 
 		///交易通知
 		virtual void OnRtnKSTradingNotice(CKSTradingNoticeField *pTradingNoticeInfo) {};
+
+		///请求查询合约保证金率响应
+		virtual void OnRspQryKSInstrumentMarginRate(CKSInstrumentMarginRateField *pInstrumentMarginRate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
+
+		///客户每日出金额度申请响应
+		virtual void OnRspFundOutCreditApply(CKSInputFundOutCreditApplyField *pFundOutCreditApply, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
+
+		///客户每日出金额度查询响应
+		virtual void OnRspQryFundOutCredit(CKSRspQryFundOutCreditField *pRspQryFundOutCredit, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
+
+		///客户每日出金额度申请查询响应
+		virtual void OnRspQryFundOutCreditApply(CKSRspQryFundOutCreditApplyField *pRspQryFundOutCreditApply, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 	};
 
 	class TRADER_VOCAPI_EXPORT CKSVocApi
@@ -102,6 +114,18 @@ namespace KingstarAPI
 
 		///最大组合拆分单量查询请求
 		virtual int ReqQryMaxCombActionVolume(CKSQryMaxCombActionVolumeField *pQryMaxCombActionVolume, int nRequestID) = 0;
+
+		///请求查询合约保证金率
+		virtual int ReqQryKSInstrumentMarginRate(CKSQryInstrumentMarginRateField *pQryInstrumentMarginRate, int nRequestID) = 0;
+
+		///客户每日出金额度申请
+		virtual int ReqFundOutCreditApply(CKSInputFundOutCreditApplyField *pFundOutCreditApply, int nRequestID) = 0;
+
+		///客户每日出金额度查询
+		virtual int ReqQryFundOutCredit(CKSQryFundOutCreditField *pQryFundOutCredit, int nRequestID) = 0;
+
+		///客户每日出金额度申请查询
+		virtual int ReqQryFundOutCreditApply(CKSQryFundOutCreditApplyField *pQryFundOutCreditApply, int nRequestID) = 0;
 
 	protected:
 		~CKSVocApi(){};
