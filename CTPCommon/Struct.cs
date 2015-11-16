@@ -6237,6 +6237,10 @@ namespace CTPCommon
 
             return ret;
         }
+        public override string ToString()
+        {
+            return $"{InstrumentID} {Direction} {OffsetFlag} {Volume}";
+        }
     }
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcTradeField : IFieldId
@@ -6430,6 +6434,7 @@ namespace CTPCommon
 
             return ret;
         }
+
     }
 
     /// <summary>
@@ -9347,6 +9352,11 @@ namespace CTPCommon
         public bool Equals(CThostFtdcInvestorPositionDetailField obj)
         {
             return TradeID == obj.TradeID && TradingDay == obj.TradingDay;
+        }
+
+        public override string ToString()
+        {
+            return $"{InstrumentID} {Direction} {Volume} {TradeID}";
         }
     }
     [StructLayout(LayoutKind.Sequential, Pack = 1)]

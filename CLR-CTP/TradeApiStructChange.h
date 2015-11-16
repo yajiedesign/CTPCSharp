@@ -6,17 +6,54 @@ namespace CTPTradeApi
 {
 #include "../api/ThostFtdcTraderApi.h"
 }
-
+#include <type_traits>
+#include <string>
+#include <iostream>
+#include <regex>
 
 void *  __cdecl localmemcpy(_Out_writes_bytes_all_(_Size) void * _Dst, _In_reads_bytes_(_Size) const void * _Src, _In_ size_t _Size)
 {
 	return memcpy(_Dst, _Src, _Size);
 }
+
+void *  __cdecl localmemcpy(_Out_writes_bytes_all_(_Size) CTPTradeApi::TThostFtdcInstrumentIDType & _Dst,
+	_In_reads_bytes_(_Size) const KingstarAPI::TThostFtdcInstrumentIDType & _Src, _In_ size_t _Size)
+{
+	std::string instrument =
+		"([CF,FG,JR,LR,MA,OI,PM,RI,RM,RS,SF,SM,SR,TA,TC,WH,ZC])1([0-9]{3})";
+	std::regex r(instrument);
+	std::string fmt("$1$2");
+	std::string src = std::string(_Src);
+	std::string dst = regex_replace(src, r, fmt);
+	return memcpy(&_Dst, dst.c_str(), _Size);
+}
+
+void *  __cdecl localmemcpy(_Out_writes_bytes_all_(_Size) KingstarAPI::TThostFtdcInstrumentIDType & _Dst,
+	_In_reads_bytes_(_Size) const CTPTradeApi::TThostFtdcInstrumentIDType & _Src, _In_ size_t _Size)
+{
+	std::string instrument =
+		"([CF,FG,JR,LR,MA,OI,PM,RI,RM,RS,SF,SM,SR,TA,TC,WH,ZC])([0-9]{3})";
+	std::regex r(instrument);
+	std::string fmt("$1[1]$2");
+	std::string src = std::string(_Src);
+	std::string dst = regex_replace(src, r, fmt);
+	std::string digit =
+		"\\[1\\]";
+	std::regex rdigit(digit);
+	dst = regex_replace(dst, rdigit, "1");
+	return memcpy(&_Dst, dst.c_str(), _Size);
+}
+
 template <typename  T>
 inline void *  __cdecl localmemcpy(_Out_writes_bytes_all_(_Size) T & _Dst, _In_reads_bytes_(_Size) const T & _Src, _In_ size_t _Size)
 {
 	return memcpy(&_Dst, &_Src, _Size);
 }
+
+
+
+
+
 CTPTradeApi::CThostFtdcDisseminationField KStoCTPChange(KingstarAPI::CThostFtdcDisseminationField *input)
 {
 	CTPTradeApi::CThostFtdcDisseminationField field;
