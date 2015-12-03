@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "TradeApi.h"
 #include <string>
-
+#include "ICTPTradeApi.h"
 
 using namespace System;
 using namespace System::Runtime::InteropServices;
@@ -9,7 +9,7 @@ using namespace System::Threading;
 
 namespace CTPCLR
 {
-public ref class TradeApiclr
+public ref class TradeApiclr :ICTPTradeApi
 {
 private:
 
@@ -58,36 +58,36 @@ public:
 	/// <summary>
 	/// 前置地址
 	/// </summary>
-	property  System::String ^ FrontAddr;
+	virtual	property  System::String ^ FrontAddr;
 	/// <summary>
 	/// 经纪公司代码
 	/// </summary>
-	property  System::String ^ BrokerID;
+	virtual property  System::String ^ BrokerID;
 	/// <summary>
 	/// 投资者代码
 	/// </summary>
-	property  System::String ^ InvestorID;
-	property  System::String ^ passWord;
-	property  System::String ^ FlowPath;
+	virtual property  System::String ^ InvestorID;
+	virtual property  System::String ^ passWord;
+	virtual property  System::String ^ FlowPath;
 
 	/// <summary>
 	/// 前置编号
 	/// </summary>
-	property int FrontID;
+	virtual property int FrontID;
 
 	/// <summary>
 	/// 会话编号
 	/// </summary>
-	property int SessionID;
+	virtual property int SessionID;
 
 	/// <summary>
 	/// 最大报单引用
 	/// </summary>
-	property int MaxOrderRef;
+	virtual property int MaxOrderRef;
 
 
 	//投资者结算结果确认
-	int SettlementInfoConfirm([Out]  int %nRequestID)
+	virtual int SettlementInfoConfirm([Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		CThostFtdcSettlementInfoConfirmField req;
@@ -100,7 +100,7 @@ public:
 	/// <summary>
 	///报单录入请求
 	/// </summary>
-	int ReqOrderInsert(CTPCommon::CThostFtdcInputOrderField pInputOrder, [Out]  int %nRequestID)
+	virtual int ReqOrderInsert(CTPCommon::CThostFtdcInputOrderField pInputOrder, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		pInputOrder.RequestID = nRequestID;
@@ -121,7 +121,7 @@ public:
 	/// <summary>
 	///报单操作请求
 	/// </summary>
-	int ReqOrderAction(CTPCommon::CThostFtdcInputOrderActionField pInputOrderAction, [Out]  int %nRequestID)
+	virtual int ReqOrderAction(CTPCommon::CThostFtdcInputOrderActionField pInputOrderAction, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		pInputOrderAction.RequestID = nRequestID;
@@ -144,7 +144,7 @@ public:
 	/// <summary>
 	///客户端认证请求
 	/// </summary>
-	int ReqAuthenticate(CTPCommon::CThostFtdcReqAuthenticateField pReqAuthenticateField, [Out]  int %nRequestID)
+	virtual int ReqAuthenticate(CTPCommon::CThostFtdcReqAuthenticateField pReqAuthenticateField, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pReqAuthenticateField);
@@ -164,7 +164,7 @@ public:
 	/// <summary>
 	///用户登录请求
 	/// </summary>
-	int ReqUserLogin(CTPCommon::CThostFtdcReqUserLoginField pReqUserLoginField, [Out]  int %nRequestID)
+	virtual int ReqUserLogin(CTPCommon::CThostFtdcReqUserLoginField pReqUserLoginField, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pReqUserLoginField);
@@ -184,7 +184,7 @@ public:
 	/// <summary>
 	///登出请求
 	/// </summary>
-	int ReqUserLogout(CTPCommon::CThostFtdcUserLogoutField pUserLogout, [Out]  int %nRequestID)
+	virtual int ReqUserLogout(CTPCommon::CThostFtdcUserLogoutField pUserLogout, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pUserLogout);
@@ -204,7 +204,7 @@ public:
 	/// <summary>
 	///用户口令更新请求
 	/// </summary>
-	int ReqUserPasswordUpdate(CTPCommon::CThostFtdcUserPasswordUpdateField pUserPasswordUpdate, [Out]  int %nRequestID)
+	virtual int ReqUserPasswordUpdate(CTPCommon::CThostFtdcUserPasswordUpdateField pUserPasswordUpdate, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pUserPasswordUpdate);
@@ -224,7 +224,7 @@ public:
 	/// <summary>
 	///资金账户口令更新请求
 	/// </summary>
-	int ReqTradingAccountPasswordUpdate(CTPCommon::CThostFtdcTradingAccountPasswordUpdateField pTradingAccountPasswordUpdate, [Out]  int %nRequestID)
+	virtual int ReqTradingAccountPasswordUpdate(CTPCommon::CThostFtdcTradingAccountPasswordUpdateField pTradingAccountPasswordUpdate, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pTradingAccountPasswordUpdate);
@@ -246,7 +246,7 @@ public:
 	/// <summary>
 	///预埋单录入请求
 	/// </summary>
-	int ReqParkedOrderInsert(CTPCommon::CThostFtdcParkedOrderField pParkedOrder, [Out]  int %nRequestID)
+	virtual int ReqParkedOrderInsert(CTPCommon::CThostFtdcParkedOrderField pParkedOrder, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pParkedOrder);
@@ -266,7 +266,7 @@ public:
 	/// <summary>
 	///预埋撤单录入请求
 	/// </summary>
-	int ReqParkedOrderAction(CTPCommon::CThostFtdcParkedOrderActionField pParkedOrderAction, [Out]  int %nRequestID)
+	virtual int ReqParkedOrderAction(CTPCommon::CThostFtdcParkedOrderActionField pParkedOrderAction, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pParkedOrderAction);
@@ -288,7 +288,7 @@ public:
 	/// <summary>
 	///查询最大报单数量请求
 	/// </summary>
-	int ReqQueryMaxOrderVolume(CTPCommon::CThostFtdcQueryMaxOrderVolumeField pQueryMaxOrderVolume, [Out]  int %nRequestID)
+	virtual int ReqQueryMaxOrderVolume(CTPCommon::CThostFtdcQueryMaxOrderVolumeField pQueryMaxOrderVolume, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQueryMaxOrderVolume);
@@ -308,7 +308,7 @@ public:
 	/// <summary>
 	///投资者结算结果确认
 	/// </summary>
-	int ReqSettlementInfoConfirm(CTPCommon::CThostFtdcSettlementInfoConfirmField pSettlementInfoConfirm, [Out]  int %nRequestID)
+	virtual int ReqSettlementInfoConfirm(CTPCommon::CThostFtdcSettlementInfoConfirmField pSettlementInfoConfirm, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pSettlementInfoConfirm);
@@ -328,7 +328,7 @@ public:
 	/// <summary>
 	///请求删除预埋单
 	/// </summary>
-	int ReqRemoveParkedOrder(CTPCommon::CThostFtdcRemoveParkedOrderField pRemoveParkedOrder, [Out]  int %nRequestID)
+	virtual int ReqRemoveParkedOrder(CTPCommon::CThostFtdcRemoveParkedOrderField pRemoveParkedOrder, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pRemoveParkedOrder);
@@ -348,7 +348,7 @@ public:
 	/// <summary>
 	///请求删除预埋撤单
 	/// </summary>
-	int ReqRemoveParkedOrderAction(CTPCommon::CThostFtdcRemoveParkedOrderActionField pRemoveParkedOrderAction, [Out]  int %nRequestID)
+	virtual int ReqRemoveParkedOrderAction(CTPCommon::CThostFtdcRemoveParkedOrderActionField pRemoveParkedOrderAction, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pRemoveParkedOrderAction);
@@ -368,7 +368,7 @@ public:
 	/// <summary>
 	///请求查询报单
 	/// </summary>
-	int ReqQryOrder(CTPCommon::CThostFtdcQryOrderField pQryOrder, [Out]  int %nRequestID)
+	virtual int ReqQryOrder(CTPCommon::CThostFtdcQryOrderField pQryOrder, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryOrder);
@@ -388,7 +388,7 @@ public:
 	/// <summary>
 	///请求查询成交
 	/// </summary>
-	int ReqQryTrade(CTPCommon::CThostFtdcQryTradeField pQryTrade, [Out]  int %nRequestID)
+	virtual int ReqQryTrade(CTPCommon::CThostFtdcQryTradeField pQryTrade, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryTrade);
@@ -408,7 +408,7 @@ public:
 	/// <summary>
 	///请求查询投资者持仓
 	/// </summary>
-	int ReqQryInvestorPosition(CTPCommon::CThostFtdcQryInvestorPositionField pQryInvestorPosition, [Out]  int %nRequestID)
+	virtual int ReqQryInvestorPosition(CTPCommon::CThostFtdcQryInvestorPositionField pQryInvestorPosition, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInvestorPosition);
@@ -428,7 +428,7 @@ public:
 	/// <summary>
 	///请求查询资金账户
 	/// </summary>
-	int ReqQryTradingAccount(CTPCommon::CThostFtdcQryTradingAccountField pQryTradingAccount, [Out]  int %nRequestID)
+	virtual int ReqQryTradingAccount(CTPCommon::CThostFtdcQryTradingAccountField pQryTradingAccount, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryTradingAccount);
@@ -448,7 +448,7 @@ public:
 	/// <summary>
 	///请求查询投资者
 	/// </summary>
-	int ReqQryInvestor(CTPCommon::CThostFtdcQryInvestorField pQryInvestor, [Out]  int %nRequestID)
+	virtual int ReqQryInvestor(CTPCommon::CThostFtdcQryInvestorField pQryInvestor, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInvestor);
@@ -468,7 +468,7 @@ public:
 	/// <summary>
 	///请求查询交易编码
 	/// </summary>
-	int ReqQryTradingCode(CTPCommon::CThostFtdcQryTradingCodeField pQryTradingCode, [Out]  int %nRequestID)
+	virtual int ReqQryTradingCode(CTPCommon::CThostFtdcQryTradingCodeField pQryTradingCode, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryTradingCode);
@@ -488,7 +488,7 @@ public:
 	/// <summary>
 	///请求查询合约保证金率
 	/// </summary>
-	int ReqQryInstrumentMarginRate(CTPCommon::CThostFtdcQryInstrumentMarginRateField pQryInstrumentMarginRate, [Out]  int %nRequestID)
+	virtual int ReqQryInstrumentMarginRate(CTPCommon::CThostFtdcQryInstrumentMarginRateField pQryInstrumentMarginRate, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInstrumentMarginRate);
@@ -508,7 +508,7 @@ public:
 	/// <summary>
 	///请求查询合约手续费率
 	/// </summary>
-	int ReqQryInstrumentCommissionRate(CTPCommon::CThostFtdcQryInstrumentCommissionRateField pQryInstrumentCommissionRate, [Out]  int %nRequestID)
+	virtual int ReqQryInstrumentCommissionRate(CTPCommon::CThostFtdcQryInstrumentCommissionRateField pQryInstrumentCommissionRate, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInstrumentCommissionRate);
@@ -528,7 +528,7 @@ public:
 	/// <summary>
 	///请求查询交易所
 	/// </summary>
-	int ReqQryExchange(CTPCommon::CThostFtdcQryExchangeField pQryExchange, [Out]  int %nRequestID)
+	virtual int ReqQryExchange(CTPCommon::CThostFtdcQryExchangeField pQryExchange, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryExchange);
@@ -548,7 +548,7 @@ public:
 	/// <summary>
 	///请求查询合约
 	/// </summary>
-	int ReqQryInstrument(CTPCommon::CThostFtdcQryInstrumentField pQryInstrument, [Out]  int %nRequestID)
+	virtual int ReqQryInstrument(CTPCommon::CThostFtdcQryInstrumentField pQryInstrument, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInstrument);
@@ -568,7 +568,7 @@ public:
 	/// <summary>
 	///请求查询行情
 	/// </summary>
-	int ReqQryDepthMarketData(CTPCommon::CThostFtdcQryDepthMarketDataField pQryDepthMarketData, [Out]  int %nRequestID)
+	virtual int ReqQryDepthMarketData(CTPCommon::CThostFtdcQryDepthMarketDataField pQryDepthMarketData, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryDepthMarketData);
@@ -588,7 +588,7 @@ public:
 	/// <summary>
 	///请求查询投资者结算结果
 	/// </summary>
-	int ReqQrySettlementInfo(CTPCommon::CThostFtdcQrySettlementInfoField pQrySettlementInfo, [Out]  int %nRequestID)
+	virtual int ReqQrySettlementInfo(CTPCommon::CThostFtdcQrySettlementInfoField pQrySettlementInfo, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQrySettlementInfo);
@@ -608,7 +608,7 @@ public:
 	/// <summary>
 	///请求查询转帐银行
 	/// </summary>
-	int ReqQryTransferBank(CTPCommon::CThostFtdcQryTransferBankField pQryTransferBank, [Out]  int %nRequestID)
+	virtual int ReqQryTransferBank(CTPCommon::CThostFtdcQryTransferBankField pQryTransferBank, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryTransferBank);
@@ -628,7 +628,7 @@ public:
 	/// <summary>
 	///请求查询投资者持仓明细
 	/// </summary>
-	int ReqQryInvestorPositionDetail(CTPCommon::CThostFtdcQryInvestorPositionDetailField pQryInvestorPositionDetail, [Out]  int %nRequestID)
+	virtual int ReqQryInvestorPositionDetail(CTPCommon::CThostFtdcQryInvestorPositionDetailField pQryInvestorPositionDetail, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInvestorPositionDetail);
@@ -648,7 +648,7 @@ public:
 	/// <summary>
 	///请求查询客户通知
 	/// </summary>
-	int ReqQryNotice(CTPCommon::CThostFtdcQryNoticeField pQryNotice, [Out]  int %nRequestID)
+	virtual int ReqQryNotice(CTPCommon::CThostFtdcQryNoticeField pQryNotice, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryNotice);
@@ -668,7 +668,7 @@ public:
 	/// <summary>
 	///请求查询结算信息确认
 	/// </summary>
-	int ReqQrySettlementInfoConfirm(CTPCommon::CThostFtdcQrySettlementInfoConfirmField pQrySettlementInfoConfirm, [Out]  int %nRequestID)
+	virtual int ReqQrySettlementInfoConfirm(CTPCommon::CThostFtdcQrySettlementInfoConfirmField pQrySettlementInfoConfirm, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQrySettlementInfoConfirm);
@@ -688,7 +688,7 @@ public:
 	/// <summary>
 	///请求查询投资者持仓明细
 	/// </summary>
-	int ReqQryInvestorPositionCombineDetail(CTPCommon::CThostFtdcQryInvestorPositionCombineDetailField pQryInvestorPositionCombineDetail, [Out]  int %nRequestID)
+	virtual int ReqQryInvestorPositionCombineDetail(CTPCommon::CThostFtdcQryInvestorPositionCombineDetailField pQryInvestorPositionCombineDetail, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInvestorPositionCombineDetail);
@@ -708,7 +708,7 @@ public:
 	/// <summary>
 	///请求查询保证金监管系统经纪公司资金账户密钥
 	/// </summary>
-	int ReqQryCFMMCTradingAccountKey(CTPCommon::CThostFtdcQryCFMMCTradingAccountKeyField pQryCFMMCTradingAccountKey, [Out]  int %nRequestID)
+	virtual int ReqQryCFMMCTradingAccountKey(CTPCommon::CThostFtdcQryCFMMCTradingAccountKeyField pQryCFMMCTradingAccountKey, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryCFMMCTradingAccountKey);
@@ -728,7 +728,7 @@ public:
 	/// <summary>
 	///请求查询仓单折抵信息
 	/// </summary>
-	int ReqQryEWarrantOffset(CTPCommon::CThostFtdcQryEWarrantOffsetField pQryEWarrantOffset, [Out]  int %nRequestID)
+	virtual int ReqQryEWarrantOffset(CTPCommon::CThostFtdcQryEWarrantOffsetField pQryEWarrantOffset, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryEWarrantOffset);
@@ -748,7 +748,7 @@ public:
 	/// <summary>
 	///请求查询投资者品种/跨品种保证金
 	/// </summary>
-	int ReqQryInvestorProductGroupMargin(CTPCommon::CThostFtdcQryInvestorProductGroupMarginField pQryInvestorProductGroupMargin, [Out]  int %nRequestID)
+	virtual int ReqQryInvestorProductGroupMargin(CTPCommon::CThostFtdcQryInvestorProductGroupMarginField pQryInvestorProductGroupMargin, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryInvestorProductGroupMargin);
@@ -768,7 +768,7 @@ public:
 	/// <summary>
 	///请求查询交易所保证金率
 	/// </summary>
-	int ReqQryExchangeMarginRate(CTPCommon::CThostFtdcQryExchangeMarginRateField pQryExchangeMarginRate, [Out]  int %nRequestID)
+	virtual int ReqQryExchangeMarginRate(CTPCommon::CThostFtdcQryExchangeMarginRateField pQryExchangeMarginRate, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryExchangeMarginRate);
@@ -788,7 +788,7 @@ public:
 	/// <summary>
 	///请求查询交易所调整保证金率
 	/// </summary>
-	int ReqQryExchangeMarginRateAdjust(CTPCommon::CThostFtdcQryExchangeMarginRateAdjustField pQryExchangeMarginRateAdjust, [Out]  int %nRequestID)
+	virtual int ReqQryExchangeMarginRateAdjust(CTPCommon::CThostFtdcQryExchangeMarginRateAdjustField pQryExchangeMarginRateAdjust, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryExchangeMarginRateAdjust);
@@ -808,7 +808,7 @@ public:
 	/// <summary>
 	///请求查询转帐流水
 	/// </summary>
-	int ReqQryTransferSerial(CTPCommon::CThostFtdcQryTransferSerialField pQryTransferSerial, [Out]  int %nRequestID)
+	virtual int ReqQryTransferSerial(CTPCommon::CThostFtdcQryTransferSerialField pQryTransferSerial, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryTransferSerial);
@@ -828,7 +828,7 @@ public:
 	/// <summary>
 	///请求查询银期签约关系
 	/// </summary>
-	int ReqQryAccountregister(CTPCommon::CThostFtdcQryAccountregisterField pQryAccountregister, [Out]  int %nRequestID)
+	virtual int ReqQryAccountregister(CTPCommon::CThostFtdcQryAccountregisterField pQryAccountregister, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryAccountregister);
@@ -848,7 +848,7 @@ public:
 	/// <summary>
 	///请求查询签约银行
 	/// </summary>
-	int ReqQryContractBank(CTPCommon::CThostFtdcQryContractBankField pQryContractBank, [Out]  int %nRequestID)
+	virtual int ReqQryContractBank(CTPCommon::CThostFtdcQryContractBankField pQryContractBank, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryContractBank);
@@ -868,7 +868,7 @@ public:
 	/// <summary>
 	///请求查询预埋单
 	/// </summary>
-	int ReqQryParkedOrder(CTPCommon::CThostFtdcQryParkedOrderField pQryParkedOrder, [Out]  int %nRequestID)
+	virtual int ReqQryParkedOrder(CTPCommon::CThostFtdcQryParkedOrderField pQryParkedOrder, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryParkedOrder);
@@ -888,7 +888,7 @@ public:
 	/// <summary>
 	///请求查询预埋撤单
 	/// </summary>
-	int ReqQryParkedOrderAction(CTPCommon::CThostFtdcQryParkedOrderActionField pQryParkedOrderAction, [Out]  int %nRequestID)
+	virtual int ReqQryParkedOrderAction(CTPCommon::CThostFtdcQryParkedOrderActionField pQryParkedOrderAction, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryParkedOrderAction);
@@ -908,7 +908,7 @@ public:
 	/// <summary>
 	///请求查询交易通知
 	/// </summary>
-	int ReqQryTradingNotice(CTPCommon::CThostFtdcQryTradingNoticeField pQryTradingNotice, [Out]  int %nRequestID)
+	virtual int ReqQryTradingNotice(CTPCommon::CThostFtdcQryTradingNoticeField pQryTradingNotice, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryTradingNotice);
@@ -928,7 +928,7 @@ public:
 	/// <summary>
 	///请求查询经纪公司交易参数
 	/// </summary>
-	int ReqQryBrokerTradingParams(CTPCommon::CThostFtdcQryBrokerTradingParamsField pQryBrokerTradingParams, [Out]  int %nRequestID)
+	virtual int ReqQryBrokerTradingParams(CTPCommon::CThostFtdcQryBrokerTradingParamsField pQryBrokerTradingParams, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryBrokerTradingParams);
@@ -948,7 +948,7 @@ public:
 	/// <summary>
 	///请求查询经纪公司交易算法
 	/// </summary>
-	int ReqQryBrokerTradingAlgos(CTPCommon::CThostFtdcQryBrokerTradingAlgosField pQryBrokerTradingAlgos, [Out]  int %nRequestID)
+	virtual int ReqQryBrokerTradingAlgos(CTPCommon::CThostFtdcQryBrokerTradingAlgosField pQryBrokerTradingAlgos, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pQryBrokerTradingAlgos);
@@ -968,7 +968,7 @@ public:
 	/// <summary>
 	///期货发起银行资金转期货请求
 	/// </summary>
-	int ReqFromBankToFutureByFuture(CTPCommon::CThostFtdcReqTransferField pReqTransfer, [Out]  int %nRequestID)
+	virtual int ReqFromBankToFutureByFuture(CTPCommon::CThostFtdcReqTransferField pReqTransfer, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pReqTransfer);
@@ -988,7 +988,7 @@ public:
 	/// <summary>
 	///期货发起期货资金转银行请求
 	/// </summary>
-	int ReqFromFutureToBankByFuture(CTPCommon::CThostFtdcReqTransferField pReqTransfer, [Out]  int %nRequestID)
+	virtual int ReqFromFutureToBankByFuture(CTPCommon::CThostFtdcReqTransferField pReqTransfer, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pReqTransfer);
@@ -1008,7 +1008,7 @@ public:
 	/// <summary>
 	///期货发起查询银行余额请求
 	/// </summary>
-	int ReqQueryBankAccountMoneyByFuture(CTPCommon::CThostFtdcReqQueryAccountField pReqQueryAccount, [Out]  int %nRequestID)
+	virtual int ReqQueryBankAccountMoneyByFuture(CTPCommon::CThostFtdcReqQueryAccountField pReqQueryAccount, [Out]  int %nRequestID)
 	{
 		nRequestID = Interlocked::Increment(lRequestID);
 		int size = Marshal::SizeOf(pReqQueryAccount);
@@ -1656,8 +1656,6 @@ private:
 
 
 
-public:
-	delegate void FrontConnect();
 private:
 	delegate void cppFrontConnect();
 	void cppcbFrontConnect()
@@ -1669,11 +1667,9 @@ public:
 	/// <summary>
 	/// 当客户端与交易后台建立起通信连接时（还未登录前），该方法被调用。
 	/// </summary>
-	event FrontConnect ^OnFrontConnect;
+	virtual event FrontConnect ^OnFrontConnect;
 
 
-public:
-	delegate void DisConnected(int reason);
 private:
 	delegate void cppDisConnected(int reason);
 	void cppcbDisConnected(int reason)
@@ -1685,11 +1681,9 @@ public:
 	/// <summary>
 	/// 当客户端与交易后台通信连接断开时，该方法被调用。当发生这个情况后，API会自动重新连接，客户端可不做处理。
 	/// </summary>
-	event DisConnected ^OnDisConnected;
+ virtual event DisConnected ^OnDisConnected;
 
 
-public:
-	delegate void HeartBeatWarning(int pTimeLapes);
 private:
 	delegate void cppHeartBeatWarning(int pTimeLapes);
 	void cppcbHeartBeatWarning(int pTimeLapes)
@@ -1701,11 +1695,9 @@ public:
 	/// <summary>
 	/// 心跳超时警告。当长时间未收到报文时，该方法被调用。
 	/// </summary>
-	event HeartBeatWarning ^OnHeartBeatWarning;
+ virtual event HeartBeatWarning ^OnHeartBeatWarning;
 
 
-public:
-	delegate void ErrRtnBankToFutureByFuture(CTPCommon::CThostFtdcReqTransferField pReqTransfer, CTPCommon::CThostFtdcRspInfoField pRspInfo);
 private:
 	delegate void cppErrRtnBankToFutureByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo);
 	void cppcbErrRtnBankToFutureByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo)
@@ -1717,11 +1709,9 @@ public:
 	/// <summary>
 	/// 期货发起银行资金转期货错误回报
 	/// </summary>
-	event ErrRtnBankToFutureByFuture ^OnErrRtnBankToFutureByFuture;
+ virtual event ErrRtnBankToFutureByFuture ^OnErrRtnBankToFutureByFuture;
 
 
-public:
-	delegate void ErrRtnFutureToBankByFuture(CTPCommon::CThostFtdcReqTransferField pReqTransfer, CTPCommon::CThostFtdcRspInfoField pRspInfo);
 private:
 	delegate void cppErrRtnFutureToBankByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo);
 	void cppcbErrRtnFutureToBankByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo)
@@ -1733,11 +1723,9 @@ public:
 	/// <summary>
 	/// 期货发起期货资金转银行错误回报
 	/// </summary>
-	event ErrRtnFutureToBankByFuture ^OnErrRtnFutureToBankByFuture;
+ virtual event ErrRtnFutureToBankByFuture ^OnErrRtnFutureToBankByFuture;
 
 
-public:
-	delegate void ErrRtnOrderAction(CTPCommon::CThostFtdcOrderActionField pOrderAction, CTPCommon::CThostFtdcRspInfoField pRspInfo);
 private:
 	delegate void cppErrRtnOrderAction(CThostFtdcOrderActionField *pOrderAction, CThostFtdcRspInfoField *pRspInfo);
 	void cppcbErrRtnOrderAction(CThostFtdcOrderActionField *pOrderAction, CThostFtdcRspInfoField *pRspInfo)
@@ -1749,11 +1737,9 @@ public:
 	/// <summary>
 	/// 报单操作错误回报
 	/// </summary>
-	event ErrRtnOrderAction ^OnErrRtnOrderAction;
+ virtual event ErrRtnOrderAction ^OnErrRtnOrderAction;
 
 
-public:
-	delegate void ErrRtnOrderInsert(CTPCommon::CThostFtdcInputOrderField pInputOrder, CTPCommon::CThostFtdcRspInfoField pRspInfo);
 private:
 	delegate void cppErrRtnOrderInsert(CThostFtdcInputOrderField *pInputOrder, CThostFtdcRspInfoField *pRspInfo);
 	void cppcbErrRtnOrderInsert(CThostFtdcInputOrderField *pInputOrder, CThostFtdcRspInfoField *pRspInfo)
@@ -1765,11 +1751,9 @@ public:
 	/// <summary>
 	/// 报单录入错误回报
 	/// </summary>
-	event ErrRtnOrderInsert ^OnErrRtnOrderInsert;
+ virtual event ErrRtnOrderInsert ^OnErrRtnOrderInsert;
 
 
-public:
-	delegate void ErrRtnQueryBankBalanceByFuture(CTPCommon::CThostFtdcReqQueryAccountField pReqQueryAccount, CTPCommon::CThostFtdcRspInfoField pRspInfo);
 private:
 	delegate void cppErrRtnQueryBankBalanceByFuture(CThostFtdcReqQueryAccountField *pReqQueryAccount, CThostFtdcRspInfoField *pRspInfo);
 	void cppcbErrRtnQueryBankBalanceByFuture(CThostFtdcReqQueryAccountField *pReqQueryAccount, CThostFtdcRspInfoField *pRspInfo)
@@ -1781,11 +1765,9 @@ public:
 	/// <summary>
 	/// 期货发起查询银行余额错误回报
 	/// </summary>
-	event ErrRtnQueryBankBalanceByFuture ^OnErrRtnQueryBankBalanceByFuture;
+ virtual event ErrRtnQueryBankBalanceByFuture ^OnErrRtnQueryBankBalanceByFuture;
 
 
-public:
-	delegate void ErrRtnRepealBankToFutureByFutureManual(CTPCommon::CThostFtdcReqRepealField pReqRepeal, CTPCommon::CThostFtdcRspInfoField pRspInfo);
 private:
 	delegate void cppErrRtnRepealBankToFutureByFutureManual(CThostFtdcReqRepealField *pReqRepeal, CThostFtdcRspInfoField *pRspInfo);
 	void cppcbErrRtnRepealBankToFutureByFutureManual(CThostFtdcReqRepealField *pReqRepeal, CThostFtdcRspInfoField *pRspInfo)
@@ -1797,11 +1779,9 @@ public:
 	/// <summary>
 	/// 系统运行时期货端手工发起冲正银行转期货错误回报
 	/// </summary>
-	event ErrRtnRepealBankToFutureByFutureManual ^OnErrRtnRepealBankToFutureByFutureManual;
+ virtual event ErrRtnRepealBankToFutureByFutureManual ^OnErrRtnRepealBankToFutureByFutureManual;
 
 
-public:
-	delegate void ErrRtnRepealFutureToBankByFutureManual(CTPCommon::CThostFtdcReqRepealField pReqRepeal, CTPCommon::CThostFtdcRspInfoField pRspInfo);
 private:
 	delegate void cppErrRtnRepealFutureToBankByFutureManual(CThostFtdcReqRepealField *pReqRepeal, CThostFtdcRspInfoField *pRspInfo);
 	void cppcbErrRtnRepealFutureToBankByFutureManual(CThostFtdcReqRepealField *pReqRepeal, CThostFtdcRspInfoField *pRspInfo)
@@ -1813,11 +1793,9 @@ public:
 	/// <summary>
 	/// 系统运行时期货端手工发起冲正期货转银行错误回报
 	/// </summary>
-	event ErrRtnRepealFutureToBankByFutureManual ^OnErrRtnRepealFutureToBankByFutureManual;
+ virtual event ErrRtnRepealFutureToBankByFutureManual ^OnErrRtnRepealFutureToBankByFutureManual;
 
 
-public:
-	delegate void RspError(CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspError(CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspError(CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -1829,11 +1807,9 @@ public:
 	/// <summary>
 	/// 错误应答
 	/// </summary>
-	event RspError ^OnRspError;
+ virtual event RspError ^OnRspError;
 
 
-public:
-	delegate void RspFromBankToFutureByFuture(CTPCommon::CThostFtdcReqTransferField pReqTransfer, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspFromBankToFutureByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspFromBankToFutureByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -1845,11 +1821,9 @@ public:
 	/// <summary>
 	/// 期货发起银行资金转期货应答
 	/// </summary>
-	event RspFromBankToFutureByFuture ^OnRspFromBankToFutureByFuture;
+ virtual event RspFromBankToFutureByFuture ^OnRspFromBankToFutureByFuture;
 
 
-public:
-	delegate void RspFromFutureToBankByFuture(CTPCommon::CThostFtdcReqTransferField pReqTransfer, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspFromFutureToBankByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspFromFutureToBankByFuture(CThostFtdcReqTransferField *pReqTransfer, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -1861,11 +1835,9 @@ public:
 	/// <summary>
 	/// 期货发起期货资金转银行应答
 	/// </summary>
-	event RspFromFutureToBankByFuture ^OnRspFromFutureToBankByFuture;
+ virtual event RspFromFutureToBankByFuture ^OnRspFromFutureToBankByFuture;
 
 
-public:
-	delegate void RspOrderAction(CTPCommon::CThostFtdcInputOrderActionField pInputOrderAction, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspOrderAction(CThostFtdcInputOrderActionField *pInputOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspOrderAction(CThostFtdcInputOrderActionField *pInputOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -1877,11 +1849,9 @@ public:
 	/// <summary>
 	/// 报单操作请求响应
 	/// </summary>
-	event RspOrderAction ^OnRspOrderAction;
+ virtual event RspOrderAction ^OnRspOrderAction;
 
 
-public:
-	delegate void RspOrderInsert(CTPCommon::CThostFtdcInputOrderField pInputOrder, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspOrderInsert(CThostFtdcInputOrderField *pInputOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspOrderInsert(CThostFtdcInputOrderField *pInputOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -1893,11 +1863,9 @@ public:
 	/// <summary>
 	/// 报单录入请求响应
 	/// </summary>
-	event RspOrderInsert ^OnRspOrderInsert;
+ virtual event RspOrderInsert ^OnRspOrderInsert;
 
 
-public:
-	delegate void RspParkedOrderAction(CTPCommon::CThostFtdcParkedOrderActionField pParkedOrderAction, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspParkedOrderAction(CThostFtdcParkedOrderActionField *pParkedOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspParkedOrderAction(CThostFtdcParkedOrderActionField *pParkedOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -1909,11 +1877,9 @@ public:
 	/// <summary>
 	/// 预埋撤单录入请求响应
 	/// </summary>
-	event RspParkedOrderAction ^OnRspParkedOrderAction;
+ virtual event RspParkedOrderAction ^OnRspParkedOrderAction;
 
 
-public:
-	delegate void RspParkedOrderInsert(CTPCommon::CThostFtdcParkedOrderField pParkedOrder, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspParkedOrderInsert(CThostFtdcParkedOrderField *pParkedOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspParkedOrderInsert(CThostFtdcParkedOrderField *pParkedOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -1925,11 +1891,9 @@ public:
 	/// <summary>
 	/// 预埋单录入请求响应
 	/// </summary>
-	event RspParkedOrderInsert ^OnRspParkedOrderInsert;
+ virtual event RspParkedOrderInsert ^OnRspParkedOrderInsert;
 
 
-public:
-	delegate void RspQryBrokerTradingAlgos(CTPCommon::CThostFtdcBrokerTradingAlgosField pBrokerTradingAlgos, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryBrokerTradingAlgos(CThostFtdcBrokerTradingAlgosField *pBrokerTradingAlgos, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryBrokerTradingAlgos(CThostFtdcBrokerTradingAlgosField *pBrokerTradingAlgos, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -1941,11 +1905,9 @@ public:
 	/// <summary>
 	/// 请求查询经纪公司交易算法响应
 	/// </summary>
-	event RspQryBrokerTradingAlgos ^OnRspQryBrokerTradingAlgos;
+ virtual event RspQryBrokerTradingAlgos ^OnRspQryBrokerTradingAlgos;
 
 
-public:
-	delegate void RspQryBrokerTradingParams(CTPCommon::CThostFtdcBrokerTradingParamsField pBrokerTradingParams, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryBrokerTradingParams(CThostFtdcBrokerTradingParamsField *pBrokerTradingParams, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryBrokerTradingParams(CThostFtdcBrokerTradingParamsField *pBrokerTradingParams, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -1957,11 +1919,9 @@ public:
 	/// <summary>
 	/// 请求查询经纪公司交易参数响应
 	/// </summary>
-	event RspQryBrokerTradingParams ^OnRspQryBrokerTradingParams;
+ virtual event RspQryBrokerTradingParams ^OnRspQryBrokerTradingParams;
 
 
-public:
-	delegate void RspQryCFMMCTradingAccountKey(CTPCommon::CThostFtdcCFMMCTradingAccountKeyField pCFMMCTradingAccountKey, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryCFMMCTradingAccountKey(CThostFtdcCFMMCTradingAccountKeyField *pCFMMCTradingAccountKey, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryCFMMCTradingAccountKey(CThostFtdcCFMMCTradingAccountKeyField *pCFMMCTradingAccountKey, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -1973,11 +1933,9 @@ public:
 	/// <summary>
 	/// 查询保证金监管系统经纪公司资金账户密钥响应
 	/// </summary>
-	event RspQryCFMMCTradingAccountKey ^OnRspQryCFMMCTradingAccountKey;
+ virtual event RspQryCFMMCTradingAccountKey ^OnRspQryCFMMCTradingAccountKey;
 
 
-public:
-	delegate void RspQryContractBank(CTPCommon::CThostFtdcContractBankField pContractBank, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryContractBank(CThostFtdcContractBankField *pContractBank, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryContractBank(CThostFtdcContractBankField *pContractBank, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -1989,11 +1947,9 @@ public:
 	/// <summary>
 	/// 请求查询签约银行响应
 	/// </summary>
-	event RspQryContractBank ^OnRspQryContractBank;
+ virtual event RspQryContractBank ^OnRspQryContractBank;
 
 
-public:
-	delegate void RspQryDepthMarketData(CTPCommon::CThostFtdcDepthMarketDataField pDepthMarketData, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryDepthMarketData(CThostFtdcDepthMarketDataField *pDepthMarketData, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryDepthMarketData(CThostFtdcDepthMarketDataField *pDepthMarketData, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2005,11 +1961,9 @@ public:
 	/// <summary>
 	/// 请求查询行情响应
 	/// </summary>
-	event RspQryDepthMarketData ^OnRspQryDepthMarketData;
+ virtual event RspQryDepthMarketData ^OnRspQryDepthMarketData;
 
 
-public:
-	delegate void RspQryExchange(CTPCommon::CThostFtdcExchangeField pExchange, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryExchange(CThostFtdcExchangeField *pExchange, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryExchange(CThostFtdcExchangeField *pExchange, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2021,11 +1975,9 @@ public:
 	/// <summary>
 	/// 请求查询交易所响应
 	/// </summary>
-	event RspQryExchange ^OnRspQryExchange;
+ virtual event RspQryExchange ^OnRspQryExchange;
 
 
-public:
-	delegate void RspQryInstrument(CTPCommon::CThostFtdcInstrumentField pInstrument, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryInstrument(CThostFtdcInstrumentField *pInstrument, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryInstrument(CThostFtdcInstrumentField *pInstrument, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2037,11 +1989,9 @@ public:
 	/// <summary>
 	/// 请求查询合约响应
 	/// </summary>
-	event RspQryInstrument ^OnRspQryInstrument;
+ virtual event RspQryInstrument ^OnRspQryInstrument;
 
 
-public:
-	delegate void RspQryInstrumentCommissionRate(CTPCommon::CThostFtdcInstrumentCommissionRateField pInstrumentCommissionRate, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryInstrumentCommissionRate(CThostFtdcInstrumentCommissionRateField *pInstrumentCommissionRate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryInstrumentCommissionRate(CThostFtdcInstrumentCommissionRateField *pInstrumentCommissionRate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2053,11 +2003,9 @@ public:
 	/// <summary>
 	/// 请求查询合约手续费率响应
 	/// </summary>
-	event RspQryInstrumentCommissionRate ^OnRspQryInstrumentCommissionRate;
+ virtual event RspQryInstrumentCommissionRate ^OnRspQryInstrumentCommissionRate;
 
 
-public:
-	delegate void RspQryInstrumentMarginRate(CTPCommon::CThostFtdcInstrumentMarginRateField pInstrumentMarginRate, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryInstrumentMarginRate(CThostFtdcInstrumentMarginRateField *pInstrumentMarginRate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryInstrumentMarginRate(CThostFtdcInstrumentMarginRateField *pInstrumentMarginRate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2069,11 +2017,9 @@ public:
 	/// <summary>
 	/// 请求查询合约保证金率响应
 	/// </summary>
-	event RspQryInstrumentMarginRate ^OnRspQryInstrumentMarginRate;
+ virtual event RspQryInstrumentMarginRate ^OnRspQryInstrumentMarginRate;
 
 
-public:
-	delegate void RspQryInvestor(CTPCommon::CThostFtdcInvestorField pInvestor, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryInvestor(CThostFtdcInvestorField *pInvestor, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryInvestor(CThostFtdcInvestorField *pInvestor, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2085,11 +2031,9 @@ public:
 	/// <summary>
 	/// 请求查询投资者响应
 	/// </summary>
-	event RspQryInvestor ^OnRspQryInvestor;
+ virtual event RspQryInvestor ^OnRspQryInvestor;
 
 
-public:
-	delegate void RspQryInvestorPosition(CTPCommon::CThostFtdcInvestorPositionField pInvestorPosition, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryInvestorPosition(CThostFtdcInvestorPositionField *pInvestorPosition, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryInvestorPosition(CThostFtdcInvestorPositionField *pInvestorPosition, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2101,11 +2045,9 @@ public:
 	/// <summary>
 	/// 请求查询投资者持仓响应
 	/// </summary>
-	event RspQryInvestorPosition ^OnRspQryInvestorPosition;
+ virtual event RspQryInvestorPosition ^OnRspQryInvestorPosition;
 
 
-public:
-	delegate void RspQryInvestorPositionCombineDetail(CTPCommon::CThostFtdcInvestorPositionCombineDetailField pInvestorPositionCombineDetail, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryInvestorPositionCombineDetail(CThostFtdcInvestorPositionCombineDetailField *pInvestorPositionCombineDetail, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryInvestorPositionCombineDetail(CThostFtdcInvestorPositionCombineDetailField *pInvestorPositionCombineDetail, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2117,11 +2059,9 @@ public:
 	/// <summary>
 	/// 请求查询投资者持仓明细响应
 	/// </summary>
-	event RspQryInvestorPositionCombineDetail ^OnRspQryInvestorPositionCombineDetail;
+ virtual event RspQryInvestorPositionCombineDetail ^OnRspQryInvestorPositionCombineDetail;
 
 
-public:
-	delegate void RspQryInvestorPositionDetail(CTPCommon::CThostFtdcInvestorPositionDetailField pInvestorPositionDetail, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryInvestorPositionDetail(CThostFtdcInvestorPositionDetailField *pInvestorPositionDetail, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryInvestorPositionDetail(CThostFtdcInvestorPositionDetailField *pInvestorPositionDetail, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2133,11 +2073,9 @@ public:
 	/// <summary>
 	/// 请求查询投资者持仓明细响应
 	/// </summary>
-	event RspQryInvestorPositionDetail ^OnRspQryInvestorPositionDetail;
+ virtual event RspQryInvestorPositionDetail ^OnRspQryInvestorPositionDetail;
 
 
-public:
-	delegate void RspQryNotice(CTPCommon::CThostFtdcNoticeField pNotice, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryNotice(CThostFtdcNoticeField *pNotice, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryNotice(CThostFtdcNoticeField *pNotice, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2149,11 +2087,9 @@ public:
 	/// <summary>
 	/// 请求查询客户通知响应
 	/// </summary>
-	event RspQryNotice ^OnRspQryNotice;
+ virtual event RspQryNotice ^OnRspQryNotice;
 
 
-public:
-	delegate void RspQryOrder(CTPCommon::CThostFtdcOrderField pOrder, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryOrder(CThostFtdcOrderField *pOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryOrder(CThostFtdcOrderField *pOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2165,11 +2101,9 @@ public:
 	/// <summary>
 	/// 请求查询报单响应
 	/// </summary>
-	event RspQryOrder ^OnRspQryOrder;
+ virtual event RspQryOrder ^OnRspQryOrder;
 
 
-public:
-	delegate void RspQryParkedOrder(CTPCommon::CThostFtdcParkedOrderField pParkedOrder, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryParkedOrder(CThostFtdcParkedOrderField *pParkedOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryParkedOrder(CThostFtdcParkedOrderField *pParkedOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2181,11 +2115,9 @@ public:
 	/// <summary>
 	/// 请求查询预埋单响应
 	/// </summary>
-	event RspQryParkedOrder ^OnRspQryParkedOrder;
+ virtual event RspQryParkedOrder ^OnRspQryParkedOrder;
 
 
-public:
-	delegate void RspQryParkedOrderAction(CTPCommon::CThostFtdcParkedOrderActionField pParkedOrderAction, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryParkedOrderAction(CThostFtdcParkedOrderActionField *pParkedOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryParkedOrderAction(CThostFtdcParkedOrderActionField *pParkedOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2197,11 +2129,9 @@ public:
 	/// <summary>
 	/// 请求查询预埋撤单响应
 	/// </summary>
-	event RspQryParkedOrderAction ^OnRspQryParkedOrderAction;
+ virtual event RspQryParkedOrderAction ^OnRspQryParkedOrderAction;
 
 
-public:
-	delegate void RspQrySettlementInfo(CTPCommon::CThostFtdcSettlementInfoField pSettlementInfo, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQrySettlementInfo(CThostFtdcSettlementInfoField *pSettlementInfo, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQrySettlementInfo(CThostFtdcSettlementInfoField *pSettlementInfo, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2213,11 +2143,9 @@ public:
 	/// <summary>
 	/// 请求查询投资者结算结果响应
 	/// </summary>
-	event RspQrySettlementInfo ^OnRspQrySettlementInfo;
+ virtual event RspQrySettlementInfo ^OnRspQrySettlementInfo;
 
 
-public:
-	delegate void RspQrySettlementInfoConfirm(CTPCommon::CThostFtdcSettlementInfoConfirmField pSettlementInfoConfirm, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQrySettlementInfoConfirm(CThostFtdcSettlementInfoConfirmField *pSettlementInfoConfirm, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQrySettlementInfoConfirm(CThostFtdcSettlementInfoConfirmField *pSettlementInfoConfirm, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2229,11 +2157,9 @@ public:
 	/// <summary>
 	/// 请求查询结算信息确认响应
 	/// </summary>
-	event RspQrySettlementInfoConfirm ^OnRspQrySettlementInfoConfirm;
+ virtual event RspQrySettlementInfoConfirm ^OnRspQrySettlementInfoConfirm;
 
 
-public:
-	delegate void RspQryTrade(CTPCommon::CThostFtdcTradeField pTrade, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryTrade(CThostFtdcTradeField *pTrade, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryTrade(CThostFtdcTradeField *pTrade, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2245,11 +2171,9 @@ public:
 	/// <summary>
 	/// 请求查询成交响应
 	/// </summary>
-	event RspQryTrade ^OnRspQryTrade;
+ virtual event RspQryTrade ^OnRspQryTrade;
 
 
-public:
-	delegate void RspQryTradingAccount(CTPCommon::CThostFtdcTradingAccountField pTradingAccount, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryTradingAccount(CThostFtdcTradingAccountField *pTradingAccount, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryTradingAccount(CThostFtdcTradingAccountField *pTradingAccount, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2261,11 +2185,9 @@ public:
 	/// <summary>
 	/// 请求查询资金账户响应
 	/// </summary>
-	event RspQryTradingAccount ^OnRspQryTradingAccount;
+ virtual event RspQryTradingAccount ^OnRspQryTradingAccount;
 
 
-public:
-	delegate void RspQryTradingCode(CTPCommon::CThostFtdcTradingCodeField pTradingCode, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryTradingCode(CThostFtdcTradingCodeField *pTradingCode, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryTradingCode(CThostFtdcTradingCodeField *pTradingCode, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2277,11 +2199,9 @@ public:
 	/// <summary>
 	/// 请求查询交易编码响应
 	/// </summary>
-	event RspQryTradingCode ^OnRspQryTradingCode;
+ virtual event RspQryTradingCode ^OnRspQryTradingCode;
 
 
-public:
-	delegate void RspQryTradingNotice(CTPCommon::CThostFtdcTradingNoticeField pTradingNotice, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryTradingNotice(CThostFtdcTradingNoticeField *pTradingNotice, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryTradingNotice(CThostFtdcTradingNoticeField *pTradingNotice, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2293,11 +2213,9 @@ public:
 	/// <summary>
 	/// 请求查询交易通知响应
 	/// </summary>
-	event RspQryTradingNotice ^OnRspQryTradingNotice;
+ virtual event RspQryTradingNotice ^OnRspQryTradingNotice;
 
 
-public:
-	delegate void RspQryTransferBank(CTPCommon::CThostFtdcTransferBankField pTransferBank, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryTransferBank(CThostFtdcTransferBankField *pTransferBank, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryTransferBank(CThostFtdcTransferBankField *pTransferBank, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2309,11 +2227,9 @@ public:
 	/// <summary>
 	/// 请求查询转帐银行响应
 	/// </summary>
-	event RspQryTransferBank ^OnRspQryTransferBank;
+ virtual event RspQryTransferBank ^OnRspQryTransferBank;
 
 
-public:
-	delegate void RspQryTransferSerial(CTPCommon::CThostFtdcTransferSerialField pTransferSerial, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryTransferSerial(CThostFtdcTransferSerialField *pTransferSerial, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryTransferSerial(CThostFtdcTransferSerialField *pTransferSerial, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2325,11 +2241,9 @@ public:
 	/// <summary>
 	/// 请求查询转帐流水响应
 	/// </summary>
-	event RspQryTransferSerial ^OnRspQryTransferSerial;
+ virtual event RspQryTransferSerial ^OnRspQryTransferSerial;
 
 
-public:
-	delegate void RspQryAccountregister(CTPCommon::CThostFtdcAccountregisterField pAccountregister, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQryAccountregister(CThostFtdcAccountregisterField *pAccountregister, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQryAccountregister(CThostFtdcAccountregisterField *pAccountregister, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2341,11 +2255,9 @@ public:
 	/// <summary>
 	/// 请求查询转帐流水响应
 	/// </summary>
-	event RspQryAccountregister ^OnRspQryAccountregister;
+ virtual event RspQryAccountregister ^OnRspQryAccountregister;
 
 
-public:
-	delegate void RspQueryBankAccountMoneyByFuture(CTPCommon::CThostFtdcReqQueryAccountField pReqQueryAccount, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQueryBankAccountMoneyByFuture(CThostFtdcReqQueryAccountField *pReqQueryAccount, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQueryBankAccountMoneyByFuture(CThostFtdcReqQueryAccountField *pReqQueryAccount, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2357,11 +2269,9 @@ public:
 	/// <summary>
 	/// 期货发起查询银行余额应答
 	/// </summary>
-	event RspQueryBankAccountMoneyByFuture ^OnRspQueryBankAccountMoneyByFuture;
+ virtual event RspQueryBankAccountMoneyByFuture ^OnRspQueryBankAccountMoneyByFuture;
 
 
-public:
-	delegate void RspQueryMaxOrderVolume(CTPCommon::CThostFtdcQueryMaxOrderVolumeField pQueryMaxOrderVolume, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspQueryMaxOrderVolume(CThostFtdcQueryMaxOrderVolumeField *pQueryMaxOrderVolume, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspQueryMaxOrderVolume(CThostFtdcQueryMaxOrderVolumeField *pQueryMaxOrderVolume, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2373,11 +2283,9 @@ public:
 	/// <summary>
 	/// 查询最大报单数量响应
 	/// </summary>
-	event RspQueryMaxOrderVolume ^OnRspQueryMaxOrderVolume;
+ virtual event RspQueryMaxOrderVolume ^OnRspQueryMaxOrderVolume;
 
 
-public:
-	delegate void RspRemoveParkedOrder(CTPCommon::CThostFtdcRemoveParkedOrderField pRemoveParkedOrder, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspRemoveParkedOrder(CThostFtdcRemoveParkedOrderField *pRemoveParkedOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspRemoveParkedOrder(CThostFtdcRemoveParkedOrderField *pRemoveParkedOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2389,11 +2297,9 @@ public:
 	/// <summary>
 	/// 删除预埋单响应
 	/// </summary>
-	event RspRemoveParkedOrder ^OnRspRemoveParkedOrder;
+ virtual event RspRemoveParkedOrder ^OnRspRemoveParkedOrder;
 
 
-public:
-	delegate void RspRemoveParkedOrderAction(CTPCommon::CThostFtdcRemoveParkedOrderActionField pRemoveParkedOrderAction, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspRemoveParkedOrderAction(CThostFtdcRemoveParkedOrderActionField *pRemoveParkedOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspRemoveParkedOrderAction(CThostFtdcRemoveParkedOrderActionField *pRemoveParkedOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2405,11 +2311,9 @@ public:
 	/// <summary>
 	/// 删除预埋撤单响应
 	/// </summary>
-	event RspRemoveParkedOrderAction ^OnRspRemoveParkedOrderAction;
+ virtual event RspRemoveParkedOrderAction ^OnRspRemoveParkedOrderAction;
 
 
-public:
-	delegate void RspSettlementInfoConfirm(CTPCommon::CThostFtdcSettlementInfoConfirmField pSettlementInfoConfirm, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspSettlementInfoConfirm(CThostFtdcSettlementInfoConfirmField *pSettlementInfoConfirm, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspSettlementInfoConfirm(CThostFtdcSettlementInfoConfirmField *pSettlementInfoConfirm, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2421,11 +2325,9 @@ public:
 	/// <summary>
 	/// 投资者结算结果确认响应
 	/// </summary>
-	event RspSettlementInfoConfirm ^OnRspSettlementInfoConfirm;
+ virtual event RspSettlementInfoConfirm ^OnRspSettlementInfoConfirm;
 
 
-public:
-	delegate void RspTradingAccountPasswordUpdate(CTPCommon::CThostFtdcTradingAccountPasswordUpdateField pTradingAccountPasswordUpdate, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspTradingAccountPasswordUpdate(CThostFtdcTradingAccountPasswordUpdateField *pTradingAccountPasswordUpdate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspTradingAccountPasswordUpdate(CThostFtdcTradingAccountPasswordUpdateField *pTradingAccountPasswordUpdate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2437,13 +2339,11 @@ public:
 	/// <summary>
 	/// 资金账户口令更新请求响应
 	/// </summary>
-	event RspTradingAccountPasswordUpdate ^OnRspTradingAccountPasswordUpdate;
+ virtual event RspTradingAccountPasswordUpdate ^OnRspTradingAccountPasswordUpdate;
 
 
 	
 
-public:
-	delegate void RspAuthenticate(CTPCommon::CThostFtdcRspAuthenticateField pRspAuthenticateField, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspAuthenticate(CThostFtdcRspAuthenticateField *pRspAuthenticateField, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspAuthenticate(CThostFtdcRspAuthenticateField *pRspAuthenticateField, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2456,11 +2356,9 @@ public:
 
 	/// 
 	/// </summary>
-	event RspAuthenticate ^OnRspAuthenticate;
+ virtual event RspAuthenticate ^OnRspAuthenticate;
 
 
-public:
-	delegate void RspUserLogin(CTPCommon::CThostFtdcRspUserLoginField pRspUserLogin, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspUserLogin(CThostFtdcRspUserLoginField *pRspUserLogin, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspUserLogin(CThostFtdcRspUserLoginField *pRspUserLogin, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2474,11 +2372,9 @@ public:
 	/// <summary>
 	/// 登录请求响应
 	/// </summary>
-	event RspUserLogin ^OnRspUserLogin;
+ virtual event RspUserLogin ^OnRspUserLogin;
 
 
-public:
-	delegate void RspUserLogout(CTPCommon::CThostFtdcUserLogoutField pUserLogout, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspUserLogout(CThostFtdcUserLogoutField *pUserLogout, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspUserLogout(CThostFtdcUserLogoutField *pUserLogout, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2490,11 +2386,9 @@ public:
 	/// <summary>
 	/// 登出请求响应
 	/// </summary>
-	event RspUserLogout ^OnRspUserLogout;
+ virtual event RspUserLogout ^OnRspUserLogout;
 
 
-public:
-	delegate void RspUserPasswordUpdate(CTPCommon::CThostFtdcUserPasswordUpdateField pUserPasswordUpdate, CTPCommon::CThostFtdcRspInfoField pRspInfo, int nRequestID, bool bIsLast);
 private:
 	delegate void cppRspUserPasswordUpdate(CThostFtdcUserPasswordUpdateField *pUserPasswordUpdate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	void cppcbRspUserPasswordUpdate(CThostFtdcUserPasswordUpdateField *pUserPasswordUpdate, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
@@ -2506,11 +2400,10 @@ public:
 	/// <summary>
 	/// 用户口令更新请求响应
 	/// </summary>
-	event RspUserPasswordUpdate ^OnRspUserPasswordUpdate;
+ virtual event RspUserPasswordUpdate ^OnRspUserPasswordUpdate;
 
 
-public:
-	delegate void RtnErrorConditionalOrder(CTPCommon::CThostFtdcErrorConditionalOrderField pErrorConditionalOrder);
+
 private:
 	delegate void cppRtnErrorConditionalOrder(CThostFtdcErrorConditionalOrderField *pErrorConditionalOrder);
 	void cppcbRtnErrorConditionalOrder(CThostFtdcErrorConditionalOrderField *pErrorConditionalOrder)
@@ -2522,11 +2415,10 @@ public:
 	/// <summary>
 	/// 提示条件单校验错误
 	/// </summary>
-	event RtnErrorConditionalOrder ^OnRtnErrorConditionalOrder;
+ virtual event RtnErrorConditionalOrder ^OnRtnErrorConditionalOrder;
 
 
-public:
-	delegate void RtnFromBankToFutureByBank(CTPCommon::CThostFtdcRspTransferField pRspTransfer);
+
 private:
 	delegate void cppRtnFromBankToFutureByBank(CThostFtdcRspTransferField *pRspTransfer);
 	void cppcbRtnFromBankToFutureByBank(CThostFtdcRspTransferField *pRspTransfer)
@@ -2538,11 +2430,10 @@ public:
 	/// <summary>
 	/// 银行发起银行资金转期货通知
 	/// </summary>
-	event RtnFromBankToFutureByBank ^OnRtnFromBankToFutureByBank;
+ virtual event RtnFromBankToFutureByBank ^OnRtnFromBankToFutureByBank;
 
 
-public:
-	delegate void RtnFromBankToFutureByFuture(CTPCommon::CThostFtdcRspTransferField pRspTransfer);
+
 private:
 	delegate void cppRtnFromBankToFutureByFuture(CThostFtdcRspTransferField *pRspTransfer);
 	void cppcbRtnFromBankToFutureByFuture(CThostFtdcRspTransferField *pRspTransfer)
@@ -2554,11 +2445,9 @@ public:
 	/// <summary>
 	/// 期货发起银行资金转期货通知
 	/// </summary>
-	event RtnFromBankToFutureByFuture ^OnRtnFromBankToFutureByFuture;
+ virtual event RtnFromBankToFutureByFuture ^OnRtnFromBankToFutureByFuture;
 
 
-public:
-	delegate void RtnFromFutureToBankByBank(CTPCommon::CThostFtdcRspTransferField pRspTransfer);
 private:
 	delegate void cppRtnFromFutureToBankByBank(CThostFtdcRspTransferField *pRspTransfer);
 	void cppcbRtnFromFutureToBankByBank(CThostFtdcRspTransferField *pRspTransfer)
@@ -2570,11 +2459,9 @@ public:
 	/// <summary>
 	/// 银行发起期货资金转银行通知
 	/// </summary>
-	event RtnFromFutureToBankByBank ^OnRtnFromFutureToBankByBank;
+ virtual event RtnFromFutureToBankByBank ^OnRtnFromFutureToBankByBank;
 
 
-public:
-	delegate void RtnFromFutureToBankByFuture(CTPCommon::CThostFtdcRspTransferField pRspTransfer);
 private:
 	delegate void cppRtnFromFutureToBankByFuture(CThostFtdcRspTransferField *pRspTransfer);
 	void cppcbRtnFromFutureToBankByFuture(CThostFtdcRspTransferField *pRspTransfer)
@@ -2586,11 +2473,10 @@ public:
 	/// <summary>
 	/// 期货发起期货资金转银行通知
 	/// </summary>
-	event RtnFromFutureToBankByFuture ^OnRtnFromFutureToBankByFuture;
+ virtual event RtnFromFutureToBankByFuture ^OnRtnFromFutureToBankByFuture;
 
 
-public:
-	delegate void RtnInstrumentStatus(CTPCommon::CThostFtdcInstrumentStatusField pInstrumentStatus);
+
 private:
 	delegate void cppRtnInstrumentStatus(CThostFtdcInstrumentStatusField *pInstrumentStatus);
 	void cppcbRtnInstrumentStatus(CThostFtdcInstrumentStatusField *pInstrumentStatus)
@@ -2602,11 +2488,10 @@ public:
 	/// <summary>
 	/// 合约交易状态通知
 	/// </summary>
-	event RtnInstrumentStatus ^OnRtnInstrumentStatus;
+ virtual event RtnInstrumentStatus ^OnRtnInstrumentStatus;
 
 
-public:
-	delegate void RtnOrder(CTPCommon::CThostFtdcOrderField pOrder);
+
 private:
 	delegate void cppRtnOrder(CThostFtdcOrderField *pOrder);
 	void cppcbRtnOrder(CThostFtdcOrderField *pOrder)
@@ -2618,11 +2503,9 @@ public:
 	/// <summary>
 	/// 报单通知
 	/// </summary>
-	event RtnOrder ^OnRtnOrder;
+ virtual event RtnOrder ^OnRtnOrder;
 
 
-public:
-	delegate void RtnQueryBankBalanceByFuture(CTPCommon::CThostFtdcNotifyQueryAccountField pNotifyQueryAccount);
 private:
 	delegate void cppRtnQueryBankBalanceByFuture(CThostFtdcNotifyQueryAccountField *pNotifyQueryAccount);
 	void cppcbRtnQueryBankBalanceByFuture(CThostFtdcNotifyQueryAccountField *pNotifyQueryAccount)
@@ -2634,11 +2517,9 @@ public:
 	/// <summary>
 	/// 期货发起查询银行余额通知
 	/// </summary>
-	event RtnQueryBankBalanceByFuture ^OnRtnQueryBankBalanceByFuture;
+ virtual event RtnQueryBankBalanceByFuture ^OnRtnQueryBankBalanceByFuture;
 
 
-public:
-	delegate void RtnRepealFromBankToFutureByBank(CTPCommon::CThostFtdcRspRepealField pRspRepeal);
 private:
 	delegate void cppRtnRepealFromBankToFutureByBank(CThostFtdcRspRepealField *pRspRepeal);
 	void cppcbRtnRepealFromBankToFutureByBank(CThostFtdcRspRepealField *pRspRepeal)
@@ -2650,11 +2531,10 @@ public:
 	/// <summary>
 	/// 银行发起冲正银行转期货通知
 	/// </summary>
-	event RtnRepealFromBankToFutureByBank ^OnRtnRepealFromBankToFutureByBank;
+ virtual event RtnRepealFromBankToFutureByBank ^OnRtnRepealFromBankToFutureByBank;
 
 
-public:
-	delegate void RtnRepealFromBankToFutureByFuture(CTPCommon::CThostFtdcRspRepealField pRspRepeal);
+
 private:
 	delegate void cppRtnRepealFromBankToFutureByFuture(CThostFtdcRspRepealField *pRspRepeal);
 	void cppcbRtnRepealFromBankToFutureByFuture(CThostFtdcRspRepealField *pRspRepeal)
@@ -2666,11 +2546,10 @@ public:
 	/// <summary>
 	/// 期货发起冲正银行转期货请求，银行处理完毕后报盘发回的通知
 	/// </summary>
-	event RtnRepealFromBankToFutureByFuture ^OnRtnRepealFromBankToFutureByFuture;
+ virtual event RtnRepealFromBankToFutureByFuture ^OnRtnRepealFromBankToFutureByFuture;
 
 
-public:
-	delegate void RtnRepealFromBankToFutureByFutureManual(CTPCommon::CThostFtdcRspRepealField pRspRepeal);
+
 private:
 	delegate void cppRtnRepealFromBankToFutureByFutureManual(CThostFtdcRspRepealField *pRspRepeal);
 	void cppcbRtnRepealFromBankToFutureByFutureManual(CThostFtdcRspRepealField *pRspRepeal)
@@ -2682,11 +2561,10 @@ public:
 	/// <summary>
 	/// 系统运行时期货端手工发起冲正银行转期货请求，银行处理完毕后报盘发回的通知
 	/// </summary>
-	event RtnRepealFromBankToFutureByFutureManual ^OnRtnRepealFromBankToFutureByFutureManual;
+ virtual event RtnRepealFromBankToFutureByFutureManual ^OnRtnRepealFromBankToFutureByFutureManual;
 
 
-public:
-	delegate void RtnRepealFromFutureToBankByBank(CTPCommon::CThostFtdcRspRepealField pRspRepeal);
+
 private:
 	delegate void cppRtnRepealFromFutureToBankByBank(CThostFtdcRspRepealField *pRspRepeal);
 	void cppcbRtnRepealFromFutureToBankByBank(CThostFtdcRspRepealField *pRspRepeal)
@@ -2698,11 +2576,10 @@ public:
 	/// <summary>
 	/// 银行发起冲正期货转银行通知
 	/// </summary>
-	event RtnRepealFromFutureToBankByBank ^OnRtnRepealFromFutureToBankByBank;
+ virtual event RtnRepealFromFutureToBankByBank ^OnRtnRepealFromFutureToBankByBank;
 
 
-public:
-	delegate void RtnRepealFromFutureToBankByFuture(CTPCommon::CThostFtdcRspRepealField pRspRepeal);
+
 private:
 	delegate void cppRtnRepealFromFutureToBankByFuture(CThostFtdcRspRepealField *pRspRepeal);
 	void cppcbRtnRepealFromFutureToBankByFuture(CThostFtdcRspRepealField *pRspRepeal)
@@ -2714,11 +2591,10 @@ public:
 	/// <summary>
 	/// 期货发起冲正期货转银行请求，银行处理完毕后报盘发回的通知
 	/// </summary>
-	event RtnRepealFromFutureToBankByFuture ^OnRtnRepealFromFutureToBankByFuture;
+ virtual event RtnRepealFromFutureToBankByFuture ^OnRtnRepealFromFutureToBankByFuture;
 
 
-public:
-	delegate void RtnRepealFromFutureToBankByFutureManual(CTPCommon::CThostFtdcRspRepealField pRspRepeal);
+
 private:
 	delegate void cppRtnRepealFromFutureToBankByFutureManual(CThostFtdcRspRepealField *pRspRepeal);
 	void cppcbRtnRepealFromFutureToBankByFutureManual(CThostFtdcRspRepealField *pRspRepeal)
@@ -2730,11 +2606,10 @@ public:
 	/// <summary>
 	/// 系统运行时期货端手工发起冲正期货转银行请求，银行处理完毕后报盘发回的通知
 	/// </summary>
-	event RtnRepealFromFutureToBankByFutureManual ^OnRtnRepealFromFutureToBankByFutureManual;
+ virtual event RtnRepealFromFutureToBankByFutureManual ^OnRtnRepealFromFutureToBankByFutureManual;
 
 
-public:
-	delegate void RtnTrade(CTPCommon::CThostFtdcTradeField pTrade);
+
 private:
 	delegate void cppRtnTrade(CThostFtdcTradeField *pTrade);
 	void cppcbRtnTrade(CThostFtdcTradeField *pTrade)
@@ -2746,11 +2621,10 @@ public:
 	/// <summary>
 	/// 成交通知
 	/// </summary>
-	event RtnTrade ^OnRtnTrade;
+ virtual event RtnTrade ^OnRtnTrade;
 
 
-public:
-	delegate void RtnTradingNotice(CTPCommon::CThostFtdcTradingNoticeInfoField pTradingNoticeInfo);
+
 private:
 	delegate void cppRtnTradingNotice(CThostFtdcTradingNoticeInfoField *pTradingNoticeInfo);
 	void cppcbRtnTradingNotice(CThostFtdcTradingNoticeInfoField *pTradingNoticeInfo)
@@ -2762,7 +2636,7 @@ public:
 	/// <summary>
 	/// 交易通知
 	/// </summary>
-	event RtnTradingNotice ^OnRtnTradingNotice;
+ virtual event RtnTradingNotice ^OnRtnTradingNotice;
 
 
 
