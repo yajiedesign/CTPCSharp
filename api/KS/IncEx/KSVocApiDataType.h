@@ -14,6 +14,17 @@
 
 namespace KingstarAPI
 {
+	//数据表标识类型
+	enum KS_TABLEID_TYPE
+	{
+		KS_DTI_Product = 0,
+		KS_DTI_Instrument,
+		KS_DTI_DepthMarketData,
+		KS_DTI_InstrumentRate,
+		KS_DTI_TradingAccount,
+		KS_DTI_InvestorPosition
+	};
+
 	//扩展API类型
 	enum KS_EXTAPI_TYPE
 	{
