@@ -25,6 +25,7 @@ namespace CTPCommon
     /// <summary>
     /// 信息分发
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct CThostFtdcDisseminationField : ITFieldId
     {
@@ -54,6 +55,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcDisseminationField : IFieldId
     {
@@ -90,6 +92,7 @@ namespace CTPCommon
     /// <summary>
     /// 用户登录请求
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcReqUserLoginField : ITFieldId
     {
@@ -169,6 +172,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcReqUserLoginField : IFieldId
     {
@@ -252,6 +256,7 @@ namespace CTPCommon
     /// <summary>
     /// 用户登录应答
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcRspUserLoginField : ITFieldId
     {
@@ -322,7 +327,7 @@ namespace CTPCommon
             get { return 0x1003; }
         }
 
-        public static  implicit operator CThostFtdcRspUserLoginField(LCThostFtdcRspUserLoginField input)
+        public static implicit operator CThostFtdcRspUserLoginField(LCThostFtdcRspUserLoginField input)
         {
             CThostFtdcRspUserLoginField ret = new CThostFtdcRspUserLoginField();
             ret.TradingDay = input.TradingDay;
@@ -341,6 +346,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcRspUserLoginField : IFieldId
     {
@@ -437,6 +443,7 @@ namespace CTPCommon
     /// <summary>
     /// 用户登出请求
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcUserLogoutField
     {
@@ -455,6 +462,7 @@ namespace CTPCommon
     /// <summary>
     /// 强制交易员退出
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcForceUserLogoutField
     {
@@ -473,6 +481,7 @@ namespace CTPCommon
     /// <summary>
     /// 客户端认证请求
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcReqAuthenticateField
     {
@@ -501,6 +510,7 @@ namespace CTPCommon
     /// <summary>
     /// 客户端认证响应
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcRspAuthenticateField
     {
@@ -524,6 +534,7 @@ namespace CTPCommon
     /// <summary>
     /// 客户端认证信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcAuthenticationInfoField
     {
@@ -556,6 +567,7 @@ namespace CTPCommon
     /// <summary>
     /// 银期转帐报文头
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTransferHeaderField
     {
@@ -627,6 +639,7 @@ namespace CTPCommon
     /// <summary>
     /// 银行资金转期货请求，TradeCode=202001
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTransferBankToFutureReqField
     {
@@ -662,6 +675,7 @@ namespace CTPCommon
     /// <summary>
     /// 银行资金转期货请求响应
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTransferBankToFutureRspField
     {
@@ -698,6 +712,7 @@ namespace CTPCommon
     /// <summary>
     /// 期货资金转银行请求，TradeCode=202002
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTransferFutureToBankReqField
     {
@@ -733,6 +748,7 @@ namespace CTPCommon
     /// <summary>
     /// 期货资金转银行请求响应
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTransferFutureToBankRspField
     {
@@ -769,6 +785,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询银行资金请求，TradeCode=204002
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTransferQryBankReqField
     {
@@ -796,6 +813,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询银行资金请求响应
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTransferQryBankRspField
     {
@@ -836,6 +854,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询银行交易明细请求，TradeCode=204999
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTransferQryDetailReqField
     {
@@ -849,6 +868,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询银行交易明细请求响应
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTransferQryDetailRspField
     {
@@ -923,6 +943,7 @@ namespace CTPCommon
     /// <summary>
     /// 响应信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcRspInfoField : ITFieldId
     {
@@ -953,6 +974,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcRspInfoField : IFieldId
     {
@@ -989,6 +1011,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易所
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcExchangeField
     {
@@ -1011,6 +1034,7 @@ namespace CTPCommon
     /// <summary>
     /// 产品
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcProductField
     {
@@ -1074,6 +1098,7 @@ namespace CTPCommon
     /// <summary>
     /// 合约
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInstrumentField : ITFieldId
     {
@@ -1233,8 +1258,9 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    public struct LCThostFtdcInstrumentField : IFieldId ,ICloneable
+    public struct LCThostFtdcInstrumentField : IFieldId, ICloneable
     {
         /// <summary>
         /// 合约代码
@@ -1413,6 +1439,7 @@ namespace CTPCommon
     /// <summary>
     /// 经纪公司
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcBrokerField
     {
@@ -1440,6 +1467,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易所交易员
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTraderField
     {
@@ -1477,6 +1505,7 @@ namespace CTPCommon
     /// <summary>
     /// 投资者
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInvestorField : ITFieldId
     {
@@ -1572,6 +1601,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcInvestorField : IFieldId
     {
@@ -1681,6 +1711,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易编码
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTradingCodeField
     {
@@ -1717,6 +1748,7 @@ namespace CTPCommon
     /// <summary>
     /// 会员编码和经纪公司编码对照表
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcPartBrokerField
     {
@@ -1744,6 +1776,7 @@ namespace CTPCommon
     /// <summary>
     /// 管理用户
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSuperUserField
     {
@@ -1771,6 +1804,7 @@ namespace CTPCommon
     /// <summary>
     /// 管理用户功能权限
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSuperUserFunctionField
     {
@@ -1788,6 +1822,7 @@ namespace CTPCommon
     /// <summary>
     /// 投资者组
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInvestorGroupField
     {
@@ -1811,6 +1846,7 @@ namespace CTPCommon
     /// <summary>
     /// 资金账户
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTradingAccountField : ITFieldId
     {
@@ -1991,6 +2027,7 @@ namespace CTPCommon
     /// <summary>
     /// 资金账户
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcTradingAccountField : IFieldId
     {
@@ -2201,6 +2238,7 @@ namespace CTPCommon
     /// <summary>
     /// 投资者持仓
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInvestorPositionField
     {
@@ -2373,6 +2411,7 @@ namespace CTPCommon
     /// <summary>
     /// 合约保证金率
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInstrumentMarginRateField : ITFieldId
     {
@@ -2448,8 +2487,9 @@ namespace CTPCommon
     /// <summary>
     /// 合约保证金率
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    public struct LCThostFtdcInstrumentMarginRateField : IFieldId,ICloneable
+    public struct LCThostFtdcInstrumentMarginRateField : IFieldId, ICloneable
     {
         /// <summary>
         /// 合约代码
@@ -2535,6 +2575,7 @@ namespace CTPCommon
     /// <summary>
     /// 合约手续费率
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInstrumentCommissionRateField : ITFieldId
     {
@@ -2607,8 +2648,9 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    public struct LCThostFtdcInstrumentCommissionRateField : IFieldId,ICloneable
+    public struct LCThostFtdcInstrumentCommissionRateField : IFieldId, ICloneable
     {
         /// <summary>
         /// 合约代码
@@ -2695,6 +2737,7 @@ namespace CTPCommon
     /// <summary>
     /// 深度行情
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcDepthMarketDataField : ITFieldId
     {
@@ -2940,6 +2983,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcDepthMarketDataField : IFieldId
     {
@@ -3228,6 +3272,7 @@ namespace CTPCommon
     /// <summary>
     /// 投资者合约交易权限
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInstrumentTradingRightField
     {
@@ -3259,6 +3304,7 @@ namespace CTPCommon
     /// <summary>
     /// 经纪公司用户
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcBrokerUserField
     {
@@ -3294,6 +3340,7 @@ namespace CTPCommon
     /// <summary>
     /// 经纪公司用户口令
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcBrokerUserPasswordField
     {
@@ -3317,6 +3364,7 @@ namespace CTPCommon
     /// <summary>
     /// 经纪公司用户功能权限
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcBrokerUserFunctionField
     {
@@ -3339,6 +3387,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易所交易员报盘机
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTraderOfferField
     {
@@ -3440,6 +3489,7 @@ namespace CTPCommon
     /// <summary>
     /// 投资者结算结果
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSettlementInfoField : ITFieldId
     {
@@ -3493,6 +3543,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcSettlementInfoField : IFieldId
     {
@@ -3553,6 +3604,7 @@ namespace CTPCommon
     /// <summary>
     /// 合约保证金率调整
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInstrumentMarginRateAdjustField
     {
@@ -3604,6 +3656,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易所保证金率
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcExchangeMarginRateField
     {
@@ -3642,6 +3695,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易所保证金率调整
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcExchangeMarginRateAdjustField
     {
@@ -3712,6 +3766,7 @@ namespace CTPCommon
     /// <summary>
     /// 结算引用
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSettlementRefField
     {
@@ -3729,6 +3784,7 @@ namespace CTPCommon
     /// <summary>
     /// 当前时间
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcCurrentTimeField
     {
@@ -3756,6 +3812,7 @@ namespace CTPCommon
     /// <summary>
     /// 通讯阶段
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcCommPhaseField
     {
@@ -3778,6 +3835,7 @@ namespace CTPCommon
     /// <summary>
     /// 登录信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcLoginInfoField
     {
@@ -3879,6 +3937,7 @@ namespace CTPCommon
     /// <summary>
     /// 登录信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcLogoutAllField
     {
@@ -3900,6 +3959,7 @@ namespace CTPCommon
     /// <summary>
     /// 前置状态
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcFrontStatusField
     {
@@ -3926,6 +3986,7 @@ namespace CTPCommon
     /// <summary>
     /// 用户口令变更
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcUserPasswordUpdateField
     {
@@ -3954,6 +4015,7 @@ namespace CTPCommon
     /// <summary>
     /// 输入报单
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInputOrderField : ITFieldId
     {
@@ -4138,6 +4200,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcInputOrderField : IFieldId
     {
@@ -4339,6 +4402,7 @@ namespace CTPCommon
     /// <summary>
     /// 报单
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcOrderField : ITFieldId
     {
@@ -4672,6 +4736,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcOrderField : IFieldId
     {
@@ -5028,6 +5093,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易所报单
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcExchangeOrderField
     {
@@ -5224,6 +5290,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易所报单插入失败
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcExchangeOrderInsertErrorField
     {
@@ -5265,6 +5332,7 @@ namespace CTPCommon
     /// <summary>
     /// 输入报单操作
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInputOrderActionField : ITFieldId
     {
@@ -5364,6 +5432,7 @@ namespace CTPCommon
     /// <summary>
     /// 输入报单操作
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcInputOrderActionField : IFieldId
     {
@@ -5472,6 +5541,7 @@ namespace CTPCommon
     /// <summary>
     /// 报单操作
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcOrderActionField : ITFieldId
     {
@@ -5636,6 +5706,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcOrderActionField : IFieldId
     {
@@ -5813,6 +5884,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易所报单操作
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcExchangeOrderActionField
     {
@@ -5896,6 +5968,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易所报单操作失败
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcExchangeOrderActionErrorField
     {
@@ -5942,6 +6015,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易所成交
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcExchangeTradeField
     {
@@ -6050,7 +6124,7 @@ namespace CTPCommon
     /// <summary>
     /// 成交
     /// </summary>
-[Serializable]
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTradeField : ITFieldId
     {
@@ -6242,6 +6316,7 @@ namespace CTPCommon
             return $"{InstrumentID} {Direction} {OffsetFlag} {Volume}";
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcTradeField : IFieldId
     {
@@ -6440,6 +6515,7 @@ namespace CTPCommon
     /// <summary>
     /// 用户会话
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcUserSessionField
     {
@@ -6501,6 +6577,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询最大报单数量
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQueryMaxOrderVolumeField
     {
@@ -6540,6 +6617,7 @@ namespace CTPCommon
     /// <summary>
     /// 投资者结算结果确认信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSettlementInfoConfirmField : ITFieldId
     {
@@ -6583,6 +6661,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcSettlementInfoConfirmField : IFieldId
     {
@@ -6630,6 +6709,7 @@ namespace CTPCommon
     /// <summary>
     /// 出入金同步
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSyncDepositField
     {
@@ -6661,6 +6741,7 @@ namespace CTPCommon
     /// <summary>
     /// 经纪公司同步
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcBrokerSyncField
     {
@@ -6674,6 +6755,7 @@ namespace CTPCommon
     /// <summary>
     /// 正在同步中的投资者
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSyncingInvestorField
     {
@@ -6745,6 +6827,7 @@ namespace CTPCommon
     /// <summary>
     /// 正在同步中的交易代码
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSyncingTradingCodeField
     {
@@ -6781,6 +6864,7 @@ namespace CTPCommon
     /// <summary>
     /// 正在同步中的投资者分组
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSyncingInvestorGroupField
     {
@@ -6804,6 +6888,7 @@ namespace CTPCommon
     /// <summary>
     /// 正在同步中的交易账号
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSyncingTradingAccountField
     {
@@ -6939,6 +7024,7 @@ namespace CTPCommon
     /// <summary>
     /// 正在同步中的投资者持仓
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSyncingInvestorPositionField
     {
@@ -7111,6 +7197,7 @@ namespace CTPCommon
     /// <summary>
     /// 正在同步中的合约保证金率
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSyncingInstrumentMarginRateField
     {
@@ -7162,6 +7249,7 @@ namespace CTPCommon
     /// <summary>
     /// 正在同步中的合约手续费率
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSyncingInstrumentCommissionRateField
     {
@@ -7213,6 +7301,7 @@ namespace CTPCommon
     /// <summary>
     /// 正在同步中的合约交易权限
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSyncingInstrumentTradingRightField
     {
@@ -7244,6 +7333,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询报单
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryOrderField : ITFieldId
     {
@@ -7305,6 +7395,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQryOrderField : IFieldId
     {
@@ -7370,6 +7461,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询成交
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryTradeField : ITFieldId
     {
@@ -7431,6 +7523,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQryTradeField : IFieldId
     {
@@ -7496,6 +7589,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询投资者持仓
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryInvestorPositionField
     {
@@ -7519,6 +7613,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询资金账户
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryTradingAccountField : ITFieldId
     {
@@ -7556,6 +7651,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQryTradingAccountField : IFieldId
     {
@@ -7591,6 +7687,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询投资者
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryInvestorField : ITFieldId
     {
@@ -7626,6 +7723,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询投资者
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQryInvestorField : IFieldId
     {
@@ -7662,6 +7760,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询交易编码
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryTradingCodeField
     {
@@ -7694,6 +7793,7 @@ namespace CTPCommon
     /// <summary>
     /// 投资者组
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryInvestorGroupField
     {
@@ -7707,6 +7807,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询合约保证金率
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryInstrumentMarginRateField : ITFieldId
     {
@@ -7749,6 +7850,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQryInstrumentMarginRateField : IFieldId
     {
@@ -7795,6 +7897,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询手续费率
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryInstrumentCommissionRateField : ITFieldId
     {
@@ -7832,6 +7935,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQryInstrumentCommissionRateField : IFieldId
     {
@@ -7873,6 +7977,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询合约交易权限
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryInstrumentTradingRightField
     {
@@ -7896,6 +8001,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询经纪公司
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryBrokerField
     {
@@ -7909,6 +8015,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询交易员
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryTraderField
     {
@@ -7932,6 +8039,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询管理用户功能权限
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQrySuperUserFunctionField
     {
@@ -7945,6 +8053,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询用户会话
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryUserSessionField
     {
@@ -7971,6 +8080,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询经纪公司会员代码
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryPartBrokerField
     {
@@ -7994,6 +8104,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询前置状态
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryFrontStatusField
     {
@@ -8006,6 +8117,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询交易所报单
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryExchangeOrderField
     {
@@ -8039,6 +8151,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询报单操作
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryOrderActionField
     {
@@ -8062,6 +8175,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询交易所报单操作
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryExchangeOrderActionField
     {
@@ -8090,6 +8204,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询管理用户
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQrySuperUserField
     {
@@ -8103,6 +8218,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询交易所
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryExchangeField
     {
@@ -8116,6 +8232,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询产品
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryProductField
     {
@@ -8129,6 +8246,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询合约
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryInstrumentField : ITFieldId
     {
@@ -8175,6 +8293,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询合约
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQryInstrumentField : IFieldId
     {
@@ -8222,6 +8341,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询行情
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryDepthMarketDataField : ITFieldId
     {
@@ -8247,6 +8367,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQryDepthMarketDataField : IFieldId
     {
@@ -8276,6 +8397,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询经纪公司用户
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryBrokerUserField
     {
@@ -8294,6 +8416,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询经纪公司用户权限
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryBrokerUserFunctionField
     {
@@ -8312,6 +8435,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询交易员报盘机
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryTraderOfferField
     {
@@ -8335,6 +8459,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询出入金流水
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQrySyncDepositField
     {
@@ -8353,6 +8478,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询投资者结算结果
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQrySettlementInfoField : ITFieldId
     {
@@ -8390,6 +8516,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQrySettlementInfoField : IFieldId
     {
@@ -8431,6 +8558,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询交易所保证金率
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryExchangeMarginRateField
     {
@@ -8453,6 +8581,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询交易所调整保证金率
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryExchangeMarginRateAdjustField
     {
@@ -8475,6 +8604,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询报单
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryHisOrderField
     {
@@ -8527,6 +8657,7 @@ namespace CTPCommon
     /// <summary>
     /// 市场行情
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcMarketDataField
     {
@@ -8633,6 +8764,7 @@ namespace CTPCommon
     /// <summary>
     /// 行情基础属性
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcMarketDataBaseField
     {
@@ -8662,6 +8794,7 @@ namespace CTPCommon
     /// <summary>
     /// 行情静态属性
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcMarketDataStaticField
     {
@@ -8702,6 +8835,7 @@ namespace CTPCommon
     /// <summary>
     /// 行情最新成交属性
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcMarketDataLastMatchField
     {
@@ -8726,6 +8860,7 @@ namespace CTPCommon
     /// <summary>
     /// 行情最优价属性
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcMarketDataBestPriceField
     {
@@ -8750,6 +8885,7 @@ namespace CTPCommon
     /// <summary>
     /// 行情申买二、三属性
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcMarketDataBid23Field
     {
@@ -8774,6 +8910,7 @@ namespace CTPCommon
     /// <summary>
     /// 行情申卖二、三属性
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcMarketDataAsk23Field
     {
@@ -8798,6 +8935,7 @@ namespace CTPCommon
     /// <summary>
     /// 行情申买四、五属性
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcMarketDataBid45Field
     {
@@ -8822,6 +8960,7 @@ namespace CTPCommon
     /// <summary>
     /// 行情申卖四、五属性
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcMarketDataAsk45Field
     {
@@ -8846,6 +8985,7 @@ namespace CTPCommon
     /// <summary>
     /// 行情更新时间属性
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcMarketDataUpdateTimeField
     {
@@ -8873,6 +9013,7 @@ namespace CTPCommon
     /// <summary>
     /// 行情交易所代码属性
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcMarketDataExchangeField
     {
@@ -8886,6 +9027,7 @@ namespace CTPCommon
     /// <summary>
     /// 指定的合约
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSpecificInstrumentField
     {
@@ -8899,6 +9041,7 @@ namespace CTPCommon
     /// <summary>
     /// 合约状态
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInstrumentStatusField
     {
@@ -8944,6 +9087,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询合约状态
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryInstrumentStatusField
     {
@@ -8962,6 +9106,7 @@ namespace CTPCommon
     /// <summary>
     /// 投资者账户
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInvestorAccountField
     {
@@ -8985,6 +9130,7 @@ namespace CTPCommon
     /// <summary>
     /// 浮动盈亏算法
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcPositionProfitAlgorithmField
     {
@@ -9012,6 +9158,7 @@ namespace CTPCommon
     /// <summary>
     /// 会员资金折扣
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcDiscountField
     {
@@ -9038,6 +9185,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询转帐银行
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryTransferBankField
     {
@@ -9056,6 +9204,7 @@ namespace CTPCommon
     /// <summary>
     /// 转帐银行
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTransferBankField
     {
@@ -9083,6 +9232,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询投资者持仓明细
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryInvestorPositionDetailField : ITFieldId
     {
@@ -9123,6 +9273,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询投资者持仓明细
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQryInvestorPositionDetailField : IFieldId
     {
@@ -9164,6 +9315,7 @@ namespace CTPCommon
     /// <summary>
     /// 投资者持仓明细
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInvestorPositionDetailField : ITFieldId
     {
@@ -9339,7 +9491,7 @@ namespace CTPCommon
             }
             catch
             {
-               
+
             }
             return 0;
         }
@@ -9359,6 +9511,7 @@ namespace CTPCommon
             return $"{InstrumentID} {Direction} {Volume} {TradeID}";
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcInvestorPositionDetailField : IFieldId
     {
@@ -9536,6 +9689,7 @@ namespace CTPCommon
     /// <summary>
     /// 资金账户口令域
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTradingAccountPasswordField
     {
@@ -9559,6 +9713,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易所行情报盘机
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcMDTraderOfferField
     {
@@ -9660,6 +9815,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询行情报盘机
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryMDTraderOfferField
     {
@@ -9683,6 +9839,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询客户通知
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryNoticeField : ITFieldId
     {
@@ -9707,10 +9864,11 @@ namespace CTPCommon
 
             return ret;
         }
-    }  
+    }
     /// <summary>
     /// 查询客户通知
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQryNoticeField : IFieldId
     {
@@ -9740,6 +9898,7 @@ namespace CTPCommon
     /// <summary>
     /// 客户通知
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcNoticeField : ITFieldId
     {
@@ -9777,6 +9936,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcNoticeField : IFieldId
     {
@@ -9818,6 +9978,7 @@ namespace CTPCommon
     /// <summary>
     /// 用户权限
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcUserRightField
     {
@@ -9844,6 +10005,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询结算信息确认域
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQrySettlementInfoConfirmField : ITFieldId
     {
@@ -9875,6 +10037,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQrySettlementInfoConfirmField : IFieldId
     {
@@ -9910,6 +10073,7 @@ namespace CTPCommon
     /// <summary>
     /// 装载结算信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcLoadSettlementInfoField
     {
@@ -9923,6 +10087,7 @@ namespace CTPCommon
     /// <summary>
     /// 经纪公司可提资金算法表
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcBrokerWithdrawAlgorithmField
     {
@@ -9960,6 +10125,7 @@ namespace CTPCommon
     /// <summary>
     /// 资金账户口令变更域
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTradingAccountPasswordUpdateV1Field
     {
@@ -9988,6 +10154,7 @@ namespace CTPCommon
     /// <summary>
     /// 资金账户口令变更域
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTradingAccountPasswordUpdateField
     {
@@ -10016,6 +10183,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询组合合约分腿
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryCombinationLegField
     {
@@ -10038,6 +10206,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询组合合约分腿
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQrySyncStatusField
     {
@@ -10051,6 +10220,7 @@ namespace CTPCommon
     /// <summary>
     /// 组合交易合约的单腿
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcCombinationLegField
     {
@@ -10085,6 +10255,7 @@ namespace CTPCommon
     /// <summary>
     /// 数据同步状态
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcSyncStatusField
     {
@@ -10102,6 +10273,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询联系人
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryLinkManField
     {
@@ -10120,6 +10292,7 @@ namespace CTPCommon
     /// <summary>
     /// 联系人
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcLinkManField
     {
@@ -10175,6 +10348,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询经纪公司用户事件
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryBrokerUserEventField
     {
@@ -10197,6 +10371,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询经纪公司用户事件
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcBrokerUserEventField
     {
@@ -10248,6 +10423,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询签约银行请求
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryContractBankField : ITFieldId
     {
@@ -10285,6 +10461,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQryContractBankField : IFieldId
     {
@@ -10326,6 +10503,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询签约银行响应
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcContractBankField : ITFieldId
     {
@@ -10369,6 +10547,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcContractBankField : IFieldId
     {
@@ -10416,6 +10595,7 @@ namespace CTPCommon
     /// <summary>
     /// 投资者组合持仓明细
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInvestorPositionCombineDetailField : ITFieldId
     {
@@ -10547,6 +10727,7 @@ namespace CTPCommon
     /// <summary>
     /// 投资者组合持仓明细
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcInvestorPositionCombineDetailField : IFieldId
     {
@@ -10689,6 +10870,7 @@ namespace CTPCommon
     /// <summary>
     /// 预埋单
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcParkedOrderField
     {
@@ -10855,6 +11037,7 @@ namespace CTPCommon
     /// <summary>
     /// 输入预埋单操作
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcParkedOrderActionField
     {
@@ -10948,6 +11131,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询预埋单
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryParkedOrderField
     {
@@ -10976,6 +11160,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询预埋撤单
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryParkedOrderActionField
     {
@@ -11004,6 +11189,7 @@ namespace CTPCommon
     /// <summary>
     /// 删除预埋单
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcRemoveParkedOrderField
     {
@@ -11027,6 +11213,7 @@ namespace CTPCommon
     /// <summary>
     /// 删除预埋撤单
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcRemoveParkedOrderActionField
     {
@@ -11050,6 +11237,7 @@ namespace CTPCommon
     /// <summary>
     /// 经纪公司可提资金算法表
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInvestorWithdrawAlgorithmField
     {
@@ -11076,6 +11264,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询组合持仓明细
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryInvestorPositionCombineDetailField : ITFieldId
     {
@@ -11116,6 +11305,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询组合持仓明细
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQryInvestorPositionCombineDetailField : IFieldId
     {
@@ -11157,6 +11347,7 @@ namespace CTPCommon
     /// <summary>
     /// 成交均价
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcMarketDataAveragePriceField
     {
@@ -11169,6 +11360,7 @@ namespace CTPCommon
     /// <summary>
     /// 校验投资者密码
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcVerifyInvestorPasswordField
     {
@@ -11192,6 +11384,7 @@ namespace CTPCommon
     /// <summary>
     /// 用户IP
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcUserIPField
     {
@@ -11225,6 +11418,7 @@ namespace CTPCommon
     /// <summary>
     /// 用户事件通知信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTradingNoticeInfoField : ITFieldId
     {
@@ -11281,6 +11475,7 @@ namespace CTPCommon
     /// <summary>
     /// 用户事件通知信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcTradingNoticeInfoField : IFieldId
     {
@@ -11337,11 +11532,12 @@ namespace CTPCommon
             return ret;
         }
     }
-   
+
 
     /// <summary>
     /// 用户事件通知
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTradingNoticeField
     {
@@ -11387,6 +11583,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询交易事件通知
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryTradingNoticeField
     {
@@ -11405,6 +11602,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询错误报单
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryErrOrderField
     {
@@ -11423,6 +11621,7 @@ namespace CTPCommon
     /// <summary>
     /// 错误报单
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcErrOrderField
     {
@@ -11541,6 +11740,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询错误报单操作
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcErrorConditionalOrderField
     {
@@ -11815,6 +12015,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询错误报单操作
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryErrOrderActionField
     {
@@ -11833,6 +12034,7 @@ namespace CTPCommon
     /// <summary>
     /// 错误报单操作
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcErrOrderActionField
     {
@@ -11966,6 +12168,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询交易所状态
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryExchangeSequenceField
     {
@@ -11979,6 +12182,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易所状态
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcExchangeSequenceField
     {
@@ -12000,6 +12204,7 @@ namespace CTPCommon
     /// <summary>
     /// 根据价格查询最大报单数量
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQueryMaxOrderVolumeWithPriceField
     {
@@ -12043,6 +12248,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询经纪公司交易参数
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryBrokerTradingParamsField : ITFieldId
     {
@@ -12074,6 +12280,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQryBrokerTradingParamsField : IFieldId
     {
@@ -12109,6 +12316,7 @@ namespace CTPCommon
     /// <summary>
     /// 经纪公司交易参数
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcBrokerTradingParamsField : ITFieldId
     {
@@ -12155,6 +12363,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcBrokerTradingParamsField : IFieldId
     {
@@ -12205,6 +12414,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询经纪公司交易算法
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryBrokerTradingAlgosField
     {
@@ -12228,6 +12438,7 @@ namespace CTPCommon
     /// <summary>
     /// 经纪公司交易算法
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcBrokerTradingAlgosField
     {
@@ -12263,6 +12474,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询经纪公司资金
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQueryBrokerDepositField
     {
@@ -12281,6 +12493,7 @@ namespace CTPCommon
     /// <summary>
     /// 经纪公司资金
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcBrokerDepositField
     {
@@ -12345,6 +12558,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询保证金监管系统经纪公司密钥
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryCFMMCBrokerKeyField
     {
@@ -12358,6 +12572,7 @@ namespace CTPCommon
     /// <summary>
     /// 保证金监管系统经纪公司密钥
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcCFMMCBrokerKeyField
     {
@@ -12399,6 +12614,7 @@ namespace CTPCommon
     /// <summary>
     /// 保证金监管系统经纪公司资金账户密钥
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcCFMMCTradingAccountKeyField : ITFieldId
     {
@@ -12447,6 +12663,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcCFMMCTradingAccountKeyField : IFieldId
     {
@@ -12501,6 +12718,7 @@ namespace CTPCommon
     /// <summary>
     /// 请求查询保证金监管系统经纪公司资金账户密钥
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryCFMMCTradingAccountKeyField : ITFieldId
     {
@@ -12532,6 +12750,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcQryCFMMCTradingAccountKeyField : IFieldId
     {
@@ -12567,6 +12786,7 @@ namespace CTPCommon
     /// <summary>
     /// 用户动态令牌参数
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcBrokerUserOTPParamField
     {
@@ -12612,6 +12832,7 @@ namespace CTPCommon
     /// <summary>
     /// 手工同步用户动态令牌
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcManualSyncBrokerUserOTPField
     {
@@ -12644,6 +12865,7 @@ namespace CTPCommon
     /// <summary>
     /// 投资者手续费率模板
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcCommRateModelField
     {
@@ -12667,6 +12889,7 @@ namespace CTPCommon
     /// <summary>
     /// 请求查询投资者手续费率模板
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryCommRateModelField
     {
@@ -12685,6 +12908,7 @@ namespace CTPCommon
     /// <summary>
     /// 投资者保证金率模板
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcMarginModelField
     {
@@ -12708,6 +12932,7 @@ namespace CTPCommon
     /// <summary>
     /// 请求查询投资者保证金率模板
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryMarginModelField
     {
@@ -12726,6 +12951,7 @@ namespace CTPCommon
     /// <summary>
     /// 仓单折抵信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcEWarrantOffsetField
     {
@@ -12771,6 +12997,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询仓单折抵信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryEWarrantOffsetField
     {
@@ -12799,6 +13026,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询投资者品种/跨品种保证金
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryInvestorProductGroupMarginField
     {
@@ -12822,6 +13050,7 @@ namespace CTPCommon
     /// <summary>
     /// 投资者品种/跨品种保证金
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcInvestorProductGroupMarginField
     {
@@ -12938,6 +13167,7 @@ namespace CTPCommon
     /// <summary>
     /// 转帐开户请求
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcReqOpenAccountField
     {
@@ -13151,6 +13381,7 @@ namespace CTPCommon
     /// <summary>
     /// 转帐销户请求
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcReqCancelAccountField
     {
@@ -13364,6 +13595,7 @@ namespace CTPCommon
     /// <summary>
     /// 变更银行账户请求
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcReqChangeAccountField
     {
@@ -13559,6 +13791,7 @@ namespace CTPCommon
     /// <summary>
     /// 转账请求
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcReqTransferField
     {
@@ -13762,6 +13995,7 @@ namespace CTPCommon
     /// <summary>
     /// 银行发起银行资金转期货响应
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcRspTransferField
     {
@@ -13974,6 +14208,7 @@ namespace CTPCommon
     /// <summary>
     /// 冲正请求
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcReqRepealField
     {
@@ -14206,6 +14441,7 @@ namespace CTPCommon
     /// <summary>
     /// 冲正响应
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcRspRepealField
     {
@@ -14447,6 +14683,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询账户信息请求
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcReqQueryAccountField
     {
@@ -14621,6 +14858,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询账户信息响应
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcRspQueryAccountField
     {
@@ -14803,6 +15041,7 @@ namespace CTPCommon
     /// <summary>
     /// 期商签到签退
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcFutureSignIOField
     {
@@ -14910,6 +15149,7 @@ namespace CTPCommon
     /// <summary>
     /// 期商签到响应
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcRspFutureSignInField
     {
@@ -15036,6 +15276,7 @@ namespace CTPCommon
     /// <summary>
     /// 期商签退请求
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcReqFutureSignOutField
     {
@@ -15143,6 +15384,7 @@ namespace CTPCommon
     /// <summary>
     /// 期商签退响应
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcRspFutureSignOutField
     {
@@ -15259,6 +15501,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询指定流水号的交易结果请求
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcReqQueryTradeResultBySerialField
     {
@@ -15389,6 +15632,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询指定流水号的交易结果响应
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcRspQueryTradeResultBySerialField
     {
@@ -15520,6 +15764,7 @@ namespace CTPCommon
     /// <summary>
     /// 日终文件就绪请求
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcReqDayEndFileReadyField
     {
@@ -15594,6 +15839,7 @@ namespace CTPCommon
     /// <summary>
     /// 返回结果
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcReturnResultField
     {
@@ -15612,6 +15858,7 @@ namespace CTPCommon
     /// <summary>
     /// 验证期货资金密码
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcVerifyFuturePasswordField
     {
@@ -15705,6 +15952,7 @@ namespace CTPCommon
     /// <summary>
     /// 验证客户信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcVerifyCustInfoField
     {
@@ -15731,6 +15979,7 @@ namespace CTPCommon
     /// <summary>
     /// 验证期货资金密码和客户信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcVerifyFuturePasswordAndCustInfoField
     {
@@ -15767,6 +16016,7 @@ namespace CTPCommon
     /// <summary>
     /// 验证期货资金密码和客户信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcDepositResultInformField
     {
@@ -15808,6 +16058,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易核心向银期报盘发出密钥同步请求
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcReqSyncKeyField
     {
@@ -15910,6 +16161,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易核心向银期报盘发出密钥同步响应
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcRspSyncKeyField
     {
@@ -16021,6 +16273,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询账户信息通知
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcNotifyQueryAccountField
     {
@@ -16212,6 +16465,7 @@ namespace CTPCommon
     /// <summary>
     /// 银期转账交易流水表
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTransferSerialField
     {
@@ -16349,6 +16603,7 @@ namespace CTPCommon
     /// <summary>
     /// 请求查询转帐流水
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryTransferSerialField
     {
@@ -16372,6 +16627,7 @@ namespace CTPCommon
     /// <summary>
     /// 期商签到通知
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcNotifyFutureSignInField
     {
@@ -16498,6 +16754,7 @@ namespace CTPCommon
     /// <summary>
     /// 期商签退通知
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcNotifyFutureSignOutField
     {
@@ -16614,6 +16871,7 @@ namespace CTPCommon
     /// <summary>
     /// 交易核心向银期报盘发出密钥同步处理结果的通知
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcNotifySyncKeyField
     {
@@ -16725,6 +16983,7 @@ namespace CTPCommon
     /// <summary>
     /// 请求查询银期签约关系
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryAccountregisterField : ITFieldId
     {
@@ -16762,6 +17021,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     /// <summary>
     /// 请求查询银期签约关系
@@ -16806,6 +17066,7 @@ namespace CTPCommon
     /// <summary>
     /// 客户开销户信息表
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcAccountregisterField : ITFieldId
     {
@@ -16922,6 +17183,7 @@ namespace CTPCommon
             return ret;
         }
     }
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct LCThostFtdcAccountregisterField : IFieldId
     {
@@ -17044,6 +17306,7 @@ namespace CTPCommon
     /// <summary>
     /// 银期开户信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcOpenAccountField
     {
@@ -17266,6 +17529,7 @@ namespace CTPCommon
     /// <summary>
     /// 银期销户信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcCancelAccountField
     {
@@ -17488,6 +17752,7 @@ namespace CTPCommon
     /// <summary>
     /// 银期变更银行账号信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcChangeAccountField
     {
@@ -17692,6 +17957,7 @@ namespace CTPCommon
     /// <summary>
     /// 灾备中心交易权限
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcUserRightsAssignField
     {
@@ -17714,6 +17980,7 @@ namespace CTPCommon
     /// <summary>
     /// 经济公司是否有在本标示的交易权限
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcBrokerUserRightAssignField
     {
@@ -17735,6 +18002,7 @@ namespace CTPCommon
     /// <summary>
     /// 灾备交易转换报文
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcDRTransferField
     {
@@ -17761,6 +18029,7 @@ namespace CTPCommon
     /// <summary>
     /// Fens用户信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcFensUserInfoField
     {
@@ -17783,6 +18052,7 @@ namespace CTPCommon
     /// <summary>
     /// 当前银期所属交易中心
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcCurrTransferIdentityField
     {
@@ -17795,6 +18065,7 @@ namespace CTPCommon
     /// <summary>
     /// 禁止登录用户
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcLoginForbiddenUserField
     {
@@ -17813,6 +18084,7 @@ namespace CTPCommon
     /// <summary>
     /// 查询禁止登录用户
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcQryLoginForbiddenUserField
     {
@@ -17831,6 +18103,7 @@ namespace CTPCommon
     /// <summary>
     /// UDP组播组信息
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcMulticastGroupInfoField
     {
@@ -17853,6 +18126,7 @@ namespace CTPCommon
     /// <summary>
     /// 资金账户基本准备金
     /// </summary>
+    [Serializable]
     [StructLayout(LayoutKind.Sequential)]
     public struct CThostFtdcTradingAccountReserveField
     {
