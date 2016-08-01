@@ -39,6 +39,11 @@ namespace CTPCLR
 		property int MaxOrderRef;
 
 
+		/// <summary>
+		/// 初始化API
+		/// </summary>
+		void Init();
+
 		//投资者结算结果确认
 		int SettlementInfoConfirm([Out]  int %nRequestID);
 

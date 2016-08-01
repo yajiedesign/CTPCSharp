@@ -44,7 +44,6 @@ public:
 		pUserApi->SubscribePrivateTopic(THOST_TERT_QUICK/*THOST_TERT_RESTART*/);					// ×¢²áË½ÓÐÁ÷
 		pUserApi->RegisterFront((char*)MarshalString(_addr).c_str());							// connect
 		EventInit();
-		pUserApi->Init();
 	}
 	
 	virtual ~TradeApiclr(){
@@ -53,6 +52,11 @@ public:
 		{
 			var.Free();
 		}
+	}
+
+	virtual void Init()
+	{
+		pUserApi->Init();
 	}
 
 	/// <summary>
