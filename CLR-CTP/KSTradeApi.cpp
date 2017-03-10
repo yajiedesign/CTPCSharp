@@ -3,6 +3,7 @@
 #include "ICTPTradeApi.h"
 #include <string>
 
+void StartUnhandledExceptionFilter();
 
 namespace CTPTradeApi
 {
@@ -51,7 +52,6 @@ namespace CTPCLR
 			pUserApi->SubscribePrivateTopic(THOST_TERT_QUICK/*THOST_TERT_RESTART*/);					// ×¢²áË½ÓÐÁ÷
 			pUserApi->RegisterFront((char*)MarshalString(_addr).c_str());							// connect
 			EventInit();
-
 		}
 
 		virtual ~KSTradeApiclr() {
@@ -1669,12 +1669,11 @@ namespace CTPCLR
 
 
 
-
 	private:
 		delegate void cppFrontConnect();
 		void cppcbFrontConnect()
 		{
-
+			StartUnhandledExceptionFilter();
 			OnFrontConnect();
 		}
 	public:
