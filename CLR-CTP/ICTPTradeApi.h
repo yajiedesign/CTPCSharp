@@ -1,6 +1,7 @@
 using namespace System;
 using namespace System::Runtime::InteropServices;
 using namespace System::Threading;
+using namespace System::Collections;
 
 #include "eventDelegate.h"
 
@@ -11,11 +12,11 @@ namespace CTPCLR
 		/// <summary>
 		/// 前置地址
 		/// </summary>
-		property  System::String ^ FrontAddr;
+		property  Generic::List<System::String^>^ FrontAddr;
 		/// <summary>
 		/// 经纪公司代码
 		/// </summary>
-		property  System::String ^ BrokerID;
+		property  System::String^ BrokerID;
 		/// <summary>
 		/// 投资者代码
 		/// </summary>

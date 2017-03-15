@@ -14,6 +14,7 @@ namespace CTPTradeApi
 using namespace System;
 using namespace System::Runtime::InteropServices;
 using namespace System::Threading;
+using namespace System::Collections;
 
 namespace CTPCLR
 {
@@ -36,8 +37,8 @@ namespace CTPCLR
 	public:
 
 
-		KSTradeApiclr(System::String ^_investor, System::String ^_pwd, System::String ^_broker,
-			System::String ^_addr, System::String ^_FlowPath)
+		KSTradeApiclr(System::String ^_investor, System::String ^_pwd, System::String^ _broker,
+			Generic::List<System::String^>^ _addr, System::String ^_FlowPath)
 		{
 			FrontAddr = _addr;
 			BrokerID = _broker;
@@ -50,7 +51,13 @@ namespace CTPCLR
 			pUserApi->RegisterSpi((CThostFtdcTraderSpi*)pUserSpi);			// 注册事件类
 			pUserApi->SubscribePublicTopic(THOST_TERT_QUICK/*THOST_TERT_RESTART*/);					// 注册公有流
 			pUserApi->SubscribePrivateTopic(THOST_TERT_QUICK/*THOST_TERT_RESTART*/);					// 注册私有流
-			pUserApi->RegisterFront((char*)MarshalString(_addr).c_str());							// connect
+			
+			for each (System::String^ var in FrontAddr)
+			{
+				pUserApi->RegisterFront((char*)MarshalString(var).c_str());
+			}
+			
+							// connect
 			EventInit();
 		}
 
@@ -70,7 +77,7 @@ namespace CTPCLR
 		/// <summary>
 		/// 前置地址
 		/// </summary>
-		virtual property  System::String ^ FrontAddr;
+		virtual property  Generic::List<System::String^>^ FrontAddr;
 		/// <summary>
 		/// 经纪公司代码
 		/// </summary>
