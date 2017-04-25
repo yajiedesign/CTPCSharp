@@ -1680,7 +1680,7 @@ namespace CTPCLR
 		delegate void cppFrontConnect();
 		void cppcbFrontConnect()
 		{
-			StartUnhandledExceptionFilter();
+			//StartUnhandledExceptionFilter();
 			OnFrontConnect();
 		}
 	public:
