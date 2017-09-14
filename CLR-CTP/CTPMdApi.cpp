@@ -48,7 +48,7 @@ namespace CTPCLR
 			pUserApi->Init();
 		}
 
-		virtual ~MdApiclr(){
+		virtual ~MdApiclr() {
 
 			for each (GCHandle var in gchlist)
 			{
@@ -85,6 +85,7 @@ namespace CTPCLR
 				{
 					Marshal::FreeHGlobal(var);
 				}
+				delete[] ppi;
 			}
 		}
 
@@ -112,8 +113,11 @@ namespace CTPCLR
 				{
 					Marshal::FreeHGlobal(var);
 				}
+				delete[] ppi;
 			}
 		}
+
+
 
 		/// <summary>
 		///ÓÃ»§µÇÂ¼ÇëÇó
@@ -167,38 +171,38 @@ namespace CTPCLR
 				pUserSpi->cbOnFrontConnected = cb;
 			}
 
-		{
-			cppDisConnected^ fp = gcnew cppDisConnected(this, &MdApiclr::cppcbDisConnected);
-			GCHandle gch = GCHandle::Alloc(fp);
-			gchlist->Add(gch);
-			IntPtr ip = Marshal::GetFunctionPointerForDelegate(fp);
-			CBOnFrontDisconnected cb = static_cast<CBOnFrontDisconnected>(ip.ToPointer());
-			pUserSpi->cbOnFrontDisconnected = cb;
-		}
-		{
-			cppRspUserLogin^ fp = gcnew cppRspUserLogin(this, &MdApiclr::cppcbRspUserLogin);
-			GCHandle gch = GCHandle::Alloc(fp);
-			gchlist->Add(gch);
-			IntPtr ip = Marshal::GetFunctionPointerForDelegate(fp);
-			CBOnRspUserLogin cb = static_cast<CBOnRspUserLogin>(ip.ToPointer());
-			pUserSpi->cbOnRspUserLogin = cb;
-		}
-		{
-			cppRspUserLogout^ fp = gcnew cppRspUserLogout(this, &MdApiclr::cppcbRspUserLogout);
-			GCHandle gch = GCHandle::Alloc(fp);
-			gchlist->Add(gch);
-			IntPtr ip = Marshal::GetFunctionPointerForDelegate(fp);
-			CBOnRspUserLogout cb = static_cast<CBOnRspUserLogout>(ip.ToPointer());
-			pUserSpi->cbOnRspUserLogout = cb;
-		}
-		{
-			cppOnRtnDepthMarketData^ fp = gcnew cppOnRtnDepthMarketData(this, &MdApiclr::cppcbRtnDepthMarketData);
-			GCHandle gch = GCHandle::Alloc(fp);
-			gchlist->Add(gch);
-			IntPtr ip = Marshal::GetFunctionPointerForDelegate(fp);
-			CBOnRtnDepthMarketData cb = static_cast<CBOnRtnDepthMarketData>(ip.ToPointer());
-			pUserSpi->cbOnRtnDepthMarketData = cb;
-		}
+			{
+				cppDisConnected^ fp = gcnew cppDisConnected(this, &MdApiclr::cppcbDisConnected);
+				GCHandle gch = GCHandle::Alloc(fp);
+				gchlist->Add(gch);
+				IntPtr ip = Marshal::GetFunctionPointerForDelegate(fp);
+				CBOnFrontDisconnected cb = static_cast<CBOnFrontDisconnected>(ip.ToPointer());
+				pUserSpi->cbOnFrontDisconnected = cb;
+			}
+			{
+				cppRspUserLogin^ fp = gcnew cppRspUserLogin(this, &MdApiclr::cppcbRspUserLogin);
+				GCHandle gch = GCHandle::Alloc(fp);
+				gchlist->Add(gch);
+				IntPtr ip = Marshal::GetFunctionPointerForDelegate(fp);
+				CBOnRspUserLogin cb = static_cast<CBOnRspUserLogin>(ip.ToPointer());
+				pUserSpi->cbOnRspUserLogin = cb;
+			}
+			{
+				cppRspUserLogout^ fp = gcnew cppRspUserLogout(this, &MdApiclr::cppcbRspUserLogout);
+				GCHandle gch = GCHandle::Alloc(fp);
+				gchlist->Add(gch);
+				IntPtr ip = Marshal::GetFunctionPointerForDelegate(fp);
+				CBOnRspUserLogout cb = static_cast<CBOnRspUserLogout>(ip.ToPointer());
+				pUserSpi->cbOnRspUserLogout = cb;
+			}
+			{
+				cppOnRtnDepthMarketData^ fp = gcnew cppOnRtnDepthMarketData(this, &MdApiclr::cppcbRtnDepthMarketData);
+				GCHandle gch = GCHandle::Alloc(fp);
+				gchlist->Add(gch);
+				IntPtr ip = Marshal::GetFunctionPointerForDelegate(fp);
+				CBOnRtnDepthMarketData cb = static_cast<CBOnRtnDepthMarketData>(ip.ToPointer());
+				pUserSpi->cbOnRtnDepthMarketData = cb;
+			}
 
 		}
 
